@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Apps - BandhanNova</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3YmZmO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDU2YjM7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHBhdGggZD0iTTE2IDRMMTggMTBMMjQgOEwyMCAxNEwyNiAxNkwyMCAxOEwyNCAyNEwxOCAyMEwxNiAyNkwxNCAyMEw4IDI0TDEyIDE4TDYgMTZMMTIgMTRMOCA4TDE0IDEwTDE2IDRaIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8L3N2Zz4=">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        body.dark-mode .app-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 20, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3YmZmO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDU2YjM7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPCEtLSBTdGFyIC0tPgo8cGF0aCBkPSJNMjAgNUwyMi41IDEyLjVMMzAgMTBMMjUgMTcuNUwzMiAyMEwyNSAyMi41TDMwIDMwTDIyLjUgMjVMMjAgMzJMMTcuNSAyNUwxMCAzMEwxNSAyMi41TDggMjBMMTUgMTcuNUwxMCAxMEwxNy41IDEyLjVMMjAgNVoiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjkiLz4KPCEtLSBJbnRlcmxvY2tlZCBIZXhhZ29ucyAtLT4KPHN2ZyB4PSI2IiB5PSIxNSIgd2lkdGg9IjI4IiBoZWlnaHQ9IjE1Ij4KPHBhdGggZD0iTTQgMkw4IDJMMTAgNkw4IDEwTDQgMTBMMiA2TDQgMloiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBzdHJva2U9IiMwMDdiZmYiIHN0cm9rZS13aWR0aD0iMC41Ii8+CjxwYXRoIGQ9Ik0xNiAyTDIwIDJMMjIgNkwyMCAxMEwxNiAxMEwxNCA2TDE2IDJaIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgc3Ryb2tlPSIjMDA3YmZmIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8cGF0aCBkPSJNMTAgNkwxNCA2TDE2IDEwTDE0IDE0TDEwIDE0TDggMTBMMTAgNloiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBzdHJva2U9IiMwMDdiZmYiIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjwvc3ZnPgo8L3N2Zz4=') center/contain no-repeat;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #007bff;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #001428 0%, #002851 30%, #0056b3 70%, #007bff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,123,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Apps Section */
+        .apps {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #001428;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,123,255,0.2);
+        }
+
+        .app-image {
+            height: 200px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .app-placeholder {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .app-content {
+            padding: 2rem;
+        }
+
+        .app-content h3 {
+            font-size: 1.5rem;
+            color: #001428;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-type {
+            color: #007bff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .app-status {
+            margin: 1rem 0;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-badge.live {
+            background: #28a745;
+            color: white;
+        }
+
+        .status-badge.development {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .status-badge.planning {
+            background: #6c757d;
+            color: white;
+        }
+
+        .app-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 123, 255, 0.1);
+            color: #007bff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .download-button.disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .features-list li {
+            padding: 0.3rem 0;
+            color: #666;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .platform-info {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .platform-info h4 {
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: rgba(0, 123, 255, 0.2);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            color: #007bff;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 123, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: rgba(0, 123, 255, 0.2);
+            border: 2px solid rgba(0, 123, 255, 0.4);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 40px;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(0, 123, 255, 0.3);
+            border-color: rgba(0, 123, 255, 0.6);
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #007bff;
+            margin: 2px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .mobile-menu-toggle.active {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.4);
+        }
+
+        .mobile-menu-toggle.active span {
+            background: #ff0000;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 20, 40, 0.98);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 3rem;
+                transition: left 0.3s ease;
+                backdrop-filter: blur(10px);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+                width: 80%;
+            }
+
+            .nav-menu a {
+                font-size: 1.3rem;
+                padding: 1.2rem;
+                display: block;
+                width: 100%;
+                text-align: center;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                background: rgba(0, 123, 255, 0.1);
+                border: 2px solid rgba(0, 123, 255, 0.3);
+            }
+
+            .nav-menu a:hover {
+                background: rgba(0, 123, 255, 0.3);
+                transform: scale(1.02);
+                border-color: rgba(0, 123, 255, 0.5);
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .theme-toggle {
+                width: 35px;
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .app-card {
+                padding: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-menu a {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img"></div>
+                BandhanNova
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="webgames.html">Web Games</a></li>
+                <li><a href="webapps.html">Web Apps</a></li>
+                <li><a href="androidapps.html">Android Apps</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1><i class="fab fa-android"></i> Android Applications</h1>
+            <p>Native Android apps and games for mobile devices</p>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Android Portfolio</h2>
+                <p>Mobile applications designed for the Android ecosystem</p>
+            </div>
+            <div class="apps-grid">
+                <div class="app-card">
+                    <div class="app-image">
+                        <div class="app-placeholder">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                    </div>
+                    <div class="app-content">
+                        <h3>Mobile Quiz Champion</h3>
+                        <p class="app-type">Educational Game</p>
+                        <p>An engaging quiz game for Android devices with multiple categories, offline mode, and competitive leaderboards. Perfect for learning on the go.</p>
+                        <ul class="features-list">
+                            <li>Offline gameplay support</li>
+                            <li>Multiple quiz categories</li>
+                            <li>Global leaderboards</li>
+                            <li>Achievement system</li>
+                        </ul>
+                        <div class="platform-info">
+                            <h4>Platform Requirements</h4>
+                            <p>Android 6.0+ (API level 23), 50MB storage</p>
+                        </div>
+                        <div class="app-status">
+                            <span class="status-badge planning">Planning Phase</span>
+                        </div>
+                        <div class="app-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android Studio</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <a href="#" class="download-button disabled">Coming Soon</a>
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-image">
+                        <div class="app-placeholder">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                    </div>
+                    <div class="app-content">
+                        <h3>Smart Calculator Pro</h3>
+                        <p class="app-type">Utility App</p>
+                        <p>Advanced calculator with scientific functions, unit conversions, and history tracking. Essential tool for students and professionals.</p>
+                        <ul class="features-list">
+                            <li>Scientific calculations</li>
+                            <li>Unit converter</li>
+                            <li>Calculation history</li>
+                            <li>Dark/Light themes</li>
+                        </ul>
+                        <div class="platform-info">
+                            <h4>Platform Requirements</h4>
+                            <p>Android 5.0+ (API level 21), 15MB storage</p>
+                        </div>
+                        <div class="app-status">
+                            <span class="status-badge planning">Concept Stage</span>
+                        </div>
+                        <div class="app-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Material Design</span>
+                            <span class="tech-tag">Room Database</span>
+                            <span class="tech-tag">MVVM</span>
+                        </div>
+                        <a href="#" class="download-button disabled">In Planning</a>
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-image">
+                        <div class="app-placeholder">
+                            <i class="fas fa-music"></i>
+                        </div>
+                    </div>
+                    <div class="app-content">
+                        <h3>MelodyMaker</h3>
+                        <p class="app-type">Creative App</p>
+                        <p>Create, edit, and share music on your Android device. Features virtual instruments, recording capabilities, and social sharing.</p>
+                        <ul class="features-list">
+                            <li>Virtual instruments</li>
+                            <li>Multi-track recording</li>
+                            <li>Audio effects & filters</li>
+                            <li>Social sharing platform</li>
+                        </ul>
+                        <div class="platform-info">
+                            <h4>Platform Requirements</h4>
+                            <p>Android 7.0+ (API level 24), 100MB storage</p>
+                        </div>
+                        <div class="app-status">
+                            <span class="status-badge planning">Research Phase</span>
+                        </div>
+                        <div class="app-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Audio APIs</span>
+                            <span class="tech-tag">OpenGL ES</span>
+                            <span class="tech-tag">Cloud Storage</span>
+                        </div>
+                        <a href="#" class="download-button disabled">Future Release</a>
+                    </div>
+                </div>
+                
+                <div class="app-card">
+                    <div class="app-image">
+                        <div class="app-placeholder">
+                            <i class="fas fa-running"></i>
+                        </div>
+                    </div>
+                    <div class="app-content">
+                        <h3>FitTracker Plus</h3>
+                        <p class="app-type">Health & Fitness</p>
+                        <p>Comprehensive fitness tracking app with workout plans, nutrition tracking, and progress analytics. Your personal fitness companion.</p>
+                        <ul class="features-list">
+                            <li>Workout plan generator</li>
+                            <li>Nutrition tracking</li>
+                            <li>Progress analytics</li>
+                            <li>Social challenges</li>
+                        </ul>
+                        <div class="platform-info">
+                            <h4>Platform Requirements</h4>
+                            <p>Android 6.0+ (API level 23), 75MB storage</p>
+                        </div>
+                        <div class="app-status">
+                            <span class="status-badge planning">Idea Stage</span>
+                        </div>
+                        <div class="app-tech">
+                            <span class="tech-tag">Kotlin</span>
+                            <span class="tech-tag">Health APIs</span>
+                            <span class="tech-tag">Charts Library</span>
+                            <span class="tech-tag">Location Services</span>
+                        </div>
+                        <a href="#" class="download-button disabled">Under Research</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1644MM6gSs/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@BandhanNovaPvtLtd" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/bandhannova/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/bandhannova07/BandhanNova" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 BandhanNova. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 20, 40, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(0, 20, 40, 0.95)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe app cards
+        document.querySelectorAll('.app-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

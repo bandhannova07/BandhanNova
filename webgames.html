@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Games - BandhanNova</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3YmZmO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDU2YjM7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHBhdGggZD0iTTE2IDRMMTggMTBMMjQgOEwyMCAxNEwyNiAxNkwyMCAxOEwyNCAyNEwxOCAyMEwxNiAyNkwxNCAyMEw4IDI0TDEyIDE4TDYgMTZMMTIgMTRMOCA4TDE0IDEwTDE2IDRaIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8L3N2Zz4=">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .navbar {
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        body.dark-mode .game-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        /* Header & Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 20, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3YmZmO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDU2YjM7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPCEtLSBTdGFyIC0tPgo8cGF0aCBkPSJNMjAgNUwyMi41IDEyLjVMMzAgMTBMMjUgMTcuNUwzMiAyMEwyNSAyMi41TDMwIDMwTDIyLjUgMjVMMjAgMzJMMTcuNSAyNUwxMCAzMEwxNSAyMi41TDggMjBMMTUgMTcuNUwxMCAxMEwxNy41IDEyLjVMMjAgNVoiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjkiLz4KPCEtLSBJbnRlcmxvY2tlZCBIZXhhZ29ucyAtLT4KPHN2ZyB4PSI2IiB5PSIxNSIgd2lkdGg9IjI4IiBoZWlnaHQ9IjE1Ij4KPHBhdGggZD0iTTQgMkw4IDJMMTAgNkw4IDEwTDQgMTBMMiA2TDQgMloiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBzdHJva2U9IiMwMDdiZmYiIHN0cm9rZS13aWR0aD0iMC41Ii8+CjxwYXRoIGQ9Ik0xNiAyTDIwIDJMMjIgNkwyMCAxMEwxNiAxMEwxNCA2TDE2IDJaIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgc3Ryb2tlPSIjMDA3YmZmIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8cGF0aCBkPSJNMTAgNkwxNCA2TDE2IDEwTDE0IDE0TDEwIDE0TDggMTBMMTAgNloiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBzdHJva2U9IiMwMDdiZmYiIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjwvc3ZnPgo8L3N2Zz4=') center/contain no-repeat;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #007bff;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #001428 0%, #002851 30%, #0056b3 70%, #007bff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,123,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Games Section */
+        .games {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #001428;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,123,255,0.2);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Navigation Controls */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: rgba(0, 123, 255, 0.2);
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            color: #007bff;
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(0, 123, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: rgba(0, 123, 255, 0.2);
+            border: 2px solid rgba(0, 123, 255, 0.4);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 40px;
+            justify-content: center;
+            position: relative;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(0, 123, 255, 0.3);
+            border-color: rgba(0, 123, 255, 0.6);
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #007bff;
+            margin: 2px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+            display: block;
+        }
+
+        .mobile-menu-toggle.active {
+            background: rgba(255, 0, 0, 0.2);
+            border-color: rgba(255, 0, 0, 0.4);
+        }
+
+        .mobile-menu-toggle.active span {
+            background: #ff0000;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.8rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo-img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(0, 20, 40, 0.98);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 3rem;
+                transition: left 0.3s ease;
+                backdrop-filter: blur(10px);
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1.5rem 0;
+                width: 80%;
+            }
+
+            .nav-menu a {
+                font-size: 1.3rem;
+                padding: 1.2rem;
+                display: block;
+                width: 100%;
+                text-align: center;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                background: rgba(0, 123, 255, 0.1);
+                border: 2px solid rgba(0, 123, 255, 0.3);
+            }
+
+            .nav-menu a:hover {
+                background: rgba(0, 123, 255, 0.3);
+                transform: scale(1.02);
+                border-color: rgba(0, 123, 255, 0.5);
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .theme-toggle {
+                width: 35px;
+                height: 35px;
+                margin-right: 0.5rem;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .game-card {
+                padding: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-menu a {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+        }
+</style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-img"></div>
+                BandhanNova
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="webgames.html">Web Games</a></li>
+                <li><a href="webapps.html">Web Apps</a></li>
+                <li><a href="androidapps.html">Android Apps</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1><i class="fas fa-gamepad"></i> Web Games</h1>
+            <p>Explore our collection of interactive and engaging web games</p>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Web Games Collection</h2>
+                <p>Play exciting games directly in your browser - no downloads required!</p>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3>QuizPro</h3>
+                        <p class="game-type">Quiz Game</p>
+                        <p>Test your knowledge across various topics with this interactive quiz game. Features multiple categories, difficulty levels, and real-time scoring.</p>
+                        <div class="game-status">
+                            <span class="status-badge live">Live</span>
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Local Storage</span>
+                        </div>
+                        <a href="#" class="play-button">Play Now</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3>Puzzle Master</h3>
+                        <p class="game-type">Puzzle Game</p>
+                        <p>Challenge your mind with various puzzle types including jigsaw, sliding puzzles, and brain teasers. Multiple difficulty levels available.</p>
+                        <div class="game-status">
+                            <span class="status-badge development">Coming Soon</span>
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">HTML5 Canvas</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">WebGL</span>
+                        </div>
+                        <a href="#" class="play-button disabled">Coming Soon</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3>Space Adventure</h3>
+                        <p class="game-type">Action Game</p>
+                        <p>Embark on an epic space journey with stunning graphics and engaging gameplay. Navigate through asteroids and battle alien ships.</p>
+                        <div class="game-status">
+                            <span class="status-badge planning">In Planning</span>
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">WebGL</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">Web Audio API</span>
+                        </div>
+                        <a href="#" class="play-button disabled">In Development</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <div class="game-image">
+                        <div class="game-placeholder">
+                            <i class="fas fa-chess"></i>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3>Strategy Arena</h3>
+                        <p class="game-type">Strategy Game</p>
+                        <p>Test your strategic thinking with classic board games and new innovative strategy challenges. Play against AI or friends online.</p>
+                        <div class="game-status">
+                            <span class="status-badge planning">Concept</span>
+                        </div>
+                        <div class="game-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <a href="#" class="play-button disabled">Future Release</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1644MM6gSs/" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/@BandhanNovaPvtLtd" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/bandhannova/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/bandhannova07/BandhanNova" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 BandhanNova. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 20, 40, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(0, 20, 40, 0.95)';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe game cards
+        document.querySelectorAll('.game-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.createElement('button');
+        scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        scrollTopBtn.className = 'scroll-top';
+        scrollTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        `;
+        document.body.appendChild(scrollTopBtn);
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
