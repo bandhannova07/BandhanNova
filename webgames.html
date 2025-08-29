@@ -213,6 +213,57 @@
             color: white;
         }
 
+        .game-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-primary.disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        .btn-primary.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .btn-secondary:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Navigation Controls */
         .nav-controls {
             display: flex;
@@ -421,7 +472,7 @@
                 <li><a href="webgames.html">Web Games</a></li>
                 <li><a href="webapps.html">Web Apps</a></li>
                 <li><a href="androidapps.html">Android Apps</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-controls">
                 <button id="theme-toggle" class="theme-toggle">
@@ -471,7 +522,10 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">Local Storage</span>
                         </div>
-                        <a href="#" class="play-button">Play Now</a>
+                        <div class="game-actions">
+                            <a href="#" class="btn-primary">Play Now</a>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -493,7 +547,10 @@
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">WebGL</span>
                         </div>
-                        <a href="#" class="play-button disabled">Coming Soon</a>
+                        <div class="game-actions">
+                            <a href="#" class="btn-primary disabled">Coming Soon</a>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -511,11 +568,14 @@
                             <span class="status-badge planning">In Planning</span>
                         </div>
                         <div class="game-tech">
-                            <span class="tech-tag">WebGL</span>
-                            <span class="tech-tag">Three.js</span>
-                            <span class="tech-tag">Web Audio API</span>
+                            <span class="tech-tag">Unity WebGL</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">WebAssembly</span>
                         </div>
-                        <a href="#" class="play-button disabled">In Development</a>
+                        <div class="game-actions">
+                            <a href="#" class="btn-primary disabled">Coming Soon</a>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
                     </div>
                 </div>
                 
@@ -537,7 +597,10 @@
                             <span class="tech-tag">Socket.io</span>
                             <span class="tech-tag">Node.js</span>
                         </div>
-                        <a href="#" class="play-button disabled">Future Release</a>
+                        <div class="game-actions">
+                            <a href="#" class="btn-primary disabled">Future Release</a>
+                            <a href="#" class="btn-secondary">Learn More</a>
+                        </div>
                     </div>
                 </div>
             </div>

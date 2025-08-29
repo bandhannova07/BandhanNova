@@ -715,10 +715,12 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                padding-top: 3rem;
+                padding: 2rem 0;
                 transition: left 0.3s ease;
                 backdrop-filter: blur(10px);
                 z-index: 1000;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
 
             /* Mobile Menu Overlay */
@@ -1096,21 +1098,74 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <h3>Send us a Message</h3>
+                    <form>
                         <div class="form-group">
                             <input type="text" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Email Address" required>
+                            <input type="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject">
+                            <input type="text" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea rows="5" placeholder="Your Message" required></textarea>
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1644MM6gSs/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/@BandhanNovaPvtLtd" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/bandhannova/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/bandhannova07/BandhanNova" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About BandhanNova</h2>
+                <p>Leading the future of technology with innovative solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>At BandhanNova, we are dedicated to creating cutting-edge digital solutions that transform ideas into reality. Founded in 2025 by Bandhan Das, our company specializes in developing innovative web games, powerful web applications, and engaging Android apps.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>To become a globally recognized technology company that bridges the gap between imagination and digital innovation, making technology accessible and enjoyable for everyone.</p>
+                    
+                    <h3>Why Choose Us?</h3>
+                    <ul>
+                        <li><strong>Innovation First:</strong> We stay ahead of technology trends</li>
+                        <li><strong>Quality Assurance:</strong> Every project undergoes rigorous testing</li>
+                        <li><strong>User-Centric Design:</strong> We prioritize user experience in everything we build</li>
+                        <li><strong>24/7 Support:</strong> Our team is always ready to help</li>
+                    </ul>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>2025</h3>
+                        <p>Founded</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Projects Planned</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Support Available</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1119,12 +1174,6 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/1644MM6gSs/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.youtube.com/@BandhanNovaPvtLtd" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/bandhannova/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/bandhannova07/BandhanNova" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
             <p>&copy; 2025 BandhanNova. All rights reserved.</p>
         </div>
     </footer>
