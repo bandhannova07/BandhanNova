@@ -1,11 +1,70 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BandhanNova - World-Class Tech Company</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>BandhanNova - Leading Tech Company | Web Games, Apps & Android Development</title>
+    <meta name="description" content="BandhanNova is a world-class technology company specializing in web games, web applications, and Android app development. Founded by Bandhan Das in 2025, we create innovative digital solutions.">
+    <meta name="keywords" content="BandhanNova, tech company, web games, web apps, android apps, QuizPro, Bandhan Das, technology solutions, software development, game development">
+    <meta name="author" content="Bandhan Das">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="BandhanNova - Leading Tech Company">
+    <meta property="og:description" content="World-class technology company specializing in web games, web applications, and Android app development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandhannova.netlify.app">
+    <meta property="og:site_name" content="BandhanNova">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BandhanNova - Leading Tech Company">
+    <meta name="twitter:description" content="World-class technology company specializing in web games, web applications, and Android app development.">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bandhannova.netlify.app">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDA3YmZmO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMDU2YjM7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHBhdGggZD0iTTE2IDRMMTggMTBMMjQgOEwyMCAxNEwyNiAxNkwyMCAxOEwyNCAyNEwxOCAyMEwxNiAyNkwxNCAyMEw4IDI0TDEyIDE4TDYgMTZMMTIgMTRMOCA4TDE0IDEwTDE2IDRaIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8L3N2Zz4=">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"></noscript>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BandhanNova",
+      "url": "https://bandhannova.netlify.app",
+      "logo": "https://bandhannova.netlify.app/logo.svg",
+      "description": "World-class technology company specializing in web games, web applications, and Android app development.",
+      "founder": {
+        "@type": "Person",
+        "name": "Bandhan Das"
+      },
+      "foundingDate": "2025",
+      "sameAs": [
+        "https://www.facebook.com/share/1644MM6gSs/",
+        "https://www.youtube.com/@BandhanNovaPvtLtd",
+        "https://www.instagram.com/bandhannova/",
+        "https://github.com/bandhannova07/BandhanNova"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "contact@bandhannova.com"
+      }
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -18,7 +77,18 @@
             line-height: 1.6;
             color: #333;
             overflow-x: hidden;
-            transition: all 0.3s ease;
+            will-change: auto;
+        }
+
+        /* Performance optimizations */
+        .hero, .portfolio, .about, .contact {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        img, .portfolio-image, .game-image {
+            image-rendering: optimizeQuality;
+            transform: translateZ(0);
         }
 
         /* Dark Mode Styles */
@@ -426,6 +496,31 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Project Tooltips */
+        .project-tooltip {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 20, 40, 0.95);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .portfolio-card:hover .project-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: -35px;
         }
 
         .portfolio-card:hover {
@@ -550,6 +645,9 @@
             height: 40px;
             justify-content: center;
             position: relative;
+            z-index: 1001;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .mobile-menu-toggle:hover {
@@ -620,7 +718,27 @@
                 padding-top: 3rem;
                 transition: left 0.3s ease;
                 backdrop-filter: blur(10px);
-                z-index: 999;
+                z-index: 1000;
+            }
+
+            /* Mobile Menu Overlay */
+            .nav-menu::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: -1;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active::before {
+                opacity: 1;
+                visibility: visible;
             }
 
             .nav-menu.active {
@@ -642,6 +760,8 @@
                 transition: all 0.3s ease;
                 background: rgba(0, 123, 255, 0.1);
                 border: 2px solid rgba(0, 123, 255, 0.3);
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: transparent;
             }
 
             .nav-menu a:hover {
@@ -709,12 +829,34 @@
                 gap: 1rem;
             }
 
+            .contact {
+                padding: 4rem 0;
+                margin-top: 2rem;
+            }
+
             .contact-content {
                 flex-direction: column;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                order: 1;
             }
 
             .contact-form {
-                margin-top: 2rem;
+                order: 2;
+                margin-top: 0;
+                width: 100%;
+            }
+
+            .contact-form form {
+                max-width: 100%;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 16px;
+                padding: 1rem;
             }
 
             .scroll-top {
@@ -755,12 +897,12 @@
                 BandhanNova
             </a>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" onclick="location.reload()">Home</a></li>
                 <li><a href="webgames.html">Web Games</a></li>
                 <li><a href="webapps.html">Web Apps</a></li>
                 <li><a href="androidapps.html">Android Apps</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="nav-controls">
                 <button id="theme-toggle" class="theme-toggle">
@@ -876,6 +1018,8 @@
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                         </div>
+                        <a href="webgames.html" class="project-link" title="Visit Web Games section for detailed information">View Project</a>
+                        <div class="project-tooltip">Click menu → Web Games for more details</div>
                     </div>
                 </div>
                 
@@ -1041,9 +1185,37 @@
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             this.classList.toggle('active');
             navMenu.classList.toggle('active');
+            
+            // Prevent background scrolling when menu is open
+            if (navMenu.classList.contains('active')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
+        });
+
+        // Close mobile menu when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
         });
 
         // Scroll to Top Button
