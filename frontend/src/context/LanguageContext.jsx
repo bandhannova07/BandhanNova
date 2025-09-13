@@ -105,7 +105,10 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     const savedLanguage = localStorage.getItem('bandhannova-language') || 'en';
     if (SUPPORTED_LANGUAGES[savedLanguage]) {
-      setLanguage(savedLanguage);
+      dispatch({
+        type: LANGUAGE_ACTIONS.SET_LANGUAGE,
+        payload: savedLanguage
+      });
     }
   }, []);
 

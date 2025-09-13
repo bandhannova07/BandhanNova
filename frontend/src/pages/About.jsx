@@ -1,18 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
+  Users, 
   Target, 
-  Eye, 
-  Heart,
-  Users,
-  Award,
-  Globe,
-  Zap,
-  Code,
-  Lightbulb,
-  Rocket,
+  Award, 
+  TrendingUp, 
+  Globe, 
+  Zap, 
+  Heart, 
   Star,
-  ArrowRight
+  Rocket,
+  Shield
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import Button from '../components/common/Button';
@@ -21,7 +19,7 @@ import Button from '../components/common/Button';
  * About Page Component
  */
 const About = () => {
-  const { t } = useLanguage();
+  // const { t } = useLanguage();
 
   const stats = [
     { number: '50+', label: 'Projects Completed', icon: Award },

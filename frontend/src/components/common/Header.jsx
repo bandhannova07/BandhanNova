@@ -32,7 +32,7 @@ const Header = () => {
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const { currentLanguage, changeLanguage, availableLanguages, t } = useLanguage();
-  const { notifications, unreadCount } = useNotification();
+  const { unreadCount } = useNotification();
 
   // Handle scroll effect
   useEffect(() => {

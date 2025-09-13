@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Brain, 
   Zap, 
-  Star, 
-  Lock, 
-  Crown, 
-  MessageSquare,
-  Image,
-  FileText,
-  Code,
-  BarChart3,
+  Brain, 
+  Image, 
+  MessageSquare, 
+  Code, 
   Sparkles,
-  ArrowRight,
+  Star,
   Check,
-  X
+  ArrowRight,
+  Cpu,
+  Database,
+  Globe
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
-import Button from '../components/common/Button';
+import { useTheme } from '../context/ThemeContext';
 
 /**
  * AI Tools Page Component
@@ -27,8 +25,6 @@ import Button from '../components/common/Button';
 const AITools = () => {
   const { user } = useAuth();
   const { t } = useLanguage();
-  
-  const [selectedPlan, setSelectedPlan] = useState('basic');
   const [activeCategory, setActiveCategory] = useState('all');
 
   const pricingPlans = [
