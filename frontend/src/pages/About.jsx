@@ -10,7 +10,10 @@ import {
   Heart, 
   Star,
   Rocket,
-  Shield
+  Shield,
+  Lightbulb,
+  ArrowRight,
+  Eye
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import Button from '../components/common/Button';

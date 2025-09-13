@@ -12,11 +12,17 @@ import {
   ArrowRight,
   Cpu,
   Database,
-  Globe
+  Globe,
+  FileText,
+  BarChart3,
+  Lock,
+  Crown,
+  X
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
+import Button from '../components/common/Button';
 
 /**
  * AI Tools Page Component
@@ -26,6 +32,7 @@ const AITools = () => {
   const { user } = useAuth();
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedPlan, setSelectedPlan] = useState('basic');
 
   const pricingPlans = [
     {
