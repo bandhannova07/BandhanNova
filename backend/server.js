@@ -35,7 +35,6 @@ const paymentRoutes = require('./routes/payments');
 const freelanceRoutes = require('./routes/freelance');
 const userRoutes = require('./routes/users');
 const notificationRoutes = require('./routes/notifications');
-const analyticsRoutes = require('./routes/analytics');
 
 // Initialize Express app
 const app = express();
