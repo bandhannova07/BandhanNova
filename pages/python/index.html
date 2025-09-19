@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Course - BandhanNova</title>
+    <meta name="description" content="Learn Python programming from basics to advanced with interactive lessons, code playgrounds, and quizzes.">
+    
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="../../index.html" class="breadcrumb-item">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../tech-learning.html" class="breadcrumb-item">Tech Learning</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-item active">Python</span>
+        </div>
+    </div>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <div class="course-info">
+                <div class="course-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="course-details">
+                    <h1 class="course-title">Python Programming</h1>
+                    <p class="course-description">
+                        Master Python from basics to advanced concepts with hands-on exercises and real-world projects.
+                    </p>
+                    <div class="course-meta">
+                        <span class="meta-item">
+                            <i class="fas fa-book"></i>
+                            15 Chapters
+                        </span>
+                        <span class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            ~40 hours
+                        </span>
+                        <span class="meta-item">
+                            <i class="fas fa-users"></i>
+                            Beginner Friendly
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Tracker -->
+            <div class="progress-tracker">
+                <div class="progress-tracker-header">
+                    <h3 class="progress-tracker-title">Your Progress</h3>
+                    <span class="progress-percentage">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill animated-progress" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span>0 of 15 chapters completed</span>
+                    <span>0 points earned</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Course Chapters</h3>
+                        <button class="btn btn-primary" onclick="startFirstChapter()">
+                            <i class="fas fa-play"></i>
+                            Start Course
+                        </button>
+                    </div>
+                    
+                    <div class="chapters-list">
+                        <div class="chapter-item current" data-chapter="1">
+                            <div class="chapter-status">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>1. Introduction to Python</h4>
+                                <span class="chapter-duration">45 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="2">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>2. Variables and Data Types</h4>
+                                <span class="chapter-duration">60 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="3">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>3. Control Structures</h4>
+                                <span class="chapter-duration">75 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="4">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>4. Functions</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="5">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>5. Lists and Tuples</h4>
+                                <span class="chapter-duration">80 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="6">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>6. Dictionaries and Sets</h4>
+                                <span class="chapter-duration">70 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="7">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>7. File Handling</h4>
+                                <span class="chapter-duration">65 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="8">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>8. Object-Oriented Programming</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="9">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>9. Exception Handling</h4>
+                                <span class="chapter-duration">55 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="10">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>10. Modules and Packages</h4>
+                                <span class="chapter-duration">70 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="11">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>11. Working with APIs</h4>
+                                <span class="chapter-duration">85 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="12">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>12. Database Integration</h4>
+                                <span class="chapter-duration">95 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="13">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>13. Web Scraping</h4>
+                                <span class="chapter-duration">75 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="14">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>14. Data Analysis with Pandas</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="15">
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="chapter-info">
+                                <h4>15. Final Project</h4>
+                                <span class="chapter-duration">180 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="course-main">
+                    <div class="lesson-content" id="lessonContent">
+                        <!-- Chapter 1: Introduction to Python -->
+                        <div class="lesson-header">
+                            <h2 class="lesson-title typing-text">Chapter 1: Introduction to Python</h2>
+                            <div class="lesson-meta">
+                                <span class="lesson-duration">
+                                    <i class="fas fa-clock"></i>
+                                    45 minutes
+                                </span>
+                                <span class="lesson-difficulty">
+                                    <i class="fas fa-signal"></i>
+                                    Beginner
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="lesson-body">
+                            <section class="content-section fade-in-up">
+                                <h3>What is Python?</h3>
+                                <p>
+                                    Python is a high-level, interpreted programming language known for its simplicity and readability. 
+                                    Created by Guido van Rossum in 1991, Python has become one of the most popular programming 
+                                    languages in the world.
+                                </p>
+                                
+                                <h4>Why Learn Python?</h4>
+                                <ul>
+                                    <li><strong>Easy to Learn:</strong> Python's syntax is clear and intuitive</li>
+                                    <li><strong>Versatile:</strong> Used in web development, data science, AI, automation</li>
+                                    <li><strong>Large Community:</strong> Extensive libraries and community support</li>
+                                    <li><strong>High Demand:</strong> One of the most sought-after programming skills</li>
+                                </ul>
+                            </section>
+
+                            <section class="content-section fade-in-up">
+                                <h3>Your First Python Program</h3>
+                                <p>Let's start with the traditional "Hello, World!" program:</p>
+                                
+                                <!-- Code Playground -->
+                                <div class="code-playground">
+                                    <div class="code-playground-header">
+                                        <h4 class="code-playground-title">Interactive Python Editor</h4>
+                                        <div class="code-playground-controls">
+                                            <button class="code-playground-btn" onclick="runCode()">
+                                                <i class="fas fa-play"></i> Run
+                                            </button>
+                                            <button class="code-playground-btn" onclick="resetCode()">
+                                                <i class="fas fa-undo"></i> Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="code-playground-content">
+                                        <textarea class="code-editor" id="codeEditor" placeholder="Write your Python code here...">print("Hello, World!")
+print("Welcome to Python programming!")
+
+# This is a comment
+name = "BandhanNova Student"
+print(f"Hello, {name}!")</textarea>
+                                        <div class="code-output" id="codeOutput">Click "Run" to execute the code...</div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="content-section fade-in-up">
+                                <h3>Python Syntax Basics</h3>
+                                <p>Python uses indentation to define code blocks. Here are some key syntax rules:</p>
+                                
+                                <div class="syntax-examples">
+                                    <div class="syntax-item">
+                                        <h4>Comments</h4>
+                                        <pre><code class="language-python"># This is a single-line comment
+
+"""
+This is a
+multi-line comment
+"""</code></pre>
+                                    </div>
+                                    
+                                    <div class="syntax-item">
+                                        <h4>Variables</h4>
+                                        <pre><code class="language-python">name = "Alice"
+age = 25
+height = 5.6
+is_student = True</code></pre>
+                                    </div>
+                                    
+                                    <div class="syntax-item">
+                                        <h4>Print Statement</h4>
+                                        <pre><code class="language-python">print("Hello, World!")
+print(f"My name is {name} and I am {age} years old")</code></pre>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Quiz Section -->
+                            <section class="content-section fade-in-up">
+                                <div class="quiz-container">
+                                    <div class="quiz-header">
+                                        <h3>Chapter 1 Quiz</h3>
+                                        <div class="quiz-progress">
+                                            <div class="quiz-progress-fill" style="width: 0%"></div>
+                                        </div>
+                                        <p>Question 1 of 3</p>
+                                    </div>
+                                    
+                                    <div class="quiz-question">
+                                        <h4>What symbol is used for single-line comments in Python?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" onclick="selectOption(this, false)">
+                                                <span class="quiz-option-letter">A</span>
+                                                <span>//</span>
+                                            </div>
+                                            <div class="quiz-option" onclick="selectOption(this, true)">
+                                                <span class="quiz-option-letter">B</span>
+                                                <span>#</span>
+                                            </div>
+                                            <div class="quiz-option" onclick="selectOption(this, false)">
+                                                <span class="quiz-option-letter">C</span>
+                                                <span>/*</span>
+                                            </div>
+                                            <div class="quiz-option" onclick="selectOption(this, false)">
+                                                <span class="quiz-option-letter">D</span>
+                                                <span>--</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-actions">
+                                        <div class="quiz-score">Score: 0/3</div>
+                                        <button class="btn btn-primary" onclick="nextQuestion()" disabled>Next Question</button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Navigation -->
+                            <div class="lesson-navigation">
+                                <button class="btn btn-secondary" disabled>
+                                    <i class="fas fa-arrow-left"></i>
+                                    Previous
+                                </button>
+                                <button class="btn btn-primary" onclick="completeChapter(1)">
+                                    Complete Chapter
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="python-course.js"></script>
+</body>
+</html>

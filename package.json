@@ -1,0 +1,28 @@
+{
+  "name": "bandhannova-hub",
+  "version": "1.0.0",
+  "description": "BandhanNova - Hub of Life Development",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "build": "mkdir -p dist && npm run minify-css && npm run minify-js",
+    "minify-css": "cleancss -o dist/styles.min.css src/styles/*.css",
+    "minify-js": "uglifyjs src/js/*.js pages/*.js -o dist/scripts.min.js",
+    "dev": "live-server --port=3000 --watch=src/",
+    "deploy": "npm run build && echo 'Build complete - ready for deployment'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["education", "tech-learning", "gamification", "certificates"],
+  "author": "BandhanNova",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "clean-css-cli": "^5.6.2",
+    "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "jspdf": "^2.5.1",
+    "chart.js": "^4.4.0",
+    "prismjs": "^1.29.0"
+  }
+}

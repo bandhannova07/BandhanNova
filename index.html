@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BandhanNova - Hub of Life Development</title>
+    <meta name="description" content="BandhanNova - Hub of Life Development. Learn programming, play games, develop life skills, master psychology, and get career guidance. Your complete platform for personal and professional growth.">
+    <meta name="keywords" content="programming courses, web games, life skills, career guidance, psychology, personal development, tech learning, entertainment, youth hub">
+    <meta name="author" content="BandhanNova">
+    <meta property="og:title" content="BandhanNova - Hub of Life Development">
+    <meta property="og:description" content="Complete platform for learning programming, playing games, developing life skills, and personal growth.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandhannova.netlify.app/">
+    <meta property="og:image" content="https://bandhannova.netlify.app/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BandhanNova - Hub of Life Development">
+    <meta name="twitter:description" content="Complete platform for learning programming, playing games, developing life skills, and personal growth.">
+    <meta name="twitter:image" content="https://bandhannova.netlify.app/assets/og-image.png">
+    <link rel="canonical" href="https://bandhannova.netlify.app/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/animations.css">
+    <link rel="stylesheet" href="src/styles/components.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#hubs" class="nav-link">Hubs</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="pages/dashboard.html" class="nav-link btn-primary">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="floating-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typing-text">Welcome to BandhanNova</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up">
+                    Your Ultimate Hub for Life Development
+                </p>
+                <p class="hero-description fade-in-up">
+                    Master programming languages, explore entertainment, unlock dark psychology secrets, 
+                    and accelerate your personal growth journey with our comprehensive learning platform.
+                </p>
+                <div class="hero-buttons fade-in-up">
+                    <a href="#hubs" class="btn btn-primary">Explore Hubs</a>
+                    <a href="pages/tech-learning.html" class="btn btn-secondary">Start Learning</a>
+                </div>
+                
+                <div class="hero-stats fade-in-up">
+                    <div class="stat">
+                        <span class="stat-number" data-count="7">0</span>
+                        <span class="stat-label">Programming Languages</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="50">0</span>
+                        <span class="stat-label">Interactive Lessons</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="1000">0</span>
+                        <span class="stat-label">Active Learners</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hubs Section -->
+    <section id="hubs" class="hubs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore Our Hubs</h2>
+                <p class="section-subtitle">Choose your path to mastery and personal development</p>
+            </div>
+            
+            <div class="hubs-grid">
+                <div class="hub-card" data-hub="tech">
+                    <div class="hub-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="hub-title">Tech Learning Hub</h3>
+                    <p class="hub-description">
+                        Master programming languages with interactive lessons, code playgrounds, and certificates.
+                    </p>
+                    <div class="hub-features">
+                        <span class="feature-tag">Python</span>
+                        <span class="feature-tag">JavaScript</span>
+                        <span class="feature-tag">Flutter</span>
+                        <span class="feature-tag">+4 more</span>
+                    </div>
+                    <a href="pages/tech-learning.html" class="hub-link">
+                        Start Learning <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="hub-card" data-hub="entertainment">
+                    <div class="hub-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="hub-title">Entertainment Hub</h3>
+                    <p class="hub-description">
+                        Explore web games and interactive applications built with cutting-edge technologies.
+                    </p>
+                    <div class="hub-features">
+                        <span class="feature-tag">Web Games</span>
+                        <span class="feature-tag">Interactive Apps</span>
+                        <span class="feature-tag">Demos</span>
+                    </div>
+                    <a href="pages/entertainment.html" class="hub-link">
+                        Play Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="hub-card" data-hub="dark-mind">
+                    <div class="hub-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="hub-title">Dark Mind Hub</h3>
+                    <p class="hub-description">
+                        Unlock the secrets of psychology, manipulation techniques, and sigma mindset strategies.
+                    </p>
+                    <div class="hub-features">
+                        <span class="feature-tag">Psychology</span>
+                        <span class="feature-tag">Manipulation</span>
+                        <span class="feature-tag">Sigma Rules</span>
+                    </div>
+                    <a href="pages/dark-mind.html" class="hub-link">
+                        Explore Secrets <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="hub-card" data-hub="youth">
+                    <div class="hub-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="hub-title">General Youth Hub</h3>
+                    <p class="hub-description">
+                        Career guidance, motivation, money-making strategies, and life development content.
+                    </p>
+                    <div class="hub-features">
+                        <span class="feature-tag">Career Tips</span>
+                        <span class="feature-tag">Motivation</span>
+                        <span class="feature-tag">Money Making</span>
+                    </div>
+                    <a href="pages/general-youth.html" class="hub-link">
+                        Get Inspired <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Content</h2>
+                <p class="section-subtitle">Trending games, popular courses, and latest achievements</p>
+            </div>
+            
+            <div class="featured-grid">
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Python Mastery Certificate</h3>
+                        <p>Complete all Python chapters and earn your official certificate</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <span class="progress-text">65% Complete</span>
+                    </div>
+                </div>
+                
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <div class="placeholder-image">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <h3>Trending: Snake Game</h3>
+                        <p>Classic snake game built with vanilla JavaScript</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9/5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="featured-item">
+                    <div class="featured-image">
+                        <div class="hub-card" data-hub="dark-mind">
+                            <div class="hub-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Dark Mind Hub</h3>
+                            <p>Psychology, influence, and strategic thinking for personal mastery.</p>
+                            <div class="hub-stats">
+                                <span><i class="fas fa-book"></i> 25+ Topics</span>
+                                <span><i class="fas fa-users"></i> Advanced</span>
+                            </div>
+                            <a href="pages/dark-mind.html" class="btn btn-primary">Explore Hub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About BandhanNova</h2>
+                    <p class="about-description">
+                        BandhanNova is more than just a learning platform—it's a comprehensive hub for life development. 
+                        We believe in empowering individuals through knowledge, skills, and strategic thinking.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Interactive Learning</h4>
+                                <p>Hands-on coding experience with real-time feedback</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Official Certificates</h4>
+                                <p>Earn recognized certificates for completed courses</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Community Driven</h4>
+                                <p>Learn alongside passionate developers and creators</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="stats-circle">
+                        <div class="stat-circle">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Success Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Have questions? We'd love to hear from you</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hello@bandhannova.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Empowering minds through comprehensive learning and development.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="pages/tech-learning.html">Tech Learning</a></li>
+                        <li><a href="pages/entertainment.html">Entertainment</a></li>
+                        <li><a href="pages/dashboard.html">Dashboard</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Hubs</h4>
+                    <ul>
+                        <li><a href="pages/tech-learning.html">Tech Learning Hub</a></li>
+                        <li><a href="pages/entertainment.html">Entertainment Hub</a></li>
+                        <li><a href="pages/dark-mind.html">Dark Mind Hub</a></li>
+                        <li><a href="pages/youth-hub.html">Youth Hub</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="pages/privacy.html">Privacy Policy</a>
+                    <a href="pages/terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="src/js/main.js"></script>
+    <script src="src/js/animations.js"></script>
+    <script src="src/js/navigation.js"></script>
+</body>
+</html>

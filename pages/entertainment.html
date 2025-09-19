@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment Hub - BandhanNova</title>
+    <meta name="description" content="Explore interactive web games and applications built with cutting-edge technologies at BandhanNova Entertainment Hub.">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../src/styles/main.css">
+    <link rel="stylesheet" href="../src/styles/animations.css">
+    <link rel="stylesheet" href="../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="#games" class="nav-link active">Games</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="floating-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typing-text">Entertainment Hub</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up">
+                    Interactive Games & Web Applications
+                </p>
+                <p class="hero-description fade-in-up">
+                    Explore our collection of web games and interactive applications built with modern technologies. 
+                    Each game showcases different programming concepts and techniques.
+                </p>
+                <div class="hero-buttons fade-in-up">
+                    <a href="#games" class="btn btn-primary">Browse Games</a>
+                    <a href="#featured" class="btn btn-secondary">Featured Games</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <h3>Filter Games</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Games</button>
+                    <button class="filter-btn" data-filter="arcade">Arcade</button>
+                    <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+                    <button class="filter-btn" data-filter="strategy">Strategy</button>
+                    <button class="filter-btn" data-filter="educational">Educational</button>
+                </div>
+                
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search games..." id="gameSearch">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Grid -->
+    <section id="games" class="games-section">
+        <div class="container">
+            <div class="games-grid" id="gamesGrid">
+                <!-- Snake Game -->
+                <div class="game-card" data-category="arcade" data-rating="4.9">
+                    <div class="game-preview">
+                        <div class="game-thumbnail">
+                            <i class="fas fa-gamepad game-icon"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-badges">
+                            <span class="badge badge-success">Popular</span>
+                            <span class="badge badge-primary">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <h3 class="game-title">Snake Game</h3>
+                        <p class="game-description">
+                            Classic snake game with modern graphics and smooth controls. 
+                            Built with vanilla JavaScript and HTML5 Canvas.
+                        </p>
+                        
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-play"></i>
+                                <span>2.1k plays</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>5-15 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Canvas</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        
+                        <div class="game-actions">
+                            <button class="btn btn-primary" onclick="playGame('snake')">
+                                <i class="fas fa-play"></i>
+                                Play Now
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewCode('snake')">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tic Tac Toe -->
+                <div class="game-card" data-category="strategy" data-rating="4.7">
+                    <div class="game-preview">
+                        <div class="game-thumbnail">
+                            <i class="fas fa-th game-icon"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-badges">
+                            <span class="badge badge-warning">AI Powered</span>
+                            <span class="badge badge-primary">React</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <h3 class="game-title">Tic Tac Toe AI</h3>
+                        <p class="game-description">
+                            Play against an intelligent AI opponent. Features minimax algorithm 
+                            for challenging gameplay and smooth animations.
+                        </p>
+                        
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-play"></i>
+                                <span>1.8k plays</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>2-5 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">AI Algorithm</span>
+                            <span class="tech-tag">CSS Grid</span>
+                        </div>
+                        
+                        <div class="game-actions">
+                            <button class="btn btn-primary" onclick="playGame('tictactoe')">
+                                <i class="fas fa-play"></i>
+                                Play Now
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewCode('tictactoe')">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Memory Game -->
+                <div class="game-card" data-category="puzzle" data-rating="4.6">
+                    <div class="game-preview">
+                        <div class="game-thumbnail">
+                            <i class="fas fa-brain game-icon"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-badges">
+                            <span class="badge badge-success">Educational</span>
+                            <span class="badge badge-primary">Vue.js</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <h3 class="game-title">Memory Match</h3>
+                        <p class="game-description">
+                            Test your memory with this card matching game. Features multiple 
+                            difficulty levels and beautiful card animations.
+                        </p>
+                        
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.6</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-play"></i>
+                                <span>1.5k plays</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>3-10 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">CSS Animations</span>
+                            <span class="tech-tag">Local Storage</span>
+                        </div>
+                        
+                        <div class="game-actions">
+                            <button class="btn btn-primary" onclick="playGame('memory')">
+                                <i class="fas fa-play"></i>
+                                Play Now
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewCode('memory')">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator -->
+                <div class="game-card" data-category="educational" data-rating="4.8">
+                    <div class="game-preview">
+                        <div class="game-thumbnail">
+                            <i class="fas fa-calculator game-icon"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-badges">
+                            <span class="badge badge-primary">Utility</span>
+                            <span class="badge badge-success">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <h3 class="game-title">Scientific Calculator</h3>
+                        <p class="game-description">
+                            Full-featured scientific calculator with history, memory functions, 
+                            and keyboard support. Perfect for learning math operations.
+                        </p>
+                        
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-play"></i>
+                                <span>3.2k plays</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>As needed</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Math.js</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        
+                        <div class="game-actions">
+                            <button class="btn btn-primary" onclick="playGame('calculator')">
+                                <i class="fas fa-play"></i>
+                                Use Now
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewCode('calculator')">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tetris -->
+                <div class="game-card" data-category="arcade" data-rating="4.9">
+                    <div class="game-preview">
+                        <div class="game-thumbnail">
+                            <i class="fas fa-cubes game-icon"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-badges">
+                            <span class="badge badge-warning">Coming Soon</span>
+                            <span class="badge badge-primary">JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <h3 class="game-title">Tetris Clone</h3>
+                        <p class="game-description">
+                            Classic Tetris game with modern graphics, smooth animations, 
+                            and progressive difficulty levels.
+                        </p>
+                        
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.9</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-play"></i>
+                                <span>Coming Soon</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>10-30 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Canvas</span>
+                            <span class="tech-tag">Game Physics</span>
+                        </div>
+                        
+                        <div class="game-actions">
+                            <button class="btn btn-primary" disabled>
+                                <i class="fas fa-clock"></i>
+                                Coming Soon
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewCode('tetris')">
+                                <i class="fas fa-code"></i>
+                                Preview Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz App -->
+                <div class="game-card" data-category="educational" data-rating="4.5">
+                    <div class="game-preview">
+                        <div class="game-thumbnail">
+                            <i class="fas fa-question-circle game-icon"></i>
+                            <div class="play-overlay">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="game-badges">
+                            <span class="badge badge-success">Educational</span>
+                            <span class="badge badge-primary">React</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-info">
+                        <h3 class="game-title">Programming Quiz</h3>
+                        <p class="game-description">
+                            Test your programming knowledge with interactive quizzes covering 
+                            multiple languages and concepts.
+                        </p>
+                        
+                        <div class="game-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.5</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-play"></i>
+                                <span>2.8k plays</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>5-15 min</span>
+                            </div>
+                        </div>
+                        
+                        <div class="game-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JSON API</span>
+                            <span class="tech-tag">Progress Tracking</span>
+                        </div>
+                        
+                        <div class="game-actions">
+                            <button class="btn btn-primary" onclick="playGame('quiz')">
+                                <i class="fas fa-play"></i>
+                                Start Quiz
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewCode('quiz')">
+                                <i class="fas fa-code"></i>
+                                View Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div class="modal-overlay" id="gameModal" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="gameModalTitle">Game Title</h3>
+                <button class="modal-close" onclick="closeGameModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="game-container" id="gameContainer">
+                    <!-- Game will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Interactive games and applications for learning and entertainment.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Game Categories</h4>
+                    <ul>
+                        <li><a href="#games">Arcade Games</a></li>
+                        <li><a href="#games">Puzzle Games</a></li>
+                        <li><a href="#games">Educational Apps</a></li>
+                        <li><a href="#games">Strategy Games</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="tech-learning.html">Learn to Code</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../src/js/main.js"></script>
+    <script src="../src/js/animations.js"></script>
+    <script src="../src/js/navigation.js"></script>
+    <script src="entertainment.js"></script>
+</body>
+</html>

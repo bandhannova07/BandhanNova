@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Youth Hub - BandhanNova</title>
+    <meta name="description" content="Life skills, career guidance, and personal development for young adults at BandhanNova General Youth Hub.">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../src/styles/main.css">
+    <link rel="stylesheet" href="../src/styles/animations.css">
+    <link rel="stylesheet" href="../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="#life-skills" class="nav-link active">Life Skills</a>
+                <a href="#career" class="nav-link">Career</a>
+                <a href="#wellness" class="nav-link">Wellness</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero youth-hero">
+        <div class="hero-background">
+            <div class="floating-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="typing-text">General Youth Hub</span>
+                </h1>
+                <p class="hero-subtitle fade-in-up">
+                    Navigate Life with Confidence
+                </p>
+                <p class="hero-description fade-in-up">
+                    Essential life skills, career guidance, and personal development resources 
+                    to help young adults thrive in today's world.
+                </p>
+                <div class="hero-buttons fade-in-up">
+                    <a href="#life-skills" class="btn btn-primary">Explore Life Skills</a>
+                    <a href="#career" class="btn btn-secondary">Career Guidance</a>
+                </div>
+                
+                <div class="hero-stats fade-in-up">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Life Skills</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Career Paths</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life Skills Section -->
+    <section id="life-skills" class="life-skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Essential Life Skills</h2>
+                <p class="section-subtitle">Master the fundamentals for personal and professional success</p>
+            </div>
+            
+            <div class="skills-categories">
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="financial">Financial Literacy</button>
+                    <button class="tab-btn" data-category="communication">Communication</button>
+                    <button class="tab-btn" data-category="time">Time Management</button>
+                    <button class="tab-btn" data-category="emotional">Emotional Intelligence</button>
+                </div>
+                
+                <div class="category-content">
+                    <!-- Financial Literacy -->
+                    <div class="category-panel active" id="financial">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-piggy-bank"></i>
+                                </div>
+                                <h3>Budgeting Basics</h3>
+                                <p>Learn to create and stick to a budget that works for your lifestyle and goals.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">50/30/20 Rule</span>
+                                    <span class="topic-tag">Expense Tracking</span>
+                                    <span class="topic-tag">Emergency Fund</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('budgeting')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Investment Fundamentals</h3>
+                                <p>Understand the basics of investing and building long-term wealth.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Compound Interest</span>
+                                    <span class="topic-tag">Risk Management</span>
+                                    <span class="topic-tag">Portfolio Basics</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('investing')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                                <h3>Credit & Debt Management</h3>
+                                <p>Build good credit and manage debt responsibly for financial freedom.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Credit Score</span>
+                                    <span class="topic-tag">Debt Payoff</span>
+                                    <span class="topic-tag">Credit Cards</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('credit')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Communication -->
+                    <div class="category-panel" id="communication">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Active Listening</h3>
+                                <p>Develop the ability to truly hear and understand others in conversations.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Empathy</span>
+                                    <span class="topic-tag">Feedback</span>
+                                    <span class="topic-tag">Clarification</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('listening')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-microphone"></i>
+                                </div>
+                                <h3>Public Speaking</h3>
+                                <p>Overcome fear and deliver confident, engaging presentations.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Confidence</span>
+                                    <span class="topic-tag">Structure</span>
+                                    <span class="topic-tag">Engagement</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('speaking')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3>Conflict Resolution</h3>
+                                <p>Navigate disagreements and find win-win solutions in any situation.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Mediation</span>
+                                    <span class="topic-tag">Compromise</span>
+                                    <span class="topic-tag">De-escalation</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('conflict')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Time Management -->
+                    <div class="category-panel" id="time">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <h3>Priority Setting</h3>
+                                <p>Learn to identify and focus on what matters most for maximum impact.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Eisenhower Matrix</span>
+                                    <span class="topic-tag">Goal Setting</span>
+                                    <span class="topic-tag">Focus</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('priorities')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <h3>Planning & Scheduling</h3>
+                                <p>Create effective schedules and stick to them for better productivity.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Time Blocking</span>
+                                    <span class="topic-tag">Deadlines</span>
+                                    <span class="topic-tag">Flexibility</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('planning')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-ban"></i>
+                                </div>
+                                <h3>Avoiding Procrastination</h3>
+                                <p>Overcome procrastination and build momentum for consistent action.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Pomodoro</span>
+                                    <span class="topic-tag">Motivation</span>
+                                    <span class="topic-tag">Habits</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('procrastination')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Emotional Intelligence -->
+                    <div class="category-panel" id="emotional">
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Self-Awareness</h3>
+                                <p>Understand your emotions, triggers, and behavioral patterns.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Mindfulness</span>
+                                    <span class="topic-tag">Reflection</span>
+                                    <span class="topic-tag">Values</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('self-awareness')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h3>Empathy & Social Skills</h3>
+                                <p>Build stronger relationships through understanding and connection.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Perspective</span>
+                                    <span class="topic-tag">Rapport</span>
+                                    <span class="topic-tag">Boundaries</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('empathy')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>Stress Management</h3>
+                                <p>Develop healthy coping strategies for life's challenges and pressures.</p>
+                                <div class="skill-topics">
+                                    <span class="topic-tag">Relaxation</span>
+                                    <span class="topic-tag">Resilience</span>
+                                    <span class="topic-tag">Balance</span>
+                                </div>
+                                <button class="btn btn-primary" onclick="openSkillDetail('stress')">
+                                    Learn More <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Guidance Section -->
+    <section id="career" class="career-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Career Development</h2>
+                <p class="section-subtitle">Navigate your professional journey with confidence</p>
+            </div>
+            
+            <div class="career-pathway">
+                <div class="pathway-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Self-Discovery</h3>
+                            <p>Identify your strengths, interests, and values to find the right career path.</p>
+                            <ul>
+                                <li>Personality assessments</li>
+                                <li>Skills inventory</li>
+                                <li>Values clarification</li>
+                                <li>Interest exploration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Career Exploration</h3>
+                            <p>Research different career options and understand industry requirements.</p>
+                            <ul>
+                                <li>Industry research</li>
+                                <li>Job market analysis</li>
+                                <li>Informational interviews</li>
+                                <li>Salary expectations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Skill Development</h3>
+                            <p>Build the skills and qualifications needed for your chosen career path.</p>
+                            <ul>
+                                <li>Education planning</li>
+                                <li>Certification programs</li>
+                                <li>Online courses</li>
+                                <li>Practical experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Job Search Strategy</h3>
+                            <p>Create an effective job search plan and professional brand.</p>
+                            <ul>
+                                <li>Resume optimization</li>
+                                <li>LinkedIn profile</li>
+                                <li>Interview preparation</li>
+                                <li>Networking strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="career-resources">
+                <h3>Popular Career Paths</h3>
+                <div class="career-grid">
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Technology</h4>
+                        <p>Software development, data science, cybersecurity, and emerging tech roles.</p>
+                        <div class="salary-range">$60k - $150k+</div>
+                    </div>
+                    
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Business & Finance</h4>
+                        <p>Management, consulting, finance, marketing, and entrepreneurship opportunities.</p>
+                        <div class="salary-range">$50k - $120k+</div>
+                    </div>
+                    
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h4>Healthcare</h4>
+                        <p>Medical professionals, nursing, therapy, and healthcare administration roles.</p>
+                        <div class="salary-range">$55k - $200k+</div>
+                    </div>
+                    
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Education</h4>
+                        <p>Teaching, training, educational technology, and academic research positions.</p>
+                        <div class="salary-range">$40k - $80k+</div>
+                    </div>
+                    
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Creative Industries</h4>
+                        <p>Design, media, entertainment, writing, and digital content creation.</p>
+                        <div class="salary-range">$35k - $100k+</div>
+                    </div>
+                    
+                    <div class="career-card">
+                        <div class="career-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Sustainability</h4>
+                        <p>Environmental science, renewable energy, and sustainable business practices.</p>
+                        <div class="salary-range">$45k - $90k+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Section -->
+    <section id="wellness" class="wellness-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Personal Wellness</h2>
+                <p class="section-subtitle">Maintain physical, mental, and emotional well-being</p>
+            </div>
+            
+            <div class="wellness-areas">
+                <div class="wellness-card">
+                    <div class="wellness-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Physical Health</h3>
+                    <div class="wellness-content">
+                        <h4>Exercise & Fitness</h4>
+                        <ul>
+                            <li>Create a sustainable workout routine</li>
+                            <li>Find activities you enjoy</li>
+                            <li>Set realistic fitness goals</li>
+                            <li>Track your progress</li>
+                        </ul>
+                        
+                        <h4>Nutrition Basics</h4>
+                        <ul>
+                            <li>Balanced meal planning</li>
+                            <li>Healthy cooking skills</li>
+                            <li>Understanding macronutrients</li>
+                            <li>Hydration habits</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="wellness-card">
+                    <div class="wellness-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Mental Health</h3>
+                    <div class="wellness-content">
+                        <h4>Stress Management</h4>
+                        <ul>
+                            <li>Identify stress triggers</li>
+                            <li>Develop coping strategies</li>
+                            <li>Practice relaxation techniques</li>
+                            <li>Build resilience</li>
+                        </ul>
+                        
+                        <h4>Mindfulness & Meditation</h4>
+                        <ul>
+                            <li>Daily mindfulness practices</li>
+                            <li>Breathing exercises</li>
+                            <li>Present moment awareness</li>
+                            <li>Emotional regulation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="wellness-card">
+                    <div class="wellness-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Social Wellness</h3>
+                    <div class="wellness-content">
+                        <h4>Healthy Relationships</h4>
+                        <ul>
+                            <li>Building meaningful connections</li>
+                            <li>Setting healthy boundaries</li>
+                            <li>Effective communication</li>
+                            <li>Conflict resolution</li>
+                        </ul>
+                        
+                        <h4>Community Engagement</h4>
+                        <ul>
+                            <li>Volunteer opportunities</li>
+                            <li>Social groups and clubs</li>
+                            <li>Networking events</li>
+                            <li>Giving back to society</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skill Detail Modal -->
+    <div class="modal-overlay" id="skillModal" style="display: none;">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="skillModalTitle">Skill Title</h3>
+                <button class="modal-close" onclick="closeSkillModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="skill-detail-content" id="skillContent">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Empowering young adults with essential life skills and career guidance.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Life Skills</h4>
+                    <ul>
+                        <li><a href="#life-skills">Financial Literacy</a></li>
+                        <li><a href="#life-skills">Communication</a></li>
+                        <li><a href="#life-skills">Time Management</a></li>
+                        <li><a href="#life-skills">Emotional Intelligence</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#career">Career Guidance</a></li>
+                        <li><a href="#wellness">Wellness</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Empowering the next generation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../src/js/main.js"></script>
+    <script src="../src/js/animations.js"></script>
+    <script src="../src/js/navigation.js"></script>
+    <script src="general-youth.js"></script>
+</body>
+</html>
