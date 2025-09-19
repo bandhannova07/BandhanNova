@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Course - Programming Fundamentals | BandhanNova</title>
+    <meta name="description" content="Master C++ programming from basics to advanced concepts. Learn object-oriented programming, data structures, and algorithms.">
+    <meta name="keywords" content="C++ tutorial, programming fundamentals, OOP, data structures, algorithms, systems programming">
+    
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
+                <a href="#course-content" class="nav-link active">Course</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <div class="course-hero">
+                <div class="course-info">
+                    <div class="course-badge">
+                        <i class="fas fa-code"></i>
+                        <span>Systems Programming</span>
+                    </div>
+                    <h1 class="course-title">
+                        <span class="typing-text">C++ Programming Mastery</span>
+                    </h1>
+                    <p class="course-subtitle">
+                        Master Systems Programming and Algorithms
+                    </p>
+                    <p class="course-description">
+                        Learn C++ from fundamentals to advanced concepts. Master object-oriented programming, 
+                        data structures, algorithms, memory management, and build high-performance applications.
+                    </p>
+                    
+                    <div class="course-stats">
+                        <div class="stat">
+                            <i class="fas fa-book"></i>
+                            <span>18 Chapters</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>35 Hours</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>6 Projects</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <button class="btn btn-primary" onclick="startCourse()">
+                            <i class="fas fa-play"></i> Start Learning
+                        </button>
+                        <button class="btn btn-secondary" onclick="togglePreview()">
+                            <i class="fas fa-eye"></i> Preview Course
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-visual">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">main.cpp</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-cpp">#include <iostream>
+#include <vector>
+#include <algorithm>
+
+class Student {
+private:
+    std::string name;
+    int age;
+    std::vector<double> grades;
+
+public:
+    Student(const std::string& n, int a) : name(n), age(a) {}
+    
+    void addGrade(double grade) {
+        grades.push_back(grade);
+    }
+    
+    double getAverage() const {
+        if (grades.empty()) return 0.0;
+        double sum = 0.0;
+        for (double grade : grades) {
+            sum += grade;
+        }
+        return sum / grades.size();
+    }
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-tracker">
+                <div class="progress-info">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="courseProgress" data-progress="0"></div>
+                    </div>
+                    <span class="progress-text">0% Complete (0/18 chapters)</span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="pointsEarned">0</span>
+                        <span class="stat-label">Points</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="badgesEarned">0</span>
+                        <span class="stat-label">Badges</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section id="course-content" class="course-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Course Chapters</h3>
+                        <div class="completion-badge">
+                            <span id="completedChapters">0</span>/18
+                        </div>
+                    </div>
+                    
+                    <div class="chapters-list">
+                        <div class="chapter-item active" data-chapter="1">
+                            <div class="chapter-number">1</div>
+                            <div class="chapter-info">
+                                <h4>Introduction to C++</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="2">
+                            <div class="chapter-number">2</div>
+                            <div class="chapter-info">
+                                <h4>Variables & Data Types</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="3">
+                            <div class="chapter-number">3</div>
+                            <div class="chapter-info">
+                                <h4>Control Structures</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="4">
+                            <div class="chapter-number">4</div>
+                            <div class="chapter-info">
+                                <h4>Functions & Scope</h4>
+                                <span class="chapter-duration">130 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="5">
+                            <div class="chapter-number">5</div>
+                            <div class="chapter-info">
+                                <h4>Arrays & Strings</h4>
+                                <span class="chapter-duration">115 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="6">
+                            <div class="chapter-number">6</div>
+                            <div class="chapter-info">
+                                <h4>Pointers & References</h4>
+                                <span class="chapter-duration">140 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="7">
+                            <div class="chapter-number">7</div>
+                            <div class="chapter-info">
+                                <h4>Classes & Objects</h4>
+                                <span class="chapter-duration">150 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="8">
+                            <div class="chapter-number">8</div>
+                            <div class="chapter-info">
+                                <h4>Inheritance</h4>
+                                <span class="chapter-duration">135 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="9">
+                            <div class="chapter-number">9</div>
+                            <div class="chapter-info">
+                                <h4>Polymorphism</h4>
+                                <span class="chapter-duration">125 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="10">
+                            <div class="chapter-number">10</div>
+                            <div class="chapter-info">
+                                <h4>Operator Overloading</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="11">
+                            <div class="chapter-number">11</div>
+                            <div class="chapter-info">
+                                <h4>Templates</h4>
+                                <span class="chapter-duration">145 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="12">
+                            <div class="chapter-number">12</div>
+                            <div class="chapter-info">
+                                <h4>STL Containers</h4>
+                                <span class="chapter-duration">130 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="13">
+                            <div class="chapter-number">13</div>
+                            <div class="chapter-info">
+                                <h4>STL Algorithms</h4>
+                                <span class="chapter-duration">125 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="14">
+                            <div class="chapter-number">14</div>
+                            <div class="chapter-info">
+                                <h4>Exception Handling</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="15">
+                            <div class="chapter-number">15</div>
+                            <div class="chapter-info">
+                                <h4>File I/O</h4>
+                                <span class="chapter-duration">105 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="16">
+                            <div class="chapter-number">16</div>
+                            <div class="chapter-info">
+                                <h4>Memory Management</h4>
+                                <span class="chapter-duration">140 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="17">
+                            <div class="chapter-number">17</div>
+                            <div class="chapter-info">
+                                <h4>Advanced Topics</h4>
+                                <span class="chapter-duration">135 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="18">
+                            <div class="chapter-number">18</div>
+                            <div class="chapter-info">
+                                <h4>Final Project: Game Engine</h4>
+                                <span class="chapter-duration">240 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lesson-content">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">Chapter 1: Introduction to C++</h2>
+                        <div class="lesson-meta">
+                            <span class="lesson-duration">
+                                <i class="fas fa-clock"></i> 120 minutes
+                            </span>
+                            <span class="lesson-difficulty">
+                                <i class="fas fa-signal"></i> Intermediate
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lesson-body">
+                        <div class="content-section">
+                            <h3 class="typing-text">What is C++?</h3>
+                            <p class="fade-in-up">
+                                C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension 
+                                of the C programming language. It's known for its performance, flexibility, and is widely 
+                                used in system programming, game development, embedded systems, and high-performance applications.
+                            </p>
+                            
+                            <div class="info-box fade-in-up">
+                                <div class="info-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Why Learn C++?</h4>
+                                    <p>C++ powers operating systems, game engines, databases, and performance-critical applications. Companies like Google, Microsoft, and Adobe rely heavily on C++.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">C++ Features</h3>
+                            <p class="fade-in-up">
+                                C++ combines the best of both worlds - low-level control and high-level features:
+                            </p>
+                            
+                            <ul class="feature-list fade-in-up">
+                                <li>
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <strong>High Performance:</strong> Direct memory management and efficient compilation
+                                </li>
+                                <li>
+                                    <i class="fas fa-cubes"></i>
+                                    <strong>Object-Oriented:</strong> Classes, inheritance, polymorphism, and encapsulation
+                                </li>
+                                <li>
+                                    <i class="fas fa-memory"></i>
+                                    <strong>Memory Control:</strong> Manual memory management with pointers and references
+                                </li>
+                                <li>
+                                    <i class="fas fa-code-branch"></i>
+                                    <strong>Generic Programming:</strong> Templates and STL for reusable code
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Your First C++ Program</h3>
+                            <p class="fade-in-up">
+                                Let's create a simple C++ program to understand the basic structure and syntax.
+                            </p>
+                            
+                            <div class="code-example fade-in-up">
+                                <div class="code-header">
+                                    <span class="code-title">Hello World C++ Program</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-cpp">#include <iostream>
+#include <string>
+
+int main() {
+    // Basic output
+    std::cout << "Hello, C++ World!" << std::endl;
+    
+    // Variables and data types
+    int age = 25;
+    double height = 5.9;
+    std::string name = "C++ Developer";
+    bool isProgrammer = true;
+    
+    // Output with variables
+    std::cout << "Name: " << name << std::endl;
+    std::cout << "Age: " << age << std::endl;
+    std::cout << "Height: " << height << " feet" << std::endl;
+    std::cout << "Is programmer: " << (isProgrammer ? "Yes" : "No") << std::endl;
+    
+    // Simple calculation
+    int a = 10, b = 5;
+    int sum = a + b;
+    std::cout << a << " + " << b << " = " << sum << std::endl;
+    
+    return 0;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Interactive C++ Playground -->
+                        <div class="content-section">
+                            <h3 class="typing-text">C++ Code Playground</h3>
+                            <p class="fade-in-up">
+                                Practice C++ programming with our interactive playground. Try different concepts and see the results.
+                            </p>
+                            
+                            <div class="code-playground fade-in-up">
+                                <div class="playground-header">
+                                    <div class="playground-tabs">
+                                        <button class="tab-btn active" data-tab="cpp">C++ Code</button>
+                                        <button class="tab-btn" data-tab="output">Output</button>
+                                    </div>
+                                    <button class="run-btn" onclick="runCppCode()">
+                                        <i class="fas fa-play"></i> Compile & Run
+                                    </button>
+                                </div>
+                                
+                                <div class="playground-content">
+                                    <div class="code-editor active" id="cpp-editor">
+                                        <textarea id="cppCode" placeholder="Write your C++ code here...">#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Variables and basic operations
+    string name = "John Doe";
+    int age = 25;
+    double salary = 50000.50;
+    
+    cout << "Employee Information:" << endl;
+    cout << "Name: " << name << endl;
+    cout << "Age: " << age << endl;
+    cout << "Salary: $" << salary << endl;
+    
+    // Arrays and loops
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    cout << "\nNumbers: ";
+    for (int num : numbers) {
+        cout << num << " ";
+    }
+    cout << endl;
+    
+    // Functions example
+    auto factorial = [](int n) -> int {
+        if (n <= 1) return 1;
+        return n * factorial(n - 1);
+    };
+    
+    int fact5 = factorial(5);
+    cout << "Factorial of 5: " << fact5 << endl;
+    
+    // Class example (preview)
+    class Rectangle {
+    public:
+        int width, height;
+        Rectangle(int w, int h) : width(w), height(h) {}
+        int area() { return width * height; }
+    };
+    
+    Rectangle rect(10, 5);
+    cout << "Rectangle area: " << rect.area() << endl;
+    
+    return 0;
+}</textarea>
+                                    </div>
+                                    
+                                    <div class="code-result" id="cpp-output">
+                                        <div class="output-header">C++ Output:</div>
+                                        <div class="output-content" id="cppOutputContent">
+                                            <div class="output-line">Ready to compile and run C++ code...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Section -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Knowledge Check</h3>
+                            <p class="fade-in-up">Test your understanding of C++ fundamentals:</p>
+                            
+                            <div class="quiz-container fade-in-up">
+                                <div class="quiz-question active" data-question="1">
+                                    <h4>Question 1 of 4</h4>
+                                    <p>Who created the C++ programming language?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="a">
+                                            <span>Dennis Ritchie</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="b">
+                                            <span>Bjarne Stroustrup</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="c">
+                                            <span>Linus Torvalds</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="2">
+                                    <h4>Question 2 of 4</h4>
+                                    <p>Which header file is needed for input/output operations in C++?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="a">
+                                            <span>#include &lt;iostream&gt;</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="b">
+                                            <span>#include &lt;stdio.h&gt;</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="c">
+                                            <span>#include &lt;conio.h&gt;</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="3">
+                                    <h4>Question 3 of 4</h4>
+                                    <p>What is the correct way to output text in C++?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="a">
+                                            <span>printf("Hello")</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="b">
+                                            <span>cout &lt;&lt; "Hello"</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="c">
+                                            <span>print("Hello")</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="4">
+                                    <h4>Question 4 of 4</h4>
+                                    <p>What is the entry point of a C++ program?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="a">
+                                            <span>main() function</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="b">
+                                            <span>start() function</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="c">
+                                            <span>begin() function</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-controls">
+                                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                                        <i class="fas fa-arrow-left"></i> Previous
+                                    </button>
+                                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                                        Next <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button class="btn btn-success" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                                        Submit Quiz <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="quiz-results" id="quizResults" style="display: none;">
+                                    <div class="results-header">
+                                        <h4>Quiz Complete!</h4>
+                                        <div class="score-circle">
+                                            <span id="scorePercentage">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="results-feedback">
+                                        <p id="feedbackText"></p>
+                                        <div class="points-earned">
+                                            <i class="fas fa-star"></i>
+                                            <span>+110 Points Earned!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="lesson-navigation">
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous Chapter
+                        </button>
+                        <button class="btn btn-primary" onclick="completeChapter(1)">
+                            Complete Chapter <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Master C++ and build high-performance applications.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Course Navigation</h4>
+                    <ul>
+                        <li><a href="#course-content">Current Chapter</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BandhanNova. Empowering systems programmers worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/certificate-generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="cpp-course.js"></script>
+</body>
+</html>

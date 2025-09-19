@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Course - Mobile App Development | BandhanNova</title>
+    <meta name="description" content="Master Flutter and Dart for cross-platform mobile app development. Build beautiful iOS and Android apps with interactive lessons and projects.">
+    <meta name="keywords" content="Flutter tutorial, Dart programming, mobile app development, cross-platform development, iOS Android apps">
+    
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
+                <a href="#course-content" class="nav-link active">Course</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <div class="course-hero">
+                <div class="course-info">
+                    <div class="course-badge">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile Development</span>
+                    </div>
+                    <h1 class="course-title">
+                        <span class="typing-text">Flutter Mobile Development</span>
+                    </h1>
+                    <p class="course-subtitle">
+                        Build Beautiful Cross-Platform Mobile Apps
+                    </p>
+                    <p class="course-description">
+                        Master Flutter and Dart to create stunning mobile applications for iOS and Android. 
+                        Learn widgets, state management, navigation, and deploy real apps to app stores.
+                    </p>
+                    
+                    <div class="course-stats">
+                        <div class="stat">
+                            <i class="fas fa-book"></i>
+                            <span>16 Chapters</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>30 Hours</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>5 Apps</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <button class="btn btn-primary" onclick="startCourse()">
+                            <i class="fas fa-play"></i> Start Learning
+                        </button>
+                        <button class="btn btn-secondary" onclick="togglePreview()">
+                            <i class="fas fa-eye"></i> Preview Course
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-visual">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">main.dart</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-dart">import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-tracker">
+                <div class="progress-info">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="courseProgress" data-progress="0"></div>
+                    </div>
+                    <span class="progress-text">0% Complete (0/16 chapters)</span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="pointsEarned">0</span>
+                        <span class="stat-label">Points</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="badgesEarned">0</span>
+                        <span class="stat-label">Badges</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section id="course-content" class="course-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Course Chapters</h3>
+                        <div class="completion-badge">
+                            <span id="completedChapters">0</span>/16
+                        </div>
+                    </div>
+                    
+                    <div class="chapters-list">
+                        <div class="chapter-item active" data-chapter="1">
+                            <div class="chapter-number">1</div>
+                            <div class="chapter-info">
+                                <h4>Introduction to Flutter</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="2">
+                            <div class="chapter-number">2</div>
+                            <div class="chapter-info">
+                                <h4>Dart Programming Basics</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="3">
+                            <div class="chapter-number">3</div>
+                            <div class="chapter-info">
+                                <h4>Flutter Widgets Fundamentals</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="4">
+                            <div class="chapter-number">4</div>
+                            <div class="chapter-info">
+                                <h4>Layouts and UI Design</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="5">
+                            <div class="chapter-number">5</div>
+                            <div class="chapter-info">
+                                <h4>Stateful vs Stateless Widgets</h4>
+                                <span class="chapter-duration">95 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="6">
+                            <div class="chapter-number">6</div>
+                            <div class="chapter-info">
+                                <h4>User Input and Forms</h4>
+                                <span class="chapter-duration">85 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="7">
+                            <div class="chapter-number">7</div>
+                            <div class="chapter-info">
+                                <h4>Navigation and Routing</h4>
+                                <span class="chapter-duration">105 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="8">
+                            <div class="chapter-number">8</div>
+                            <div class="chapter-info">
+                                <h4>State Management</h4>
+                                <span class="chapter-duration">130 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="9">
+                            <div class="chapter-number">9</div>
+                            <div class="chapter-info">
+                                <h4>HTTP Requests and APIs</h4>
+                                <span class="chapter-duration">115 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="10">
+                            <div class="chapter-number">10</div>
+                            <div class="chapter-info">
+                                <h4>Local Storage and Databases</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="11">
+                            <div class="chapter-number">11</div>
+                            <div class="chapter-info">
+                                <h4>Animations and Transitions</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="12">
+                            <div class="chapter-number">12</div>
+                            <div class="chapter-info">
+                                <h4>Device Features and Plugins</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="13">
+                            <div class="chapter-number">13</div>
+                            <div class="chapter-info">
+                                <h4>Testing Flutter Apps</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="14">
+                            <div class="chapter-number">14</div>
+                            <div class="chapter-info">
+                                <h4>App Deployment</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="15">
+                            <div class="chapter-number">15</div>
+                            <div class="chapter-info">
+                                <h4>Performance Optimization</h4>
+                                <span class="chapter-duration">85 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="16">
+                            <div class="chapter-number">16</div>
+                            <div class="chapter-info">
+                                <h4>Final Project: Complete App</h4>
+                                <span class="chapter-duration">180 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lesson-content">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">Chapter 1: Introduction to Flutter</h2>
+                        <div class="lesson-meta">
+                            <span class="lesson-duration">
+                                <i class="fas fa-clock"></i> 90 minutes
+                            </span>
+                            <span class="lesson-difficulty">
+                                <i class="fas fa-signal"></i> Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lesson-body">
+                        <div class="content-section">
+                            <h3 class="typing-text">What is Flutter?</h3>
+                            <p class="fade-in-up">
+                                Flutter is Google's UI toolkit for building beautiful, natively compiled applications 
+                                for mobile, web, and desktop from a single codebase. It uses the Dart programming language 
+                                and provides a rich set of pre-designed widgets.
+                            </p>
+                            
+                            <div class="info-box fade-in-up">
+                                <div class="info-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Why Choose Flutter?</h4>
+                                    <p>Flutter allows you to write once and deploy everywhere. Popular apps like Google Ads, Alibaba, and BMW use Flutter for their mobile applications.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Flutter Architecture</h3>
+                            <p class="fade-in-up">
+                                Flutter's architecture consists of three main layers:
+                            </p>
+                            
+                            <ul class="feature-list fade-in-up">
+                                <li>
+                                    <i class="fas fa-layer-group"></i>
+                                    <strong>Framework Layer:</strong> Widgets, rendering, and animation APIs written in Dart
+                                </li>
+                                <li>
+                                    <i class="fas fa-cogs"></i>
+                                    <strong>Engine Layer:</strong> Core C++ engine handling graphics, text layout, and Dart runtime
+                                </li>
+                                <li>
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <strong>Platform Layer:</strong> Platform-specific embedders for iOS, Android, web, and desktop
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Your First Flutter App</h3>
+                            <p class="fade-in-up">
+                                Let's create a simple "Hello World" Flutter application to understand the basic structure.
+                            </p>
+                            
+                            <div class="code-example fade-in-up">
+                                <div class="code-header">
+                                    <span class="code-title">Hello World Flutter App</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-dart">import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Hello Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My First Flutter App'),
+          backgroundColor: Colors.blue,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Hello, Flutter!',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  print('Button pressed!');
+                },
+                child: Text('Press Me'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Code Playground -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Flutter Code Playground</h3>
+                            <p class="fade-in-up">
+                                Practice Dart and Flutter concepts with our interactive playground. 
+                                Note: This simulates Flutter code - for full app testing, use Flutter SDK.
+                            </p>
+                            
+                            <div class="code-playground fade-in-up">
+                                <div class="playground-header">
+                                    <div class="playground-tabs">
+                                        <button class="tab-btn active" data-tab="dart">Dart Code</button>
+                                        <button class="tab-btn" data-tab="output">Output</button>
+                                    </div>
+                                    <button class="run-btn" onclick="runDartCode()">
+                                        <i class="fas fa-play"></i> Run Code
+                                    </button>
+                                </div>
+                                
+                                <div class="playground-content">
+                                    <div class="code-editor active" id="dart-editor">
+                                        <textarea id="dartCode" placeholder="Write your Dart code here...">// Dart Programming Basics
+void main() {
+  // Variables and data types
+  String name = 'Flutter Developer';
+  int age = 25;
+  double height = 5.9;
+  bool isLearning = true;
+  
+  print('Hello, I am $name');
+  print('Age: $age, Height: $height');
+  print('Currently learning: $isLearning');
+  
+  // Lists and Maps
+  List<String> skills = ['Dart', 'Flutter', 'Mobile Development'];
+  Map<String, dynamic> profile = {
+    'name': name,
+    'skills': skills,
+    'experience': '2 years'
+  };
+  
+  print('Skills: ${skills.join(', ')}');
+  print('Profile: $profile');
+  
+  // Functions
+  String greetUser(String userName) {
+    return 'Welcome to Flutter, $userName!';
+  }
+  
+  print(greetUser('Student'));
+}</textarea>
+                                    </div>
+                                    
+                                    <div class="code-result" id="dart-output">
+                                        <div class="output-header">Dart Output:</div>
+                                        <div class="output-content" id="dartOutputContent">
+                                            <div class="output-line">Ready to run Dart code...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Section -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Knowledge Check</h3>
+                            <p class="fade-in-up">Test your understanding of Flutter fundamentals:</p>
+                            
+                            <div class="quiz-container fade-in-up">
+                                <div class="quiz-question active" data-question="1">
+                                    <h4>Question 1 of 4</h4>
+                                    <p>What programming language does Flutter use?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="a">
+                                            <span>JavaScript</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="b">
+                                            <span>Dart</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="c">
+                                            <span>Java</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="2">
+                                    <h4>Question 2 of 4</h4>
+                                    <p>Which company developed Flutter?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="a">
+                                            <span>Facebook</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="b">
+                                            <span>Google</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="c">
+                                            <span>Microsoft</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="3">
+                                    <h4>Question 3 of 4</h4>
+                                    <p>What is the main advantage of Flutter?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="a">
+                                            <span>Cross-platform development</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="b">
+                                            <span>Only works on Android</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="c">
+                                            <span>Requires separate codebases</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="4">
+                                    <h4>Question 4 of 4</h4>
+                                    <p>What is the entry point of a Flutter application?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="a">
+                                            <span>start() function</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="b">
+                                            <span>main() function</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="c">
+                                            <span>init() function</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-controls">
+                                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                                        <i class="fas fa-arrow-left"></i> Previous
+                                    </button>
+                                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                                        Next <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button class="btn btn-success" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                                        Submit Quiz <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="quiz-results" id="quizResults" style="display: none;">
+                                    <div class="results-header">
+                                        <h4>Quiz Complete!</h4>
+                                        <div class="score-circle">
+                                            <span id="scorePercentage">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="results-feedback">
+                                        <p id="feedbackText"></p>
+                                        <div class="points-earned">
+                                            <i class="fas fa-star"></i>
+                                            <span>+100 Points Earned!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="lesson-navigation">
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous Chapter
+                        </button>
+                        <button class="btn btn-primary" onclick="completeChapter(1)">
+                            Complete Chapter <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Master Flutter and build amazing mobile apps for iOS and Android.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Course Navigation</h4>
+                    <ul>
+                        <li><a href="#course-content">Current Chapter</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Building the future of mobile app development education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/certificate-generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="flutter-course.js"></script>
+</body>
+</html>

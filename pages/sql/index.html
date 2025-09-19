@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Course - Database Fundamentals | BandhanNova</title>
+    <meta name="description" content="Master SQL and database management. Learn queries, joins, database design, and advanced SQL concepts with hands-on practice.">
+    <meta name="keywords" content="SQL tutorial, database management, MySQL, PostgreSQL, database queries, joins, SQL fundamentals">
+    
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
+                <a href="#course-content" class="nav-link active">Course</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <div class="course-hero">
+                <div class="course-info">
+                    <div class="course-badge">
+                        <i class="fas fa-database"></i>
+                        <span>Database Management</span>
+                    </div>
+                    <h1 class="course-title">
+                        <span class="typing-text">SQL Database Mastery</span>
+                    </h1>
+                    <p class="course-subtitle">
+                        Master Database Queries and Management
+                    </p>
+                    <p class="course-description">
+                        Learn SQL from fundamentals to advanced concepts. Master database design, complex queries, 
+                        joins, stored procedures, and optimization techniques used in real-world applications.
+                    </p>
+                    
+                    <div class="course-stats">
+                        <div class="stat">
+                            <i class="fas fa-book"></i>
+                            <span>12 Chapters</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>20 Hours</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Beginner</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-database"></i>
+                            <span>3 Projects</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <button class="btn btn-primary" onclick="startCourse()">
+                            <i class="fas fa-play"></i> Start Learning
+                        </button>
+                        <button class="btn btn-secondary" onclick="togglePreview()">
+                            <i class="fas fa-eye"></i> Preview Course
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-visual">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">query.sql</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-sql">SELECT 
+    u.name,
+    u.email,
+    COUNT(o.id) as total_orders,
+    SUM(o.amount) as total_spent
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.created_at >= '2024-01-01'
+GROUP BY u.id, u.name, u.email
+HAVING COUNT(o.id) > 0
+ORDER BY total_spent DESC
+LIMIT 10;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-tracker">
+                <div class="progress-info">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="courseProgress" data-progress="0"></div>
+                    </div>
+                    <span class="progress-text">0% Complete (0/12 chapters)</span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="pointsEarned">0</span>
+                        <span class="stat-label">Points</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="badgesEarned">0</span>
+                        <span class="stat-label">Badges</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section id="course-content" class="course-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Course Chapters</h3>
+                        <div class="completion-badge">
+                            <span id="completedChapters">0</span>/12
+                        </div>
+                    </div>
+                    
+                    <div class="chapters-list">
+                        <div class="chapter-item active" data-chapter="1">
+                            <div class="chapter-number">1</div>
+                            <div class="chapter-info">
+                                <h4>Introduction to Databases</h4>
+                                <span class="chapter-duration">80 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="2">
+                            <div class="chapter-number">2</div>
+                            <div class="chapter-info">
+                                <h4>SQL Fundamentals</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="3">
+                            <div class="chapter-number">3</div>
+                            <div class="chapter-info">
+                                <h4>Creating Tables & Data Types</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="4">
+                            <div class="chapter-number">4</div>
+                            <div class="chapter-info">
+                                <h4>Inserting & Updating Data</h4>
+                                <span class="chapter-duration">85 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="5">
+                            <div class="chapter-number">5</div>
+                            <div class="chapter-info">
+                                <h4>Querying Data with SELECT</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="6">
+                            <div class="chapter-number">6</div>
+                            <div class="chapter-info">
+                                <h4>Filtering & Sorting Data</h4>
+                                <span class="chapter-duration">95 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="7">
+                            <div class="chapter-number">7</div>
+                            <div class="chapter-info">
+                                <h4>Joins and Relationships</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="8">
+                            <div class="chapter-number">8</div>
+                            <div class="chapter-info">
+                                <h4>Aggregate Functions</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="9">
+                            <div class="chapter-number">9</div>
+                            <div class="chapter-info">
+                                <h4>Subqueries & Advanced Queries</h4>
+                                <span class="chapter-duration">115 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="10">
+                            <div class="chapter-number">10</div>
+                            <div class="chapter-info">
+                                <h4>Indexes & Performance</h4>
+                                <span class="chapter-duration">105 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="11">
+                            <div class="chapter-number">11</div>
+                            <div class="chapter-info">
+                                <h4>Stored Procedures & Functions</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="12">
+                            <div class="chapter-number">12</div>
+                            <div class="chapter-info">
+                                <h4>Final Project: E-commerce DB</h4>
+                                <span class="chapter-duration">150 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lesson-content">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">Chapter 1: Introduction to Databases</h2>
+                        <div class="lesson-meta">
+                            <span class="lesson-duration">
+                                <i class="fas fa-clock"></i> 80 minutes
+                            </span>
+                            <span class="lesson-difficulty">
+                                <i class="fas fa-signal"></i> Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lesson-body">
+                        <div class="content-section">
+                            <h3 class="typing-text">What is a Database?</h3>
+                            <p class="fade-in-up">
+                                A database is an organized collection of structured information, or data, typically stored 
+                                electronically in a computer system. Databases are managed by Database Management Systems (DBMS) 
+                                which provide an interface for users and applications to interact with the data.
+                            </p>
+                            
+                            <div class="info-box fade-in-up">
+                                <div class="info-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Why Learn SQL?</h4>
+                                    <p>SQL is the standard language for managing relational databases. It's used by companies like Google, Facebook, Netflix, and virtually every tech company that handles data.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Types of Databases</h3>
+                            <p class="fade-in-up">
+                                There are several types of databases, each designed for specific use cases:
+                            </p>
+                            
+                            <ul class="feature-list fade-in-up">
+                                <li>
+                                    <i class="fas fa-table"></i>
+                                    <strong>Relational Databases:</strong> Store data in tables with rows and columns (MySQL, PostgreSQL, SQLite)
+                                </li>
+                                <li>
+                                    <i class="fas fa-project-diagram"></i>
+                                    <strong>NoSQL Databases:</strong> Store data in flexible, non-tabular formats (MongoDB, Redis)
+                                </li>
+                                <li>
+                                    <i class="fas fa-chart-line"></i>
+                                    <strong>Graph Databases:</strong> Store data as nodes and relationships (Neo4j, Amazon Neptune)
+                                </li>
+                                <li>
+                                    <i class="fas fa-columns"></i>
+                                    <strong>Columnar Databases:</strong> Store data in columns for analytics (Amazon Redshift, BigQuery)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Your First SQL Query</h3>
+                            <p class="fade-in-up">
+                                Let's start with a simple SQL query to understand the basic structure and syntax.
+                            </p>
+                            
+                            <div class="code-example fade-in-up">
+                                <div class="code-header">
+                                    <span class="code-title">Basic SELECT Query</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-sql">-- Select all columns from the users table
+SELECT * FROM users;
+
+-- Select specific columns
+SELECT name, email, created_at FROM users;
+
+-- Select with a condition
+SELECT name, email 
+FROM users 
+WHERE age >= 18;
+
+-- Count total users
+SELECT COUNT(*) as total_users FROM users;
+
+-- Select users and order by name
+SELECT name, email, age
+FROM users
+WHERE age >= 21
+ORDER BY name ASC;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Interactive SQL Playground -->
+                        <div class="content-section">
+                            <h3 class="typing-text">SQL Query Playground</h3>
+                            <p class="fade-in-up">
+                                Practice SQL queries with our interactive playground. Try different queries and see the results.
+                            </p>
+                            
+                            <div class="code-playground fade-in-up">
+                                <div class="playground-header">
+                                    <div class="playground-tabs">
+                                        <button class="tab-btn active" data-tab="sql">SQL Query</button>
+                                        <button class="tab-btn" data-tab="result">Query Result</button>
+                                        <button class="tab-btn" data-tab="schema">Database Schema</button>
+                                    </div>
+                                    <button class="run-btn" onclick="runSQLQuery()">
+                                        <i class="fas fa-play"></i> Execute Query
+                                    </button>
+                                </div>
+                                
+                                <div class="playground-content">
+                                    <div class="code-editor active" id="sql-editor">
+                                        <textarea id="sqlCode" placeholder="Write your SQL query here...">-- Sample database: Company Employee Management
+-- Try these queries:
+
+-- 1. Select all employees
+SELECT * FROM employees;
+
+-- 2. Find employees in specific department
+SELECT name, position, salary 
+FROM employees 
+WHERE department = 'Engineering';
+
+-- 3. Count employees by department
+SELECT department, COUNT(*) as employee_count
+FROM employees
+GROUP BY department;
+
+-- 4. Find highest paid employees
+SELECT name, salary, department
+FROM employees
+ORDER BY salary DESC
+LIMIT 5;</textarea>
+                                    </div>
+                                    
+                                    <div class="code-result" id="sql-result">
+                                        <div class="result-header">Query Results:</div>
+                                        <div class="result-content" id="sqlResultContent">
+                                            <div class="result-table">
+                                                <div class="table-info">Ready to execute SQL query...</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="code-result" id="sql-schema">
+                                        <div class="result-header">Database Schema:</div>
+                                        <div class="schema-content">
+                                            <div class="table-schema">
+                                                <h4>employees</h4>
+                                                <ul>
+                                                    <li><strong>id</strong> - INTEGER (Primary Key)</li>
+                                                    <li><strong>name</strong> - VARCHAR(100)</li>
+                                                    <li><strong>email</strong> - VARCHAR(150)</li>
+                                                    <li><strong>position</strong> - VARCHAR(100)</li>
+                                                    <li><strong>department</strong> - VARCHAR(50)</li>
+                                                    <li><strong>salary</strong> - DECIMAL(10,2)</li>
+                                                    <li><strong>hire_date</strong> - DATE</li>
+                                                </ul>
+                                            </div>
+                                            <div class="table-schema">
+                                                <h4>departments</h4>
+                                                <ul>
+                                                    <li><strong>id</strong> - INTEGER (Primary Key)</li>
+                                                    <li><strong>name</strong> - VARCHAR(50)</li>
+                                                    <li><strong>manager_id</strong> - INTEGER (Foreign Key)</li>
+                                                    <li><strong>budget</strong> - DECIMAL(12,2)</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Section -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Knowledge Check</h3>
+                            <p class="fade-in-up">Test your understanding of database fundamentals:</p>
+                            
+                            <div class="quiz-container fade-in-up">
+                                <div class="quiz-question active" data-question="1">
+                                    <h4>Question 1 of 4</h4>
+                                    <p>What does SQL stand for?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="a">
+                                            <span>Simple Query Language</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="b">
+                                            <span>Structured Query Language</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="c">
+                                            <span>Standard Query Language</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="2">
+                                    <h4>Question 2 of 4</h4>
+                                    <p>Which SQL command is used to retrieve data from a database?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="a">
+                                            <span>GET</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="b">
+                                            <span>SELECT</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="c">
+                                            <span>RETRIEVE</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="3">
+                                    <h4>Question 3 of 4</h4>
+                                    <p>What is a primary key in a database table?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="a">
+                                            <span>A unique identifier for each row</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="b">
+                                            <span>The first column in a table</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="c">
+                                            <span>A password for the database</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="4">
+                                    <h4>Question 4 of 4</h4>
+                                    <p>Which type of database stores data in tables with rows and columns?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="a">
+                                            <span>Relational Database</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="b">
+                                            <span>NoSQL Database</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="c">
+                                            <span>Graph Database</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-controls">
+                                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                                        <i class="fas fa-arrow-left"></i> Previous
+                                    </button>
+                                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                                        Next <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button class="btn btn-success" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                                        Submit Quiz <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="quiz-results" id="quizResults" style="display: none;">
+                                    <div class="results-header">
+                                        <h4>Quiz Complete!</h4>
+                                        <div class="score-circle">
+                                            <span id="scorePercentage">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="results-feedback">
+                                        <p id="feedbackText"></p>
+                                        <div class="points-earned">
+                                            <i class="fas fa-star"></i>
+                                            <span>+80 Points Earned!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="lesson-navigation">
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous Chapter
+                        </button>
+                        <button class="btn btn-primary" onclick="completeChapter(1)">
+                            Complete Chapter <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Master SQL and database management for modern applications.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Course Navigation</h4>
+                    <ul>
+                        <li><a href="#course-content">Current Chapter</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Empowering database professionals worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/certificate-generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="sql-course.js"></script>
+</body>
+</html>

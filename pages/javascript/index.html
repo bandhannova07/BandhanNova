@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Course - Modern Web Development | BandhanNova</title>
+    <meta name="description" content="Master JavaScript ES6+ with interactive lessons, projects, and real-world examples. Learn modern JavaScript for web development.">
+    <meta name="keywords" content="JavaScript tutorial, ES6, modern JavaScript, web development, programming course, interactive coding">
+    
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
+                <a href="#course-content" class="nav-link active">Course</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../../index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../tech-learning.html">Tech Learning</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>JavaScript Course</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <div class="course-hero">
+                <div class="course-info">
+                    <div class="course-badge">
+                        <i class="fab fa-js-square"></i>
+                        <span>Interactive Web Development</span>
+                    </div>
+                    <h1 class="course-title">
+                        <span class="typing-text">Modern JavaScript Mastery</span>
+                    </h1>
+                    <p class="course-subtitle">
+                        Build Dynamic, Interactive Web Applications
+                    </p>
+                    <p class="course-description">
+                        Master JavaScript ES6+ features, DOM manipulation, async programming, and modern frameworks. 
+                        Learn to build interactive web applications with real-world projects and industry best practices.
+                    </p>
+                    
+                    <div class="course-stats">
+                        <div class="stat">
+                            <i class="fas fa-book"></i>
+                            <span>14 Chapters</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>25 Hours</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>8 Projects</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <button class="btn btn-primary" onclick="startCourse()">
+                            <i class="fas fa-play"></i> Start Learning
+                        </button>
+                        <button class="btn btn-secondary" onclick="togglePreview()">
+                            <i class="fas fa-eye"></i> Preview Course
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-visual">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">app.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-javascript">// Modern JavaScript ES6+
+const fetchUserData = async (userId) => {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    const userData = await response.json();
+    
+    return {
+      ...userData,
+      isActive: true,
+      lastLogin: new Date()
+    };
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    throw new Error('Failed to fetch user data');
+  }
+};
+
+// DOM Manipulation
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new App();
+  app.init();
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-tracker">
+                <div class="progress-info">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="courseProgress" data-progress="0"></div>
+                    </div>
+                    <span class="progress-text">0% Complete (0/14 chapters)</span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="pointsEarned">0</span>
+                        <span class="stat-label">Points</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="badgesEarned">0</span>
+                        <span class="stat-label">Badges</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section id="course-content" class="course-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Course Chapters</h3>
+                        <div class="completion-badge">
+                            <span id="completedChapters">0</span>/14
+                        </div>
+                    </div>
+                    
+                    <div class="chapters-list">
+                        <div class="chapter-item active" data-chapter="1">
+                            <div class="chapter-number">1</div>
+                            <div class="chapter-info">
+                                <h4>JavaScript Fundamentals</h4>
+                                <span class="chapter-duration">60 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="2">
+                            <div class="chapter-number">2</div>
+                            <div class="chapter-info">
+                                <h4>Variables & Data Types</h4>
+                                <span class="chapter-duration">45 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="3">
+                            <div class="chapter-number">3</div>
+                            <div class="chapter-info">
+                                <h4>Functions & Scope</h4>
+                                <span class="chapter-duration">70 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="4">
+                            <div class="chapter-number">4</div>
+                            <div class="chapter-info">
+                                <h4>Objects & Arrays</h4>
+                                <span class="chapter-duration">80 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="5">
+                            <div class="chapter-number">5</div>
+                            <div class="chapter-info">
+                                <h4>DOM Manipulation</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="6">
+                            <div class="chapter-number">6</div>
+                            <div class="chapter-info">
+                                <h4>Events & Event Handling</h4>
+                                <span class="chapter-duration">75 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="7">
+                            <div class="chapter-number">7</div>
+                            <div class="chapter-info">
+                                <h4>ES6+ Features</h4>
+                                <span class="chapter-duration">85 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="8">
+                            <div class="chapter-number">8</div>
+                            <div class="chapter-info">
+                                <h4>Promises & Async/Await</h4>
+                                <span class="chapter-duration">95 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="9">
+                            <div class="chapter-number">9</div>
+                            <div class="chapter-info">
+                                <h4>Fetch API & AJAX</h4>
+                                <span class="chapter-duration">70 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="10">
+                            <div class="chapter-number">10</div>
+                            <div class="chapter-info">
+                                <h4>Error Handling</h4>
+                                <span class="chapter-duration">55 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="11">
+                            <div class="chapter-number">11</div>
+                            <div class="chapter-info">
+                                <h4>Modules & Import/Export</h4>
+                                <span class="chapter-duration">65 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="12">
+                            <div class="chapter-number">12</div>
+                            <div class="chapter-info">
+                                <h4>Local Storage & APIs</h4>
+                                <span class="chapter-duration">80 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="13">
+                            <div class="chapter-number">13</div>
+                            <div class="chapter-info">
+                                <h4>Testing & Debugging</h4>
+                                <span class="chapter-duration">75 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="14">
+                            <div class="chapter-number">14</div>
+                            <div class="chapter-info">
+                                <h4>Final Project: Todo App</h4>
+                                <span class="chapter-duration">150 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lesson-content">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">Chapter 1: JavaScript Fundamentals</h2>
+                        <div class="lesson-meta">
+                            <span class="lesson-duration">
+                                <i class="fas fa-clock"></i> 60 minutes
+                            </span>
+                            <span class="lesson-difficulty">
+                                <i class="fas fa-signal"></i> Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lesson-body">
+                        <div class="content-section">
+                            <h3 class="typing-text">Welcome to JavaScript!</h3>
+                            <p class="fade-in-up">
+                                JavaScript is the programming language of the web. It's what makes websites interactive, 
+                                dynamic, and engaging. From simple button clicks to complex web applications, 
+                                JavaScript powers the modern internet.
+                            </p>
+                            
+                            <div class="info-box fade-in-up">
+                                <div class="info-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Why Learn JavaScript?</h4>
+                                    <p>JavaScript is the most popular programming language in the world, used by 97% of websites. It's essential for frontend development and increasingly popular for backend development with Node.js.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Your First JavaScript Code</h3>
+                            <p class="fade-in-up">
+                                Let's start with the traditional "Hello, World!" program. This simple example will introduce you to JavaScript syntax.
+                            </p>
+                            
+                            <div class="code-example fade-in-up">
+                                <div class="code-header">
+                                    <span class="code-title">Hello World in JavaScript</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-javascript">// This is a comment - it doesn't run as code
+console.log("Hello, World!");
+
+// You can also use alert to show a popup
+alert("Welcome to JavaScript!");
+
+// Variables store data
+let message = "JavaScript is awesome!";
+console.log(message);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">JavaScript in Web Pages</h3>
+                            <p class="fade-in-up">
+                                JavaScript can be included in HTML pages in several ways:
+                            </p>
+                            
+                            <ul class="feature-list fade-in-up">
+                                <li>
+                                    <i class="fas fa-code"></i>
+                                    <strong>Inline:</strong> Directly in HTML attributes (not recommended)
+                                </li>
+                                <li>
+                                    <i class="fas fa-file-code"></i>
+                                    <strong>Internal:</strong> Inside &lt;script&gt; tags in the HTML document
+                                </li>
+                                <li>
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <strong>External:</strong> In separate .js files (best practice)
+                                </li>
+                            </ul>
+                            
+                            <div class="code-example fade-in-up">
+                                <div class="code-header">
+                                    <span class="code-title">Including JavaScript in HTML</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My JavaScript Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 id="heading"&gt;Welcome!&lt;/h1&gt;
+    &lt;button onclick="changeText()"&gt;Click Me!&lt;/button&gt;
+    
+    &lt;script&gt;
+        function changeText() {
+            document.getElementById('heading').textContent = 'Hello JavaScript!';
+        }
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Code Playground -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Interactive JavaScript Playground</h3>
+                            <p class="fade-in-up">
+                                Try writing JavaScript code below. You can use console.log() to output results, 
+                                or manipulate the DOM to see changes in real-time.
+                            </p>
+                            
+                            <div class="code-playground fade-in-up">
+                                <div class="playground-header">
+                                    <div class="playground-tabs">
+                                        <button class="tab-btn active" data-tab="js">JavaScript</button>
+                                        <button class="tab-btn" data-tab="html">HTML</button>
+                                        <button class="tab-btn" data-tab="result">Result</button>
+                                        <button class="tab-btn" data-tab="console">Console</button>
+                                    </div>
+                                    <button class="run-btn" onclick="runJavaScript()">
+                                        <i class="fas fa-play"></i> Run Code
+                                    </button>
+                                </div>
+                                
+                                <div class="playground-content">
+                                    <div class="code-editor active" id="js-editor">
+                                        <textarea id="jsCode" placeholder="Write your JavaScript code here...">// Try these examples:
+
+// 1. Basic output
+console.log("Hello from JavaScript!");
+
+// 2. Variables and operations
+let name = "Student";
+let age = 25;
+console.log(`My name is ${name} and I am ${age} years old`);
+
+// 3. Simple function
+function greet(person) {
+    return `Hello, ${person}! Welcome to JavaScript.`;
+}
+
+console.log(greet("World"));
+
+// 4. DOM manipulation (try this after running)
+document.body.innerHTML += '<h2>JavaScript is working!</h2>';
+document.body.style.backgroundColor = '#f0f8ff';</textarea>
+                                    </div>
+                                    
+                                    <div class="code-editor" id="html-editor">
+                                        <textarea id="htmlCode" placeholder="HTML for your JavaScript to interact with..."><!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Playground</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .highlight { background-color: yellow; }
+    </style>
+</head>
+<body>
+    <h1 id="title">JavaScript Playground</h1>
+    <p id="demo">This text can be changed with JavaScript!</p>
+    <button id="myButton">Click me!</button>
+    
+    <div id="output"></div>
+</body>
+</html></textarea>
+                                    </div>
+                                    
+                                    <div class="code-result" id="result-frame">
+                                        <iframe id="jsOutput" frameborder="0"></iframe>
+                                    </div>
+                                    
+                                    <div class="console-output" id="console-output">
+                                        <div class="console-header">Console Output:</div>
+                                        <div class="console-content" id="consoleContent">
+                                            <div class="console-line">Ready to run JavaScript...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Section -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Knowledge Check</h3>
+                            <p class="fade-in-up">Test your understanding of JavaScript fundamentals:</p>
+                            
+                            <div class="quiz-container fade-in-up">
+                                <div class="quiz-question active" data-question="1">
+                                    <h4>Question 1 of 4</h4>
+                                    <p>Which of the following is the correct way to declare a variable in modern JavaScript?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="a">
+                                            <span>var myVariable = 5;</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="b">
+                                            <span>let myVariable = 5;</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="c">
+                                            <span>variable myVariable = 5;</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="2">
+                                    <h4>Question 2 of 4</h4>
+                                    <p>What does console.log() do?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="a">
+                                            <span>Displays an alert popup</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="b">
+                                            <span>Prints output to the browser console</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="c">
+                                            <span>Saves data to a log file</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="3">
+                                    <h4>Question 3 of 4</h4>
+                                    <p>Which symbol is used for single-line comments in JavaScript?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="a">
+                                            <span>//</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="b">
+                                            <span>/*</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="c">
+                                            <span>#</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="4">
+                                    <h4>Question 4 of 4</h4>
+                                    <p>What is the best practice for including JavaScript in HTML?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="a">
+                                            <span>Inline in HTML attributes</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="b">
+                                            <span>In external .js files</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="c">
+                                            <span>Only in &lt;script&gt; tags</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-controls">
+                                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                                        <i class="fas fa-arrow-left"></i> Previous
+                                    </button>
+                                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                                        Next <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button class="btn btn-success" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                                        Submit Quiz <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="quiz-results" id="quizResults" style="display: none;">
+                                    <div class="results-header">
+                                        <h4>Quiz Complete!</h4>
+                                        <div class="score-circle">
+                                            <span id="scorePercentage">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="results-feedback">
+                                        <p id="feedbackText"></p>
+                                        <div class="points-earned">
+                                            <i class="fas fa-star"></i>
+                                            <span>+75 Points Earned!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="lesson-navigation">
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous Chapter
+                        </button>
+                        <button class="btn btn-primary" onclick="completeChapter(1)">
+                            Complete Chapter <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Master modern JavaScript with interactive lessons and real-world projects.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Course Navigation</h4>
+                    <ul>
+                        <li><a href="#course-content">Current Chapter</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Building the future of JavaScript education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/certificate-generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="javascript-course.js"></script>
+</body>
+</html>

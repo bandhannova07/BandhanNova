@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruby Course - Web Development | BandhanNova</title>
+    <meta name="description" content="Master Ruby programming and Rails framework. Learn web development, object-oriented programming, and build dynamic web applications.">
+    <meta name="keywords" content="Ruby tutorial, Rails framework, web development, object-oriented programming, dynamic websites">
+    
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                        <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                        <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                    </svg>
+                    <span class="logo-text">BandhanNova</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="../../index.html" class="nav-link">Home</a>
+                <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
+                <a href="#course-content" class="nav-link active">Course</a>
+                <a href="../dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <section class="course-header">
+        <div class="container">
+            <div class="course-hero">
+                <div class="course-info">
+                    <div class="course-badge">
+                        <i class="fas fa-gem"></i>
+                        <span>Web Development</span>
+                    </div>
+                    <h1 class="course-title">
+                        <span class="typing-text">Ruby Web Development</span>
+                    </h1>
+                    <p class="course-subtitle">
+                        Build Dynamic Web Applications with Ruby & Rails
+                    </p>
+                    <p class="course-description">
+                        Master Ruby programming and the Rails framework. Learn object-oriented programming, 
+                        web development patterns, database integration, and build full-stack web applications.
+                    </p>
+                    
+                    <div class="course-stats">
+                        <div class="stat">
+                            <i class="fas fa-book"></i>
+                            <span>14 Chapters</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>28 Hours</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-users"></i>
+                            <span>Intermediate</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-globe"></i>
+                            <span>4 Web Apps</span>
+                        </div>
+                    </div>
+                    
+                    <div class="course-actions">
+                        <button class="btn btn-primary" onclick="startCourse()">
+                            <i class="fas fa-play"></i> Start Learning
+                        </button>
+                        <button class="btn btn-secondary" onclick="togglePreview()">
+                            <i class="fas fa-eye"></i> Preview Course
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="course-visual">
+                    <div class="code-preview">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="code-title">app.rb</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code class="language-ruby">class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true, length: { minimum: 2 }
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+  
+  def recent_posts(limit = 5)
+    posts.order(created_at: :desc).limit(limit)
+  end
+end
+
+class PostsController < ApplicationController
+  before_action :authenticate_user!
+  
+  def index
+    @posts = current_user.posts.includes(:user)
+    render json: @posts, status: :ok
+  end
+  
+  def create
+    @post = current_user.posts.build(post_params)
+    
+    if @post.save
+      render json: @post, status: :created
+    else
+      render json: { errors: @post.errors }, status: :unprocessable_entity
+    end
+  end
+  
+  private
+  
+  def post_params
+    params.require(:post).permit(:title, :content, :published)
+  end
+end</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracker -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-tracker">
+                <div class="progress-info">
+                    <h3>Your Progress</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="courseProgress" data-progress="0"></div>
+                    </div>
+                    <span class="progress-text">0% Complete (0/14 chapters)</span>
+                </div>
+                <div class="progress-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="pointsEarned">0</span>
+                        <span class="stat-label">Points</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="badgesEarned">0</span>
+                        <span class="stat-label">Badges</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section id="course-content" class="course-content">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="course-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Course Chapters</h3>
+                        <div class="completion-badge">
+                            <span id="completedChapters">0</span>/14
+                        </div>
+                    </div>
+                    
+                    <div class="chapters-list">
+                        <div class="chapter-item active" data-chapter="1">
+                            <div class="chapter-number">1</div>
+                            <div class="chapter-info">
+                                <h4>Introduction to Ruby</h4>
+                                <span class="chapter-duration">100 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="2">
+                            <div class="chapter-number">2</div>
+                            <div class="chapter-info">
+                                <h4>Ruby Syntax & Variables</h4>
+                                <span class="chapter-duration">90 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="3">
+                            <div class="chapter-number">3</div>
+                            <div class="chapter-info">
+                                <h4>Control Structures & Loops</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="4">
+                            <div class="chapter-number">4</div>
+                            <div class="chapter-info">
+                                <h4>Methods & Blocks</h4>
+                                <span class="chapter-duration">120 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="5">
+                            <div class="chapter-number">5</div>
+                            <div class="chapter-info">
+                                <h4>Classes & Objects</h4>
+                                <span class="chapter-duration">130 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="6">
+                            <div class="chapter-number">6</div>
+                            <div class="chapter-info">
+                                <h4>Inheritance & Modules</h4>
+                                <span class="chapter-duration">115 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="7">
+                            <div class="chapter-number">7</div>
+                            <div class="chapter-info">
+                                <h4>Arrays & Hashes</h4>
+                                <span class="chapter-duration">105 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="8">
+                            <div class="chapter-number">8</div>
+                            <div class="chapter-info">
+                                <h4>File I/O & Exception Handling</h4>
+                                <span class="chapter-duration">95 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="9">
+                            <div class="chapter-number">9</div>
+                            <div class="chapter-info">
+                                <h4>Introduction to Rails</h4>
+                                <span class="chapter-duration">140 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="10">
+                            <div class="chapter-number">10</div>
+                            <div class="chapter-info">
+                                <h4>MVC Architecture</h4>
+                                <span class="chapter-duration">125 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="11">
+                            <div class="chapter-number">11</div>
+                            <div class="chapter-info">
+                                <h4>Database & ActiveRecord</h4>
+                                <span class="chapter-duration">150 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="12">
+                            <div class="chapter-number">12</div>
+                            <div class="chapter-info">
+                                <h4>Views & Templates</h4>
+                                <span class="chapter-duration">110 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="13">
+                            <div class="chapter-number">13</div>
+                            <div class="chapter-info">
+                                <h4>Authentication & Security</h4>
+                                <span class="chapter-duration">135 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="chapter-item locked" data-chapter="14">
+                            <div class="chapter-number">14</div>
+                            <div class="chapter-info">
+                                <h4>Final Project: Blog Application</h4>
+                                <span class="chapter-duration">200 min</span>
+                            </div>
+                            <div class="chapter-status">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="lesson-content">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">Chapter 1: Introduction to Ruby</h2>
+                        <div class="lesson-meta">
+                            <span class="lesson-duration">
+                                <i class="fas fa-clock"></i> 100 minutes
+                            </span>
+                            <span class="lesson-difficulty">
+                                <i class="fas fa-signal"></i> Beginner
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lesson-body">
+                        <div class="content-section">
+                            <h3 class="typing-text">What is Ruby?</h3>
+                            <p class="fade-in-up">
+                                Ruby is a dynamic, object-oriented programming language created by Yukihiro "Matz" Matsumoto 
+                                in 1995. It's designed to be simple, elegant, and productive. Ruby emphasizes programmer 
+                                happiness and follows the principle of least surprise.
+                            </p>
+                            
+                            <div class="info-box fade-in-up">
+                                <div class="info-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h4>Why Choose Ruby?</h4>
+                                    <p>Ruby powers popular applications like GitHub, Shopify, Airbnb, and Twitter. Its elegant syntax and powerful Rails framework make it ideal for web development.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Ruby Philosophy</h3>
+                            <p class="fade-in-up">
+                                Ruby follows several key principles that make it unique:
+                            </p>
+                            
+                            <ul class="feature-list fade-in-up">
+                                <li>
+                                    <i class="fas fa-smile"></i>
+                                    <strong>Programmer Happiness:</strong> Code should be enjoyable to write and read
+                                </li>
+                                <li>
+                                    <i class="fas fa-magic"></i>
+                                    <strong>Principle of Least Surprise:</strong> Code should behave as you expect
+                                </li>
+                                <li>
+                                    <i class="fas fa-layer-group"></i>
+                                    <strong>Everything is an Object:</strong> Pure object-oriented design
+                                </li>
+                                <li>
+                                    <i class="fas fa-code"></i>
+                                    <strong>Expressive Syntax:</strong> Natural, English-like code structure
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="content-section">
+                            <h3 class="typing-text">Your First Ruby Program</h3>
+                            <p class="fade-in-up">
+                                Let's start with a simple Ruby program to understand the basic syntax and structure.
+                            </p>
+                            
+                            <div class="code-example fade-in-up">
+                                <div class="code-header">
+                                    <span class="code-title">Hello World in Ruby</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <pre><code class="language-ruby"># Simple Hello World
+puts "Hello, Ruby World!"
+
+# Variables and string interpolation
+name = "Ruby Developer"
+age = 25
+puts "Hello, I'm #{name} and I'm #{age} years old"
+
+# Arrays and iteration
+languages = ["Ruby", "Rails", "JavaScript", "HTML", "CSS"]
+puts "I know these languages:"
+languages.each_with_index do |lang, index|
+  puts "#{index + 1}. #{lang}"
+end
+
+# Hashes (similar to dictionaries)
+person = {
+  name: "Alice",
+  age: 30,
+  city: "San Francisco",
+  skills: ["Ruby", "Rails", "React"]
+}
+
+puts "Name: #{person[:name]}"
+puts "Skills: #{person[:skills].join(', ')}"
+
+# Methods
+def greet(name, time_of_day = "day")
+  "Good #{time_of_day}, #{name}!"
+end
+
+puts greet("Ruby Learner")
+puts greet("Developer", "morning")</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Ruby Playground -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Ruby Code Playground</h3>
+                            <p class="fade-in-up">
+                                Practice Ruby programming with our interactive playground. Try different Ruby concepts and see the results.
+                            </p>
+                            
+                            <div class="code-playground fade-in-up">
+                                <div class="playground-header">
+                                    <div class="playground-tabs">
+                                        <button class="tab-btn active" data-tab="ruby">Ruby Code</button>
+                                        <button class="tab-btn" data-tab="output">Output</button>
+                                    </div>
+                                    <button class="run-btn" onclick="runRubyCode()">
+                                        <i class="fas fa-play"></i> Run Code
+                                    </button>
+                                </div>
+                                
+                                <div class="playground-content">
+                                    <div class="code-editor active" id="ruby-editor">
+                                        <textarea id="rubyCode" placeholder="Write your Ruby code here..."># Ruby Programming Basics
+# Try these examples:
+
+# 1. Variables and data types
+name = "Ruby Developer"
+age = 28
+height = 5.9
+is_programmer = true
+
+puts "Name: #{name}"
+puts "Age: #{age}"
+puts "Height: #{height} feet"
+puts "Is programmer: #{is_programmer}"
+
+# 2. Arrays and methods
+numbers = [1, 2, 3, 4, 5]
+puts "Numbers: #{numbers}"
+puts "Sum: #{numbers.sum}"
+puts "Max: #{numbers.max}"
+
+# 3. Hashes
+user = {
+  name: "Alice",
+  email: "alice@example.com",
+  role: "developer"
+}
+
+puts "User info:"
+user.each do |key, value|
+  puts "  #{key}: #{value}"
+end
+
+# 4. Methods and blocks
+def calculate_area(length, width)
+  length * width
+end
+
+area = calculate_area(10, 5)
+puts "Area: #{area} square units"
+
+# 5. Classes (preview)
+class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+  
+  def introduce
+    "Hi, I'm #{@name} and I'm #{@age} years old"
+  end
+end
+
+person = Person.new("Bob", 25)
+puts person.introduce</textarea>
+                                    </div>
+                                    
+                                    <div class="code-result" id="ruby-output">
+                                        <div class="output-header">Ruby Output:</div>
+                                        <div class="output-content" id="rubyOutputContent">
+                                            <div class="output-line">Ready to run Ruby code...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quiz Section -->
+                        <div class="content-section">
+                            <h3 class="typing-text">Knowledge Check</h3>
+                            <p class="fade-in-up">Test your understanding of Ruby fundamentals:</p>
+                            
+                            <div class="quiz-container fade-in-up">
+                                <div class="quiz-question active" data-question="1">
+                                    <h4>Question 1 of 4</h4>
+                                    <p>Who created the Ruby programming language?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="a">
+                                            <span>Guido van Rossum</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="b">
+                                            <span>Yukihiro Matsumoto</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q1" value="c">
+                                            <span>Brendan Eich</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="2">
+                                    <h4>Question 2 of 4</h4>
+                                    <p>What is the Ruby command to output text to the console?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="a">
+                                            <span>print</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="b">
+                                            <span>puts</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q2" value="c">
+                                            <span>echo</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="3">
+                                    <h4>Question 3 of 4</h4>
+                                    <p>How do you interpolate variables in Ruby strings?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="a">
+                                            <span>#{variable}</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="b">
+                                            <span>${variable}</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q3" value="c">
+                                            <span>%{variable}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-question" data-question="4">
+                                    <h4>Question 4 of 4</h4>
+                                    <p>What is the Ruby web framework most commonly used?</p>
+                                    <div class="quiz-options">
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="a">
+                                            <span>Sinatra</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="b">
+                                            <span>Rails</span>
+                                        </label>
+                                        <label class="quiz-option">
+                                            <input type="radio" name="q4" value="c">
+                                            <span>Hanami</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="quiz-controls">
+                                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" disabled>
+                                        <i class="fas fa-arrow-left"></i> Previous
+                                    </button>
+                                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                                        Next <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button class="btn btn-success" id="submitBtn" onclick="submitQuiz()" style="display: none;">
+                                        Submit Quiz <i class="fas fa-check"></i>
+                                    </button>
+                                </div>
+                                
+                                <div class="quiz-results" id="quizResults" style="display: none;">
+                                    <div class="results-header">
+                                        <h4>Quiz Complete!</h4>
+                                        <div class="score-circle">
+                                            <span id="scorePercentage">0%</span>
+                                        </div>
+                                    </div>
+                                    <div class="results-feedback">
+                                        <p id="feedbackText"></p>
+                                        <div class="points-earned">
+                                            <i class="fas fa-star"></i>
+                                            <span>+90 Points Earned!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="lesson-navigation">
+                        <button class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous Chapter
+                        </button>
+                        <button class="btn btn-primary" onclick="completeChapter(1)">
+                            Complete Chapter <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                            <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">BandhanNova</span>
+                    </div>
+                    <p>Master Ruby and Rails for modern web development.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Course Navigation</h4>
+                    <ul>
+                        <li><a href="#course-content">Current Chapter</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="../../index.html">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 BandhanNova. Empowering Ruby developers worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/certificate-generator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="ruby-course.js"></script>
+</body>
+</html>
