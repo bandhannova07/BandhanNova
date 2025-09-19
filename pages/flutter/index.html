@@ -3,10 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flutter Course - Mobile App Development | BandhanNova</title>
-    <meta name="description" content="Master Flutter and Dart for cross-platform mobile app development. Build beautiful iOS and Android apps with interactive lessons and projects.">
-    <meta name="keywords" content="Flutter tutorial, Dart programming, mobile app development, cross-platform development, iOS Android apps">
+    <title>Flutter Course - Cross-Platform Mobile Development | BandhanNova</title>
+    <meta name="description" content="Learn Flutter development from basics to advanced. Build beautiful cross-platform mobile apps with Google's UI toolkit and Dart programming language at BandhanNova.">
+    <meta name="keywords" content="Flutter tutorial, mobile app development, cross-platform development, Dart programming, UI toolkit, Google Flutter, BandhanNova, online learning">
+    <meta name="author" content="BandhanNova">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bandhannova.netlify.app/pages/flutter/">
     
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Flutter Course - Cross-Platform Mobile Development | BandhanNova">
+    <meta property="og:description" content="Learn Flutter development from basics to advanced. Build beautiful cross-platform mobile apps with Google's UI toolkit and Dart programming language.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandhannova.netlify.app/pages/flutter/">
+    <meta property="og:image" content="https://bandhannova.netlify.app/assets/og-flutter.png">
+    <meta property="og:site_name" content="BandhanNova">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Flutter Course - Cross-Platform Mobile Development">
+    <meta name="twitter:description" content="Learn Flutter development and build beautiful cross-platform mobile apps with BandhanNova's comprehensive course.">
+    <meta name="twitter:image" content="https://bandhannova.netlify.app/assets/og-flutter.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Flutter Course - Cross-Platform Mobile Development",
+        "description": "Learn Flutter development from basics to advanced. Build beautiful cross-platform mobile apps with Google's UI toolkit and Dart programming language.",
+        "provider": {
+            "@type": "Organization",
+            "name": "BandhanNova",
+            "url": "https://bandhannova.netlify.app"
+        },
+        "courseCode": "FLUTTER-101",
+        "educationalLevel": "Beginner to Advanced",
+        "teaches": ["Flutter", "Dart Programming", "Mobile App Development", "Cross-Platform Development", "UI/UX Design"]
+    }
+    </script>
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../src/styles/main.css">
     <link rel="stylesheet" href="../../src/styles/animations.css">
@@ -370,6 +404,69 @@ class MyApp extends StatelessWidget {
                                 for mobile, web, and desktop from a single codebase. It uses the Dart programming language 
                                 and provides a rich set of pre-designed widgets.
                             </p>
+
+                            <!-- Visual Aid 1: Flutter Cross-Platform Development -->
+                            <div class="visual-aid fade-in-up">
+                                <div class="visual-content">
+                                    <svg viewBox="0 0 700 350" class="diagram-svg">
+                                        <!-- Single Codebase -->
+                                        <rect x="300" y="50" width="100" height="60" rx="8" fill="#1e3a8a" stroke="#1e3a8a" stroke-width="2"/>
+                                        <text x="350" y="75" font-family="Inter" font-size="12" fill="white" text-anchor="middle" font-weight="600">Flutter</text>
+                                        <text x="350" y="90" font-family="Inter" font-size="12" fill="white" text-anchor="middle">Codebase</text>
+                                        
+                                        <!-- Arrows pointing to platforms -->
+                                        <path d="M300 80 L200 150" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrow1)"/>
+                                        <path d="M350 110 L350 180" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrow1)"/>
+                                        <path d="M400 80 L500 150" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrow1)"/>
+                                        <path d="M320 110 L250 200" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrow1)"/>
+                                        <path d="M380 110 L450 200" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrow1)"/>
+                                        
+                                        <!-- Platform Icons -->
+                                        <!-- iOS -->
+                                        <rect x="150" y="150" width="80" height="50" rx="15" fill="#f8fafc" stroke="#10b981" stroke-width="2"/>
+                                        <circle cx="190" cy="165" r="8" fill="#10b981"/>
+                                        <rect x="170" y="180" width="40" height="3" rx="1" fill="#10b981"/>
+                                        <text x="190" y="220" font-family="Inter" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">iOS</text>
+                                        
+                                        <!-- Android -->
+                                        <rect x="310" y="200" width="80" height="50" rx="8" fill="#f8fafc" stroke="#10b981" stroke-width="2"/>
+                                        <circle cx="340" cy="215" r="3" fill="#10b981"/>
+                                        <circle cx="360" cy="215" r="3" fill="#10b981"/>
+                                        <path d="M330 230 Q350 240 370 230" stroke="#10b981" stroke-width="2" fill="none"/>
+                                        <text x="350" y="270" font-family="Inter" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">Android</text>
+                                        
+                                        <!-- Web -->
+                                        <rect x="470" y="150" width="80" height="50" rx="5" fill="#f8fafc" stroke="#10b981" stroke-width="2"/>
+                                        <rect x="480" y="160" width="60" height="30" rx="2" fill="#10b981"/>
+                                        <circle cx="490" cy="170" r="2" fill="white"/>
+                                        <circle cx="500" cy="170" r="2" fill="white"/>
+                                        <circle cx="510" cy="170" r="2" fill="white"/>
+                                        <text x="510" y="220" font-family="Inter" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">Web</text>
+                                        
+                                        <!-- Desktop -->
+                                        <rect x="200" y="200" width="80" height="50" rx="5" fill="#f8fafc" stroke="#10b981" stroke-width="2"/>
+                                        <rect x="210" y="210" width="60" height="30" rx="2" fill="#10b981"/>
+                                        <rect x="215" y="245" width="50" height="8" rx="4" fill="#10b981"/>
+                                        <text x="240" y="270" font-family="Inter" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">Desktop</text>
+                                        
+                                        <!-- Embedded -->
+                                        <rect x="420" y="200" width="80" height="50" rx="5" fill="#f8fafc" stroke="#10b981" stroke-width="2"/>
+                                        <rect x="430" y="210" width="60" height="30" rx="15" fill="#10b981"/>
+                                        <circle cx="460" cy="225" r="8" fill="white"/>
+                                        <text x="460" y="270" font-family="Inter" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">Embedded</text>
+                                        
+                                        <defs>
+                                            <marker id="arrow1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                <polygon points="0 0, 8 3, 0 6" fill="#1e3a8a"/>
+                                            </marker>
+                                        </defs>
+                                        
+                                        <text x="350" y="25" font-family="Inter" font-size="16" font-weight="700" fill="#1e3a8a" text-anchor="middle">One Codebase, Multiple Platforms</text>
+                                        <text x="350" y="320" font-family="Inter" font-size="12" fill="#6b7280" text-anchor="middle">Write once, run everywhere with Flutter</text>
+                                    </svg>
+                                </div>
+                                <p class="visual-caption">Flutter enables cross-platform development from a single codebase</p>
+                            </div>
                             
                             <div class="info-box fade-in-up">
                                 <div class="info-icon">

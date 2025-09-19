@@ -4,8 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML & CSS Course - Web Development Fundamentals | BandhanNova</title>
-    <meta name="description" content="Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects.">
-    <meta name="keywords" content="HTML tutorial, CSS course, web development, responsive design, frontend development, HTML5, CSS3">
+    <meta name="description" content="Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects at BandhanNova.">
+    <meta name="keywords" content="HTML tutorial, CSS course, web development, responsive design, frontend development, HTML5, CSS3, BandhanNova, online learning">
+    <meta name="author" content="BandhanNova">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bandhannova.netlify.app/pages/html-css/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="HTML & CSS Course - Web Development Fundamentals | BandhanNova">
+    <meta property="og:description" content="Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandhannova.netlify.app/pages/html-css/">
+    <meta property="og:image" content="https://bandhannova.netlify.app/assets/og-html-css.png">
+    <meta property="og:site_name" content="BandhanNova">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HTML & CSS Course - Web Development Fundamentals">
+    <meta name="twitter:description" content="Master HTML & CSS from basics to advanced responsive design with BandhanNova's interactive course.">
+    <meta name="twitter:image" content="https://bandhannova.netlify.app/assets/og-html-css.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "HTML & CSS Course - Web Development Fundamentals",
+        "description": "Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects.",
+        "provider": {
+            "@type": "Organization",
+            "name": "BandhanNova",
+            "url": "https://bandhannova.netlify.app"
+        },
+        "courseCode": "HTML-CSS-101",
+        "educationalLevel": "Beginner to Intermediate",
+        "teaches": ["HTML5", "CSS3", "Responsive Design", "Web Development", "Frontend Development"]
+    }
+    </script>
     
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../src/styles/main.css">
@@ -311,6 +346,45 @@
                                 It describes the structure of a web page using a series of elements, which tell the browser 
                                 how to display the content.
                             </p>
+
+                            <!-- Visual Aid 1: HTML Overview Diagram -->
+                            <div class="visual-aid fade-in-up">
+                                <div class="visual-content">
+                                    <svg viewBox="0 0 600 300" class="diagram-svg">
+                                        <!-- Browser Window -->
+                                        <rect x="50" y="50" width="500" height="200" rx="10" fill="#f8fafc" stroke="#1e3a8a" stroke-width="2"/>
+                                        <rect x="50" y="50" width="500" height="30" rx="10" fill="#1e3a8a"/>
+                                        <circle cx="70" cy="65" r="5" fill="#ef4444"/>
+                                        <circle cx="90" cy="65" r="5" fill="#f59e0b"/>
+                                        <circle cx="110" cy="65" r="5" fill="#10b981"/>
+                                        
+                                        <!-- HTML Code -->
+                                        <text x="70" y="110" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;html&gt;</text>
+                                        <text x="90" y="130" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;head&gt;</text>
+                                        <text x="110" y="150" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;title&gt;My Page&lt;/title&gt;</text>
+                                        <text x="90" y="170" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;/head&gt;</text>
+                                        <text x="90" y="190" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;body&gt;</text>
+                                        <text x="110" y="210" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;h1&gt;Hello World!&lt;/h1&gt;</text>
+                                        <text x="90" y="230" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;/body&gt;</text>
+                                        <text x="70" y="250" font-family="monospace" font-size="12" fill="#1e3a8a">&lt;/html&gt;</text>
+                                        
+                                        <!-- Arrow -->
+                                        <path d="M350 150 L400 150" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                        <defs>
+                                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                                <polygon points="0 0, 10 3.5, 0 7" fill="#1e3a8a"/>
+                                            </marker>
+                                        </defs>
+                                        
+                                        <!-- Rendered Output -->
+                                        <rect x="420" y="100" width="120" height="100" rx="5" fill="#ffffff" stroke="#e5e7eb"/>
+                                        <text x="430" y="130" font-family="Arial" font-size="16" font-weight="bold" fill="#1e3a8a">Hello World!</text>
+                                        
+                                        <text x="300" y="30" font-family="Inter" font-size="14" font-weight="600" fill="#1e3a8a">HTML Code → Browser Rendering</text>
+                                    </svg>
+                                </div>
+                                <p class="visual-caption">HTML code is interpreted by browsers to create structured web pages</p>
+                            </div>
                             
                             <div class="info-box fade-in-up">
                                 <div class="info-icon">
@@ -356,6 +430,50 @@
                             <p class="fade-in-up">
                                 HTML elements are the building blocks of web pages. Each element consists of:
                             </p>
+                            
+                            <!-- Visual Aid 2: HTML Element Structure -->
+                            <div class="visual-aid fade-in-up">
+                                <div class="visual-content">
+                                    <svg viewBox="0 0 600 200" class="diagram-svg">
+                                        <!-- Element Structure Diagram -->
+                                        <rect x="50" y="80" width="500" height="40" rx="5" fill="#f0f9ff" stroke="#1e3a8a" stroke-width="2"/>
+                                        
+                                        <!-- Opening Tag -->
+                                        <rect x="60" y="85" width="80" height="30" rx="3" fill="#1e3a8a"/>
+                                        <text x="100" y="105" font-family="monospace" font-size="12" fill="white" text-anchor="middle">&lt;h1&gt;</text>
+                                        
+                                        <!-- Content -->
+                                        <rect x="150" y="85" width="200" height="30" rx="3" fill="#10b981"/>
+                                        <text x="250" y="105" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Welcome to HTML</text>
+                                        
+                                        <!-- Closing Tag -->
+                                        <rect x="360" y="85" width="80" height="30" rx="3" fill="#1e3a8a"/>
+                                        <text x="400" y="105" font-family="monospace" font-size="12" fill="white" text-anchor="middle">&lt;/h1&gt;</text>
+                                        
+                                        <!-- Labels -->
+                                        <text x="100" y="140" font-family="Inter" font-size="11" fill="#1e3a8a" text-anchor="middle" font-weight="600">Opening Tag</text>
+                                        <text x="250" y="140" font-family="Inter" font-size="11" fill="#10b981" text-anchor="middle" font-weight="600">Content</text>
+                                        <text x="400" y="140" font-family="Inter" font-size="11" fill="#1e3a8a" text-anchor="middle" font-weight="600">Closing Tag</text>
+                                        
+                                        <!-- Arrows -->
+                                        <path d="M100 125 L100 135" stroke="#1e3a8a" stroke-width="1" marker-end="url(#smallarrow)"/>
+                                        <path d="M250 125 L250 135" stroke="#10b981" stroke-width="1" marker-end="url(#smallarrow2)"/>
+                                        <path d="M400 125 L400 135" stroke="#1e3a8a" stroke-width="1" marker-end="url(#smallarrow)"/>
+                                        
+                                        <defs>
+                                            <marker id="smallarrow" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                                                <polygon points="0 0, 6 2, 0 4" fill="#1e3a8a"/>
+                                            </marker>
+                                            <marker id="smallarrow2" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                                                <polygon points="0 0, 6 2, 0 4" fill="#10b981"/>
+                                            </marker>
+                                        </defs>
+                                        
+                                        <text x="300" y="30" font-family="Inter" font-size="14" font-weight="600" fill="#1e3a8a">HTML Element Anatomy</text>
+                                    </svg>
+                                </div>
+                                <p class="visual-caption">Every HTML element has an opening tag, content, and closing tag</p>
+                            </div>
                             
                             <ul class="feature-list fade-in-up">
                                 <li>

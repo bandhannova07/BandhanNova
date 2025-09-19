@@ -7,25 +7,50 @@ class CertificateGenerator {
                 title: 'Python Programming Mastery',
                 description: 'has successfully completed the comprehensive Python Programming course',
                 color: '#3776ab',
-                icon: 'fab fa-python'
+                icon: 'fab fa-python',
+                chapters: 12
             },
             javascript: {
-                title: 'JavaScript Development',
+                title: 'JavaScript Development Excellence',
                 description: 'has successfully completed the JavaScript Fundamentals course',
                 color: '#f7df1e',
-                icon: 'fab fa-js-square'
+                icon: 'fab fa-js-square',
+                chapters: 14
             },
             flutter: {
                 title: 'Flutter Mobile Development',
                 description: 'has successfully completed the Flutter Mobile Development course',
                 color: '#02569b',
-                icon: 'fas fa-mobile-alt'
+                icon: 'fas fa-mobile-alt',
+                chapters: 16
             },
             'html-css': {
                 title: 'Web Development Fundamentals',
                 description: 'has successfully completed the HTML & CSS Basics course',
                 color: '#e34f26',
-                icon: 'fab fa-html5'
+                icon: 'fab fa-html5',
+                chapters: 10
+            },
+            sql: {
+                title: 'Database Management with SQL',
+                description: 'has successfully completed the SQL Database Management course',
+                color: '#336791',
+                icon: 'fas fa-database',
+                chapters: 12
+            },
+            ruby: {
+                title: 'Ruby Web Development',
+                description: 'has successfully completed the Ruby Programming course',
+                color: '#cc342d',
+                icon: 'fas fa-gem',
+                chapters: 14
+            },
+            cpp: {
+                title: 'C++ Systems Programming',
+                description: 'has successfully completed the C++ Programming course',
+                color: '#00599c',
+                icon: 'fas fa-code',
+                chapters: 18
             }
         };
         this.init();

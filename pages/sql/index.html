@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQL Course - Database Fundamentals | BandhanNova</title>
-    <meta name="description" content="Master SQL and database management. Learn queries, joins, database design, and advanced SQL concepts with hands-on practice.">
-    <meta name="keywords" content="SQL tutorial, database management, MySQL, PostgreSQL, database queries, joins, SQL fundamentals">
+    <title>SQL Course - Database Management & Queries | BandhanNova</title>
+    <meta name="description" content="Master SQL from basics to advanced queries. Learn database management, data manipulation, and complex joins with hands-on practice at BandhanNova.">
+    <meta name="keywords" content="SQL tutorial, database management, MySQL, PostgreSQL, data queries, database design, RDBMS, BandhanNova, online learning">
+    <meta name="author" content="BandhanNova">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bandhannova.netlify.app/pages/sql/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="SQL Course - Database Management & Queries | BandhanNova">
+    <meta property="og:description" content="Master SQL from basics to advanced queries. Learn database management, data manipulation, and complex joins with hands-on practice.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bandhannova.netlify.app/pages/sql/">
+    <meta property="og:image" content="https://bandhannova.netlify.app/assets/og-sql.png">
+    <meta property="og:site_name" content="BandhanNova">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SQL Course - Database Management & Queries">
+    <meta name="twitter:description" content="Master SQL and database management with BandhanNova's comprehensive hands-on course.">
+    <meta name="twitter:image" content="https://bandhannova.netlify.app/assets/og-sql.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "SQL Course - Database Management & Queries",
+        "description": "Master SQL from basics to advanced queries. Learn database management, data manipulation, and complex joins with hands-on practice.",
+        "provider": {
+            "@type": "Organization",
+            "name": "BandhanNova",
+            "url": "https://bandhannova.netlify.app"
+        },
+        "courseCode": "SQL-101",
+        "educationalLevel": "Beginner to Advanced",
+        "teaches": ["SQL", "Database Management", "MySQL", "PostgreSQL", "Data Queries", "Database Design"]
+    }
+    </script>
     
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../src/styles/main.css">
@@ -319,6 +354,62 @@ LIMIT 10;</code></pre>
                                 electronically in a computer system. Databases are managed by Database Management Systems (DBMS) 
                                 which provide an interface for users and applications to interact with the data.
                             </p>
+
+                            <!-- Visual Aid 1: Database Structure Diagram -->
+                            <div class="visual-aid fade-in-up">
+                                <div class="visual-content">
+                                    <svg viewBox="0 0 600 300" class="diagram-svg">
+                                        <!-- Database Server -->
+                                        <rect x="50" y="50" width="120" height="200" rx="10" fill="#1e3a8a" stroke="#1e3a8a" stroke-width="2"/>
+                                        <text x="110" y="75" font-family="Inter" font-size="12" fill="white" text-anchor="middle" font-weight="600">Database Server</text>
+                                        
+                                        <!-- Tables inside database -->
+                                        <rect x="60" y="90" width="100" height="40" rx="5" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1"/>
+                                        <text x="110" y="105" font-family="Inter" font-size="10" fill="#1e3a8a" text-anchor="middle" font-weight="600">Users Table</text>
+                                        <text x="70" y="118" font-family="monospace" font-size="8" fill="#6b7280">id | name | email</text>
+                                        
+                                        <rect x="60" y="140" width="100" height="40" rx="5" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1"/>
+                                        <text x="110" y="155" font-family="Inter" font-size="10" fill="#1e3a8a" text-anchor="middle" font-weight="600">Orders Table</text>
+                                        <text x="70" y="168" font-family="monospace" font-size="8" fill="#6b7280">id | user_id | total</text>
+                                        
+                                        <rect x="60" y="190" width="100" height="40" rx="5" fill="#f0f9ff" stroke="#3b82f6" stroke-width="1"/>
+                                        <text x="110" y="205" font-family="Inter" font-size="10" fill="#1e3a8a" text-anchor="middle" font-weight="600">Products Table</text>
+                                        <text x="70" y="218" font-family="monospace" font-size="8" fill="#6b7280">id | name | price</text>
+                                        
+                                        <!-- SQL Query -->
+                                        <rect x="220" y="100" width="180" height="100" rx="8" fill="#f8fafc" stroke="#10b981" stroke-width="2"/>
+                                        <text x="310" y="120" font-family="Inter" font-size="12" fill="#10b981" text-anchor="middle" font-weight="600">SQL Query</text>
+                                        <text x="230" y="140" font-family="monospace" font-size="10" fill="#1e3a8a">SELECT name, email</text>
+                                        <text x="230" y="155" font-family="monospace" font-size="10" fill="#1e3a8a">FROM users</text>
+                                        <text x="230" y="170" font-family="monospace" font-size="10" fill="#1e3a8a">WHERE age > 18;</text>
+                                        
+                                        <!-- Result Set -->
+                                        <rect x="450" y="100" width="120" height="100" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2"/>
+                                        <text x="510" y="120" font-family="Inter" font-size="12" fill="#22c55e" text-anchor="middle" font-weight="600">Results</text>
+                                        <text x="460" y="140" font-family="monospace" font-size="9" fill="#1e3a8a">John | john@email.com</text>
+                                        <text x="460" y="155" font-family="monospace" font-size="9" fill="#1e3a8a">Jane | jane@email.com</text>
+                                        <text x="460" y="170" font-family="monospace" font-size="9" fill="#1e3a8a">Bob | bob@email.com</text>
+                                        
+                                        <!-- Arrows -->
+                                        <path d="M170 150 L220 150" stroke="#1e3a8a" stroke-width="2" marker-end="url(#dbArrow)"/>
+                                        <path d="M400 150 L450 150" stroke="#10b981" stroke-width="2" marker-end="url(#dbArrow2)"/>
+                                        
+                                        <defs>
+                                            <marker id="dbArrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                <polygon points="0 0, 8 3, 0 6" fill="#1e3a8a"/>
+                                            </marker>
+                                            <marker id="dbArrow2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                                                <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+                                            </marker>
+                                        </defs>
+                                        
+                                        <text x="300" y="30" font-family="Inter" font-size="14" font-weight="600" fill="#1e3a8a" text-anchor="middle">How Databases Work</text>
+                                        <text x="190" y="270" font-family="Inter" font-size="10" fill="#6b7280">Query</text>
+                                        <text x="425" y="270" font-family="Inter" font-size="10" fill="#6b7280">Process</text>
+                                    </svg>
+                                </div>
+                                <p class="visual-caption">Databases store structured data in tables and respond to SQL queries</p>
+                            </div>
                             
                             <div class="info-box fade-in-up">
                                 <div class="info-icon">
