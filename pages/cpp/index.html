@@ -44,8 +44,6 @@
     
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../src/styles/main.css">
-    <link rel="stylesheet" href="../../src/styles/animations.css">
-    <link rel="stylesheet" href="../../src/styles/components.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
@@ -426,23 +424,363 @@ public:
                         </div>
                     </div>
 
-                    <div class="lesson-body">
-                        <div class="content-section">
-                            <h3 class="typing-text">What is C++?</h3>
-                            <p class="fade-in-up">
-                                C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension 
-                                of the C programming language. It's known for its performance, flexibility, and is widely 
-                                used in system programming, game development, embedded systems, and high-performance applications.
-                            </p>
+                    <!-- Chapter 1: Introduction to C++ -->
+                    <div class="chapter-card" id="chapter-1">
+                        <div class="chapter-header">
+                            <div class="chapter-number">01</div>
+                            <div class="chapter-info">
+                                <h2 class="chapter-title">Introduction to C++</h2>
+                                <p class="chapter-subtitle">Master the Foundation of Systems Programming</p>
+                            </div>
+                        </div>
 
-                            <!-- Visual Aid 1: C++ Performance & Applications -->
-                            <div class="visual-aid fade-in-up">
-                                <div class="visual-content">
-                                    <svg viewBox="0 0 700 350" class="diagram-svg">
-                                        <!-- Central C++ Logo -->
-                                        <rect x="300" y="150" width="100" height="50" rx="8" fill="#1e3a8a" stroke="#1e3a8a" stroke-width="2"/>
-                                        <text x="350" y="170" font-family="Inter" font-size="16" fill="white" text-anchor="middle" font-weight="700">C++</text>
-                                        <text x="350" y="185" font-family="Inter" font-size="10" fill="white" text-anchor="middle">High Performance</text>
+                        <div class="chapter-content">
+                            <!-- Introduction -->
+                            <section class="content-section fade-in-up">
+                                <h3>What is C++?</h3>
+                                <p>
+                                    C++ is a powerful, general-purpose programming language that revolutionized software development by combining 
+                                    the efficiency of C with object-oriented programming capabilities. Created by Bjarne Stroustrup at Bell Labs 
+                                    in 1979, C++ was designed to provide programmers with fine-grained control over system resources while 
+                                    offering high-level programming constructs for building complex applications.
+                                </p>
+                                <p>
+                                    What makes C++ unique is its multi-paradigm approach - it supports procedural, object-oriented, and generic 
+                                    programming styles. This flexibility allows developers to choose the most appropriate programming paradigm 
+                                    for their specific problem domain. C++ is compiled to native machine code, resulting in highly efficient 
+                                    executables that can run with minimal runtime overhead.
+                                </p>
+                                <p>
+                                    Today, C++ powers critical systems across industries - from operating systems like Windows and Linux, 
+                                    to game engines like Unreal Engine, to high-frequency trading systems on Wall Street. Major companies 
+                                    like Google, Microsoft, Adobe, and Tesla rely on C++ for performance-critical applications where every 
+                                    millisecond matters.
+                                </p>
+                            </section>
+
+                            <!-- Code Example -->
+                            <section class="content-section fade-in-up">
+                                <h3>Your First C++ Program</h3>
+                                <div class="code-example">
+                                    <div class="code-header">
+                                        <span class="code-title">hello-world.cpp</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-cpp">// Welcome to C++ Programming!
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Output welcome messages
+    cout << "Hello, World!" << endl;
+    cout << "Welcome to C++ Programming!" << endl;
+    
+    // Variables and data types
+    string studentName = "Alex";
+    string courseName = "C++ Programming";
+    int currentYear = 2024;
+    int age = 25;
+    double gpa = 3.85;
+    bool isEnrolled = true;
+    
+    // Using variables in output
+    cout << "Student: " << studentName << endl;
+    cout << "Course: " << courseName << " (" << currentYear << ")" << endl;
+    cout << "Age: " << age << " years old" << endl;
+    cout << "GPA: " << gpa << endl;
+    cout << "Enrolled: " << (isEnrolled ? "Yes" : "No") << endl;
+    
+    // Simple calculations
+    int birthYear = currentYear - age;
+    cout << "Birth year: " << birthYear << endl;
+    
+    return 0;
+}</code></pre>
+                                </div>
+                            </section>
+
+                            <!-- Output Preview -->
+                            <section class="content-section fade-in-up">
+                                <h3>Expected Output</h3>
+                                <div class="output-preview">
+                                    <div class="output-header">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>Console Output</span>
+                                    </div>
+                                    <div class="output-content">
+                                        <div class="output-line">Hello, World!</div>
+                                        <div class="output-line">Welcome to C++ Programming!</div>
+                                        <div class="output-line">Student: Alex</div>
+                                        <div class="output-line">Course: C++ Programming (2024)</div>
+                                        <div class="output-line">Age: 25 years old</div>
+                                        <div class="output-line">GPA: 3.85</div>
+                                        <div class="output-line">Enrolled: Yes</div>
+                                        <div class="output-line">Birth year: 1999</div>
+                                        <div class="output-note">
+                                            <i class="fas fa-info-circle"></i>
+                                            C++ programs must be compiled before execution using g++ or similar compiler.
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Educational Images -->
+                            <section class="content-section fade-in-up">
+                                <h3>C++ in the Programming World</h3>
+                                <div class="images-grid">
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="cppGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#02569B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#0175C2;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- C++ Evolution -->
+                                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#cppGradient1)" opacity="0.1"/>
+                                            
+                                            <!-- C Foundation -->
+                                            <rect x="80" y="180" width="60" height="40" rx="8" fill="#02569B" opacity="0.8"/>
+                                            <text x="110" y="195" text-anchor="middle" fill="white" font-size="12" font-weight="bold">C</text>
+                                            <text x="110" y="210" text-anchor="middle" fill="white" font-size="8">1972</text>
+                                            
+                                            <!-- C++ Evolution -->
+                                            <rect x="170" y="140" width="60" height="40" rx="8" fill="#0175C2" opacity="0.8"/>
+                                            <text x="200" y="155" text-anchor="middle" fill="white" font-size="12" font-weight="bold">C++</text>
+                                            <text x="200" y="170" text-anchor="middle" fill="white" font-size="8">1979</text>
+                                            
+                                            <!-- Modern C++ -->
+                                            <rect x="260" y="100" width="60" height="40" rx="8" fill="#02569B" opacity="0.8"/>
+                                            <text x="290" y="115" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Modern</text>
+                                            <text x="290" y="130" text-anchor="middle" fill="white" font-size="10" font-weight="bold">C++</text>
+                                            
+                                            <!-- Evolution arrows -->
+                                            <path d="M 140 200 L 170 160" stroke="#02569B" stroke-width="2" fill="none"/>
+                                            <path d="M 230 160 L 260 120" stroke="#0175C2" stroke-width="2" fill="none"/>
+                                            
+                                            <!-- Features -->
+                                            <text x="110" y="240" text-anchor="middle" fill="#02569B" font-size="8">Procedural</text>
+                                            <text x="200" y="240" text-anchor="middle" fill="#0175C2" font-size="8">OOP + Generic</text>
+                                            <text x="290" y="240" text-anchor="middle" fill="#02569B" font-size="8">Modern Features</text>
+                                            
+                                            <text x="200" y="40" text-anchor="middle" fill="#02569B" font-size="14" font-weight="bold">C++ Evolution</text>
+                                        </svg>
+                                        <p class="image-caption">From C to Modern C++</p>
+                                    </div>
+                                    
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="cppGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#02569B;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- C++ Applications -->
+                                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#cppGradient2)" opacity="0.1"/>
+                                            
+                                            <!-- Central Hub -->
+                                            <circle cx="200" cy="150" r="45" fill="url(#cppGradient2)" opacity="0.9"/>
+                                            <text x="200" y="145" text-anchor="middle" fill="white" font-size="16" font-weight="bold">C++</text>
+                                            <text x="200" y="165" text-anchor="middle" fill="white" font-size="10">Applications</text>
+                                            
+                                            <!-- System Software -->
+                                            <circle cx="120" cy="90" r="25" fill="#02569B" opacity="0.7"/>
+                                            <text x="120" y="95" text-anchor="middle" fill="white" font-size="8">Systems</text>
+                                            <line x1="145" y1="105" x2="175" y2="130" stroke="#02569B" stroke-width="2"/>
+                                            
+                                            <!-- Game Development -->
+                                            <circle cx="280" cy="90" r="25" fill="#02569B" opacity="0.7"/>
+                                            <text x="280" y="95" text-anchor="middle" fill="white" font-size="8">Games</text>
+                                            <line x1="255" y1="105" x2="225" y2="130" stroke="#02569B" stroke-width="2"/>
+                                            
+                                            <!-- Embedded Systems -->
+                                            <circle cx="120" cy="210" r="25" fill="#F59E0B" opacity="0.7"/>
+                                            <text x="120" y="215" text-anchor="middle" fill="white" font-size="8">Embedded</text>
+                                            <line x1="145" y1="195" x2="175" y2="170" stroke="#F59E0B" stroke-width="2"/>
+                                            
+                                            <!-- High Performance -->
+                                            <circle cx="280" cy="210" r="25" fill="#F59E0B" opacity="0.7"/>
+                                            <text x="280" y="215" text-anchor="middle" fill="white" font-size="8">HPC</text>
+                                            <line x1="255" y1="195" x2="225" y2="170" stroke="#F59E0B" stroke-width="2"/>
+                                            
+                                            <text x="200" y="40" text-anchor="middle" fill="#02569B" font-size="14" font-weight="bold">C++ Use Cases</text>
+                                        </svg>
+                                        <p class="image-caption">C++ Application Domains</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Quick Summary -->
+                            <section class="content-section fade-in-up">
+                                <h3>Quick Summary</h3>
+                                <div class="summary-box">
+                                    <ul class="summary-list">
+                                        <li><i class="fas fa-check-circle"></i> C++ is a multi-paradigm language supporting procedural, OOP, and generic programming</li>
+                                        <li><i class="fas fa-check-circle"></i> It compiles to native machine code for maximum performance</li>
+                                        <li><i class="fas fa-check-circle"></i> Essential for systems programming, game development, and high-performance applications</li>
+                                        <li><i class="fas fa-check-circle"></i> Provides low-level control with high-level programming constructs</li>
+                                        <li><i class="fas fa-check-circle"></i> Every C++ program starts with main() function and returns an integer</li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <!-- Mini Quiz -->
+                            <section class="content-section fade-in-up">
+                                <h3>Knowledge Check</h3>
+                                <div class="quiz-container">
+                                    <div class="quiz-question" data-question="1">
+                                        <h4>Question 1: Who created the C++ programming language?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Dennis Ritchie</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Bjarne Stroustrup</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Linus Torvalds</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quiz-question" data-question="2">
+                                        <h4>Question 2: What header file is needed for input/output operations?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>#include &lt;stdio.h&gt;</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>#include &lt;iostream&gt;</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>#include &lt;string&gt;</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quiz-question" data-question="3">
+                                        <h4>Question 3: What does the main() function return in C++?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>void</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>int</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>string</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Progress Tracker -->
+                            <section class="content-section fade-in-up">
+                                <div class="progress-tracker">
+                                    <div class="progress-info">
+                                        <h4>Chapter 1 Progress</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 6%"></div>
+                                        </div>
+                                        <span class="progress-text">Chapter 1 of 18 (6% Complete)</span>
+                                    </div>
+                                    <div class="chapter-navigation">
+                                        <button class="nav-btn prev" disabled>
+                                            <i class="fas fa-chevron-left"></i> Previous
+                                        </button>
+                                        <button class="nav-btn next" onclick="scrollToChapter(2)">
+                                            Next <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                                <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                                <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                            </svg>
+                            <span class="logo-text">BandhanNova</span>
+                        </div>
+                        <p>Empowering the next generation of developers with comprehensive C++ education.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="#course-content">Course Content</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>C++ Topics</h4>
+                    <ul class="footer-links">
+                        <li><a href="#chapter-1">Introduction</a></li>
+                        <li><a href="#chapter-2">Variables & Types</a></li>
+                        <li><a href="#chapter-3">Control Structures</a></li>
+                        <li><a href="#chapter-4">Functions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Building the future of C++ education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/text-animations.js"></script>
+    <script src="../../src/js/ai-chatbot.js"></script>
+    <script src="../../src/js/copy-protection.js"></script>
+    <script src="../../src/js/course-navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
                                         
                                         <!-- Application Areas -->
                                         <!-- Operating Systems -->

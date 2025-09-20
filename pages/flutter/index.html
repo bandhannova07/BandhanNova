@@ -43,8 +43,6 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../src/styles/main.css">
-    <link rel="stylesheet" href="../../src/styles/animations.css">
-    <link rel="stylesheet" href="../../src/styles/components.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
@@ -396,9 +394,429 @@ class MyApp extends StatelessWidget {
                         </div>
                     </div>
 
-                    <div class="lesson-body">
-                        <div class="content-section">
-                            <h3 class="typing-text">What is Flutter?</h3>
+                    <!-- Chapter 1: Introduction to Flutter -->
+                    <div class="chapter-card" id="chapter-1">
+                        <div class="chapter-header">
+                            <div class="chapter-number">01</div>
+                            <div class="chapter-info">
+                                <h2 class="chapter-title">Introduction to Flutter</h2>
+                                <p class="chapter-subtitle">Build Beautiful Cross-Platform Mobile Apps</p>
+                            </div>
+                        </div>
+
+                        <div class="chapter-content">
+                            <!-- Introduction -->
+                            <section class="content-section fade-in-up">
+                                <h3>What is Flutter?</h3>
+                                <p>
+                                    Flutter is Google's revolutionary UI toolkit for building natively compiled applications for mobile, web, 
+                                    and desktop from a single codebase. Launched in 2017, Flutter has transformed mobile app development by 
+                                    enabling developers to create high-performance, visually attractive applications that run seamlessly on 
+                                    both iOS and Android platforms using just one programming language: Dart.
+                                </p>
+                                <p>
+                                    What sets Flutter apart is its unique architecture and rendering engine. Unlike other cross-platform 
+                                    frameworks that rely on web views or native components, Flutter draws its own UI using a custom rendering 
+                                    engine called Skia. This approach ensures consistent performance and appearance across all platforms, 
+                                    eliminating the "write once, debug everywhere" problem that plagues many cross-platform solutions.
+                                </p>
+                                <p>
+                                    Flutter's widget-based architecture makes building complex UIs intuitive and maintainable. Everything in 
+                                    Flutter is a widget - from layout structures to interactive elements. This compositional approach allows 
+                                    developers to create custom, pixel-perfect designs while maintaining excellent performance. Major companies 
+                                    like Google Pay, Alibaba, BMW, and Nubank have adopted Flutter for their production apps, demonstrating 
+                                    its enterprise-ready capabilities.
+                                </p>
+                            </section>
+
+                            <!-- Code Example -->
+                            <section class="content-section fade-in-up">
+                                <h3>Your First Flutter App</h3>
+                                <div class="code-example">
+                                    <div class="code-header">
+                                        <span class="code-title">main.dart</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-dart">// Welcome to Flutter Development!
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My First Flutter App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: WelcomeScreen(),
+    );
+  }
+}
+
+class WelcomeScreen extends StatefulWidget {
+  @override
+  _WelcomeScreenState createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  String studentName = "Flutter Developer";
+  int appsBuilt = 0;
+  bool isLearning = true;
+
+  void incrementApps() {
+    setState(() {
+      appsBuilt++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Welcome to Flutter'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.flutter_dash,
+              size: 100,
+              color: Colors.blue,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Hello, $studentName!',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue[800],
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Apps Built: $appsBuilt',
+              style: TextStyle(fontSize: 18),
+            ),
+            SizedBox(height: 10),
+            Text(
+              isLearning ? 'Currently Learning Flutter' : 'Flutter Expert',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.green[600],
+              ),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: incrementApps,
+              child: Text('Build Another App'),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Welcome to Flutter Development!')),
+          );
+        },
+        child: Icon(Icons.favorite),
+      ),
+    );
+  }
+}</code></pre>
+                                </div>
+                            </section>
+
+                            <!-- Output Preview -->
+                            <section class="content-section fade-in-up">
+                                <h3>App Preview</h3>
+                                <div class="output-preview">
+                                    <div class="output-header">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <span>Flutter App Output</span>
+                                    </div>
+                                    <div class="output-content">
+                                        <div class="output-line">📱 App launches with blue theme</div>
+                                        <div class="output-line">🎯 AppBar displays "Welcome to Flutter"</div>
+                                        <div class="output-line">🎨 Flutter Dash icon (100px, blue color)</div>
+                                        <div class="output-line">👋 "Hello, Flutter Developer!" text</div>
+                                        <div class="output-line">📊 "Apps Built: 0" counter</div>
+                                        <div class="output-line">✅ "Currently Learning Flutter" status</div>
+                                        <div class="output-line">🔘 "Build Another App" button</div>
+                                        <div class="output-line">❤️ Floating action button with heart icon</div>
+                                        <div class="output-note">
+                                            <i class="fas fa-info-circle"></i>
+                                            Tapping the button increments the counter and updates the UI instantly.
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Educational Images -->
+                            <section class="content-section fade-in-up">
+                                <h3>Flutter Architecture & Ecosystem</h3>
+                                <div class="images-grid">
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="flutterGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#02569B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#0175C2;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- Flutter Architecture Layers -->
+                                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#flutterGradient1)" opacity="0.1"/>
+                                            
+                                            <!-- Framework Layer -->
+                                            <rect x="80" y="80" width="240" height="30" rx="8" fill="#02569B" opacity="0.8"/>
+                                            <text x="200" y="100" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Flutter Framework (Dart)</text>
+                                            
+                                            <!-- Engine Layer -->
+                                            <rect x="80" y="120" width="240" height="30" rx="8" fill="#0175C2" opacity="0.8"/>
+                                            <text x="200" y="140" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Flutter Engine (C++)</text>
+                                            
+                                            <!-- Platform Layer -->
+                                            <rect x="80" y="160" width="115" height="30" rx="8" fill="#F59E0B" opacity="0.8"/>
+                                            <text x="137" y="180" text-anchor="middle" fill="white" font-size="10" font-weight="bold">iOS Platform</text>
+                                            
+                                            <rect x="205" y="160" width="115" height="30" rx="8" fill="#10B981" opacity="0.8"/>
+                                            <text x="262" y="180" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Android Platform</text>
+                                            
+                                            <!-- Arrows -->
+                                            <path d="M 200 110 L 200 120" stroke="#02569B" stroke-width="2" fill="none"/>
+                                            <path d="M 200 150 L 137 160" stroke="#0175C2" stroke-width="2" fill="none"/>
+                                            <path d="M 200 150 L 262 160" stroke="#0175C2" stroke-width="2" fill="none"/>
+                                            
+                                            <!-- Labels -->
+                                            <text x="80" y="220" text-anchor="start" fill="#02569B" font-size="8">• Widgets & Material Design</text>
+                                            <text x="80" y="235" text-anchor="start" fill="#0175C2" font-size="8">• Skia Rendering Engine</text>
+                                            <text x="200" y="220" text-anchor="start" fill="#F59E0B" font-size="8">• Native Performance</text>
+                                            
+                                            <text x="200" y="40" text-anchor="middle" fill="#02569B" font-size="14" font-weight="bold">Flutter Architecture</text>
+                                        </svg>
+                                        <p class="image-caption">Flutter's Layered Architecture</p>
+                                    </div>
+                                    
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="flutterGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#02569B;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- Cross-Platform Benefits -->
+                                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#flutterGradient2)" opacity="0.1"/>
+                                            
+                                            <!-- Central Flutter -->
+                                            <circle cx="200" cy="150" r="40" fill="url(#flutterGradient2)" opacity="0.9"/>
+                                            <text x="200" y="145" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Flutter</text>
+                                            <text x="200" y="160" text-anchor="middle" fill="white" font-size="9">One Codebase</text>
+                                            
+                                            <!-- Platforms -->
+                                            <rect x="80" y="80" width="60" height="30" rx="5" fill="#02569B" opacity="0.7"/>
+                                            <text x="110" y="100" text-anchor="middle" fill="white" font-size="9">iOS</text>
+                                            
+                                            <rect x="260" y="80" width="60" height="30" rx="5" fill="#10B981" opacity="0.7"/>
+                                            <text x="290" y="100" text-anchor="middle" fill="white" font-size="9">Android</text>
+                                            
+                                            <rect x="80" y="200" width="60" height="30" rx="5" fill="#F59E0B" opacity="0.7"/>
+                                            <text x="110" y="220" text-anchor="middle" fill="white" font-size="9">Web</text>
+                                            
+                                            <rect x="260" y="200" width="60" height="30" rx="5" fill="#8B5CF6" opacity="0.7"/>
+                                            <text x="290" y="220" text-anchor="middle" fill="white" font-size="9">Desktop</text>
+                                            
+                                            <!-- Connection lines -->
+                                            <line x1="160" y1="130" x2="140" y2="95" stroke="#02569B" stroke-width="2"/>
+                                            <line x1="240" y1="130" x2="260" y2="95" stroke="#10B981" stroke-width="2"/>
+                                            <line x1="160" y1="170" x2="140" y2="215" stroke="#F59E0B" stroke-width="2"/>
+                                            <line x1="240" y1="170" x2="260" y2="215" stroke="#8B5CF6" stroke-width="2"/>
+                                            
+                                            <text x="200" y="40" text-anchor="middle" fill="#02569B" font-size="14" font-weight="bold">Cross-Platform Development</text>
+                                        </svg>
+                                        <p class="image-caption">One Codebase, Multiple Platforms</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Quick Summary -->
+                            <section class="content-section fade-in-up">
+                                <h3>Quick Summary</h3>
+                                <div class="summary-box">
+                                    <ul class="summary-list">
+                                        <li><i class="fas fa-check-circle"></i> Flutter enables cross-platform development with a single codebase</li>
+                                        <li><i class="fas fa-check-circle"></i> Uses Dart programming language and custom rendering engine (Skia)</li>
+                                        <li><i class="fas fa-check-circle"></i> Everything is a widget - from layout to interactive elements</li>
+                                        <li><i class="fas fa-check-circle"></i> Provides native performance on iOS, Android, web, and desktop</li>
+                                        <li><i class="fas fa-check-circle"></i> Hot reload feature enables rapid development and testing</li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <!-- Mini Quiz -->
+                            <section class="content-section fade-in-up">
+                                <h3>Knowledge Check</h3>
+                                <div class="quiz-container">
+                                    <div class="quiz-question" data-question="1">
+                                        <h4>Question 1: Which company developed Flutter?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Facebook</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Google</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Microsoft</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quiz-question" data-question="2">
+                                        <h4>Question 2: What programming language does Flutter use?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>JavaScript</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Dart</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Kotlin</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quiz-question" data-question="3">
+                                        <h4>Question 3: What is Flutter's core building block?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Components</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Widgets</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Elements</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Progress Tracker -->
+                            <section class="content-section fade-in-up">
+                                <div class="progress-tracker">
+                                    <div class="progress-info">
+                                        <h4>Chapter 1 Progress</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 6%"></div>
+                                        </div>
+                                        <span class="progress-text">Chapter 1 of 16 (6% Complete)</span>
+                                    </div>
+                                    <div class="chapter-navigation">
+                                        <button class="nav-btn prev" disabled>
+                                            <i class="fas fa-chevron-left"></i> Previous
+                                        </button>
+                                        <button class="nav-btn next" onclick="scrollToChapter(2)">
+                                            Next <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                                <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                                <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                            </svg>
+                            <span class="logo-text">BandhanNova</span>
+                        </div>
+                        <p>Empowering the next generation of developers with comprehensive Flutter education.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="#course-content">Course Content</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Flutter Topics</h4>
+                    <ul class="footer-links">
+                        <li><a href="#chapter-1">Introduction</a></li>
+                        <li><a href="#chapter-2">Dart Basics</a></li>
+                        <li><a href="#chapter-3">Widgets</a></li>
+                        <li><a href="#chapter-4">Layouts</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Building the future of Flutter education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/text-animations.js"></script>
+    <script src="../../src/js/ai-chatbot.js"></script>
+    <script src="../../src/js/copy-protection.js"></script>
+    <script src="../../src/js/course-navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
                             <p class="fade-in-up">
                                 Flutter is Google's UI toolkit for building beautiful, natively compiled applications 
                                 for mobile, web, and desktop from a single codebase. It uses the Dart programming language 

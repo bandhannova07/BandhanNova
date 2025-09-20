@@ -3,54 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML & CSS Course - Web Development Fundamentals | BandhanNova</title>
-    <meta name="description" content="Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects at BandhanNova.">
-    <meta name="keywords" content="HTML tutorial, CSS course, web development, responsive design, frontend development, HTML5, CSS3, BandhanNova, online learning">
+    <title>HTML & CSS Course - BandhanNova Tech Learning Hub</title>
+    <meta name="description" content="Master HTML & CSS with Flutter.dev inspired design. Interactive lessons, visual diagrams, code examples, and mini quizzes. Professional web development course.">
+    <meta name="keywords" content="HTML, CSS, web development, frontend, responsive design, BandhanNova, programming course, Flutter design">
     <meta name="author" content="BandhanNova">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://bandhannova.netlify.app/pages/html-css/">
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="HTML & CSS Course - Web Development Fundamentals | BandhanNova">
-    <meta property="og:description" content="Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects.">
+    <meta property="og:title" content="HTML & CSS Course - BandhanNova">
+    <meta property="og:description" content="Master HTML & CSS with interactive lessons and hands-on projects. Complete web development course.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bandhannova.netlify.app/pages/html-css/">
-    <meta property="og:image" content="https://bandhannova.netlify.app/assets/og-html-css.png">
-    <meta property="og:site_name" content="BandhanNova">
-    
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:image" content="https://bandhannova.netlify.app/assets/html-css-og.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="HTML & CSS Course - Web Development Fundamentals">
-    <meta name="twitter:description" content="Master HTML & CSS from basics to advanced responsive design with BandhanNova's interactive course.">
-    <meta name="twitter:image" content="https://bandhannova.netlify.app/assets/og-html-css.png">
+    <meta name="twitter:title" content="HTML & CSS Course - BandhanNova">
+    <meta name="twitter:description" content="Master HTML & CSS with interactive lessons and hands-on projects.">
+    <meta name="twitter:image" content="https://bandhannova.netlify.app/assets/html-css-og.png">
+    <link rel="canonical" href="https://bandhannova.netlify.app/pages/html-css/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../src/styles/main.css">
+    <link rel="stylesheet" href="../../src/styles/animations.css">
+    <link rel="stylesheet" href="../../src/styles/components.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Code Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
-        "name": "HTML & CSS Course - Web Development Fundamentals",
-        "description": "Master HTML & CSS from basics to advanced responsive design. Learn web development fundamentals with interactive examples and projects.",
+        "name": "HTML & CSS Course",
+        "description": "Master HTML & CSS with interactive lessons, code examples, and hands-on projects. Learn web development fundamentals.",
         "provider": {
             "@type": "Organization",
             "name": "BandhanNova",
             "url": "https://bandhannova.netlify.app"
         },
         "courseCode": "HTML-CSS-101",
-        "educationalLevel": "Beginner to Intermediate",
-        "teaches": ["HTML5", "CSS3", "Responsive Design", "Web Development", "Frontend Development"]
+        "educationalLevel": "Beginner",
+        "programmingLanguage": ["HTML", "CSS"],
+        "teaches": ["HTML Structure", "CSS Styling", "Responsive Design", "Web Development Fundamentals"]
     }
     </script>
-    
-    <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
-    <link rel="stylesheet" href="../../src/styles/main.css">
-    <link rel="stylesheet" href="../../src/styles/animations.css">
-    <link rel="stylesheet" href="../../src/styles/components.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="tech-learning-container">
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -68,8 +70,8 @@
             <div class="nav-menu" id="navMenu">
                 <a href="../../index.html" class="nav-link">Home</a>
                 <a href="../tech-learning.html" class="nav-link">Tech Hub</a>
-                <a href="#course-content" class="nav-link active">Course</a>
                 <a href="../dashboard.html" class="nav-link">Dashboard</a>
+                <a href="../../index.html#contact" class="nav-link">Contact</a>
             </div>
             
             <div class="nav-toggle" id="navToggle">
@@ -79,6 +81,33 @@
             </div>
         </div>
     </nav>
+
+    <!-- Course Header -->
+    <header class="course-header">
+        <div class="container">
+            <h1 class="course-title">
+                <i class="fab fa-html5" style="color: #E34F26; margin-right: 0.5rem;"></i>
+                HTML & CSS Mastery
+            </h1>
+            <p class="course-subtitle">
+                Build beautiful, responsive websites from scratch with modern HTML5 and CSS3
+            </p>
+            <div class="course-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Chapters</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Code Examples</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Beginner</span>
+                    <span class="stat-label">Level</span>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
@@ -93,37 +122,420 @@
         </div>
     </div>
 
-    <!-- Course Header -->
-    <section class="course-header">
-        <div class="container">
-            <div class="course-hero">
-                <div class="course-info">
-                    <div class="course-badge">
-                        <i class="fab fa-html5"></i>
-                        <span>Web Development</span>
+    <!-- Chapter Container -->
+    <main class="chapter-container">
+        
+        <!-- Chapter 1: HTML Basics -->
+        <article class="chapter-card" id="chapter-1">
+            <header class="chapter-header">
+                <h2 class="chapter-title">
+                    <i class="fas fa-code chapter-icon"></i>
+                    Chapter 1: HTML Basics
+                </h2>
+                <p class="chapter-intro">
+                    Learn the fundamental building blocks of web pages. HTML (HyperText Markup Language) is the standard markup language for creating web pages.
+                </p>
+            </header>
+            
+            <div class="chapter-content">
+                <!-- Introduction Section -->
+                <section class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-book section-icon"></i>
+                        📘 Introduction
+                    </h3>
+                    <div class="explanation-text">
+                        <p>HTML is the backbone of every website on the internet. It provides structure and meaning to web content through a system of elements and tags. Think of HTML as the skeleton of a house - it provides the framework that everything else is built upon.</p>
+                        
+                        <p>Every webpage you visit, from simple blogs to complex applications like Facebook or Google, starts with HTML. It tells the browser what content to display and how to organize it, whether it's headings, paragraphs, images, or links.</p>
+                        
+                        <p>In this chapter, you'll learn how HTML elements work, how to create your first webpage, and understand the basic structure that makes the web possible.</p>
                     </div>
-                    <h1 class="course-title">
-                        <span class="typing-text">HTML & CSS Mastery</span>
-                    </h1>
-                    <p class="course-subtitle">
-                        Build Beautiful, Responsive Websites from Scratch
-                    </p>
-                    <p class="course-description">
-                        Learn the foundation of web development with HTML5 and CSS3. Master semantic markup, 
-                        responsive design, animations, and modern CSS techniques to create stunning websites.
-                    </p>
-                    
-                    <div class="course-stats">
-                        <div class="stat">
-                            <i class="fas fa-book"></i>
-                            <span>10 Chapters</span>
+                </section>
+
+                <!-- Code Example Section -->
+                <section class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-laptop-code section-icon"></i>
+                        🖥️ Code Example
+                    </h3>
+                    <div class="code-example" data-language="HTML">
+                        <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Webpage&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is my first paragraph in HTML!&lt;/p&gt;
+    &lt;a href="https://www.example.com"&gt;Visit Example.com&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Output Preview Section -->
+                <section class="section">
+                    <div class="output-preview">
+                        <div class="output-content">
+<strong>Welcome to My Website</strong>
+
+This is my first paragraph in HTML!
+
+<a href="#" style="color: #0175C2; text-decoration: underline;">Visit Example.com</a>
                         </div>
-                        <div class="stat">
-                            <i class="fas fa-clock"></i>
-                            <span>15 Hours</span>
+                    </div>
+                </section>
+
+                <!-- Images Section -->
+                <section class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-images section-icon"></i>
+                        🖼️ Visual Learning
+                    </h3>
+                    <div class="chapter-images">
+                        <div class="chapter-image">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="200" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+                                <rect x="20" y="20" width="260" height="40" fill="#02569B" rx="5"/>
+                                <text x="150" y="45" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">&lt;html&gt;</text>
+                                <rect x="40" y="80" width="220" height="30" fill="#0175C2" rx="3"/>
+                                <text x="150" y="100" text-anchor="middle" fill="white" font-family="Arial" font-size="14">&lt;head&gt;</text>
+                                <rect x="40" y="130" width="220" height="30" fill="#0175C2" rx="3"/>
+                                <text x="150" y="150" text-anchor="middle" fill="white" font-family="Arial" font-size="14">&lt;body&gt;</text>
+                                <text x="150" y="180" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="12">HTML Document Structure</text>
+                            </svg>
+                            <p class="image-caption">HTML Document Structure - The basic hierarchy of HTML elements</p>
                         </div>
-                        <div class="stat">
-                            <i class="fas fa-users"></i>
+                        <div class="chapter-image">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="200" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+                                <circle cx="150" cy="60" r="30" fill="#E34F26"/>
+                                <text x="150" y="67" text-anchor="middle" fill="white" font-family="Arial" font-size="20" font-weight="bold">HTML</text>
+                                <rect x="50" y="110" width="60" height="25" fill="#02569B" rx="3"/>
+                                <text x="80" y="127" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Tags</text>
+                                <rect x="120" y="110" width="60" height="25" fill="#02569B" rx="3"/>
+                                <text x="150" y="127" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Elements</text>
+                                <rect x="190" y="110" width="60" height="25" fill="#02569B" rx="3"/>
+                                <text x="220" y="127" text-anchor="middle" fill="white" font-family="Arial" font-size="10">Attributes</text>
+                                <line x1="150" y1="90" x2="80" y2="110" stroke="#6c757d" stroke-width="2"/>
+                                <line x1="150" y1="90" x2="150" y2="110" stroke="#6c757d" stroke-width="2"/>
+                                <line x1="150" y1="90" x2="220" y2="110" stroke="#6c757d" stroke-width="2"/>
+                                <text x="150" y="165" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="12">HTML Core Concepts</text>
+                            </svg>
+                            <p class="image-caption">HTML Core Concepts - Tags, Elements, and Attributes working together</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Summary Section -->
+                <section class="section">
+                    <div class="quick-summary">
+                        <h3 class="summary-title">
+                            <i class="fas fa-lightbulb"></i>
+                            🔎 Quick Summary
+                        </h3>
+                        <ul class="summary-list">
+                            <li>HTML stands for HyperText Markup Language and structures web content</li>
+                            <li>Every HTML document starts with &lt;!DOCTYPE html&gt; declaration</li>
+                            <li>HTML elements are created using opening and closing tags like &lt;h1&gt;&lt;/h1&gt;</li>
+                            <li>The basic structure includes &lt;html&gt;, &lt;head&gt;, and &lt;body&gt; elements</li>
+                            <li>HTML provides semantic meaning to content for browsers and search engines</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Mini Quiz Section -->
+                <section class="section">
+                    <div class="mini-quiz">
+                        <h3 class="quiz-title">
+                            <i class="fas fa-question-circle"></i>
+                            ❓ Mini Quiz
+                        </h3>
+                        
+                        <div class="quiz-question">
+                            <p class="question-text">1. What does HTML stand for?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-answer="correct">HyperText Markup Language</div>
+                                <div class="quiz-option">High Tech Modern Language</div>
+                                <div class="quiz-option">Home Tool Markup Language</div>
+                                <div class="quiz-option">HyperText Making Language</div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p class="question-text">2. Which tag is used for the largest heading?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" data-answer="correct">&lt;h1&gt;</div>
+                                <div class="quiz-option">&lt;h6&gt;</div>
+                                <div class="quiz-option">&lt;header&gt;</div>
+                                <div class="quiz-option">&lt;title&gt;</div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p class="question-text">3. What is the correct HTML document structure?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">&lt;body&gt;&lt;head&gt;&lt;html&gt;</div>
+                                <div class="quiz-option" data-answer="correct">&lt;html&gt;&lt;head&gt;&lt;body&gt;</div>
+                                <div class="quiz-option">&lt;head&gt;&lt;html&gt;&lt;body&gt;</div>
+                                <div class="quiz-option">&lt;html&gt;&lt;body&gt;&lt;head&gt;</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Progress Tracker Section -->
+                <section class="section">
+                    <div class="progress-tracker">
+                        <h3 class="progress-title">✅ Progress Tracker</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 10%"></div>
+                        </div>
+                        <p class="progress-text">Chapter 1 of 10 completed (10%)</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <nav class="chapter-navigation">
+                <button class="nav-button" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                    Previous
+                </button>
+                <button class="nav-button" onclick="scrollToChapter(2)">
+                    Next
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </nav>
+        </article>
+
+        <!-- Chapter 2: HTML Elements -->
+        <article class="chapter-card" id="chapter-2">
+            <header class="chapter-header">
+                <h2 class="chapter-title">
+                    <i class="fas fa-tags chapter-icon"></i>
+                    Chapter 2: HTML Elements & Tags
+                </h2>
+                <p class="chapter-intro">
+                    Dive deeper into HTML elements and learn about different types of tags, their purposes, and how to use them effectively.
+                </p>
+            </header>
+            
+            <div class="chapter-content">
+                <!-- Introduction Section -->
+                <section class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-book section-icon"></i>
+                        📘 Introduction
+                    </h3>
+                    <div class="explanation-text">
+                        <p>HTML elements are the building blocks of web pages. Each element serves a specific purpose and provides semantic meaning to your content. Understanding different types of elements is crucial for creating well-structured, accessible websites.</p>
+                        
+                        <p>Elements can be block-level (taking full width) or inline (flowing with text). Some elements are self-closing, while others require both opening and closing tags. Each element can also have attributes that provide additional information or functionality.</p>
+                        
+                        <p>In this chapter, we'll explore the most commonly used HTML elements and learn when and how to use them properly.</p>
+                    </div>
+                </section>
+
+                <!-- Code Example Section -->
+                <section class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-laptop-code section-icon"></i>
+                        🖥️ Code Example
+                    </h3>
+                    <div class="code-example" data-language="HTML">
+                        <pre><code class="language-html">&lt;!-- Headings --&gt;
+&lt;h1&gt;Main Title&lt;/h1&gt;
+&lt;h2&gt;Section Title&lt;/h2&gt;
+&lt;h3&gt;Subsection Title&lt;/h3&gt;
+
+&lt;!-- Paragraphs and Text --&gt;
+&lt;p&gt;This is a paragraph with &lt;strong&gt;bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;.&lt;/p&gt;
+
+&lt;!-- Lists --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Unordered list item 1&lt;/li&gt;
+    &lt;li&gt;Unordered list item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Ordered list item 1&lt;/li&gt;
+    &lt;li&gt;Ordered list item 2&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Links and Images --&gt;
+&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;img src="image.jpg" alt="Description of image"&gt;</code></pre>
+                    </div>
+                </section>
+
+                <!-- Output Preview Section -->
+                <section class="section">
+                    <div class="output-preview">
+                        <div class="output-content">
+<h1 style="font-size: 2em; margin: 0.5em 0;">Main Title</h1>
+<h2 style="font-size: 1.5em; margin: 0.5em 0;">Section Title</h2>
+<h3 style="font-size: 1.2em; margin: 0.5em 0;">Subsection Title</h3>
+
+<p>This is a paragraph with <strong>bold text</strong> and <em>italic text</em>.</p>
+
+• Unordered list item 1
+• Unordered list item 2
+
+1. Ordered list item 1
+2. Ordered list item 2
+
+<a href="#" style="color: #0175C2;">Visit Example</a>
+[Image placeholder: Description of image]
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Images Section -->
+                <section class="section">
+                    <h3 class="section-title">
+                        <i class="fas fa-images section-icon"></i>
+                        🖼️ Visual Learning
+                    </h3>
+                    <div class="chapter-images">
+                        <div class="chapter-image">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="200" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+                                <text x="150" y="25" text-anchor="middle" fill="#02569B" font-family="Arial" font-size="14" font-weight="bold">Block vs Inline Elements</text>
+                                
+                                <!-- Block Elements -->
+                                <rect x="20" y="40" width="120" height="25" fill="#E34F26" rx="3"/>
+                                <text x="80" y="57" text-anchor="middle" fill="white" font-family="Arial" font-size="12">&lt;div&gt; Block</text>
+                                <rect x="20" y="70" width="120" height="25" fill="#E34F26" rx="3"/>
+                                <text x="80" y="87" text-anchor="middle" fill="white" font-family="Arial" font-size="12">&lt;p&gt; Block</text>
+                                
+                                <!-- Inline Elements -->
+                                <rect x="160" y="40" width="50" height="20" fill="#0175C2" rx="3"/>
+                                <text x="185" y="53" text-anchor="middle" fill="white" font-family="Arial" font-size="10">&lt;span&gt;</text>
+                                <rect x="220" y="40" width="50" height="20" fill="#0175C2" rx="3"/>
+                                <text x="245" y="53" text-anchor="middle" fill="white" font-family="Arial" font-size="10">&lt;strong&gt;</text>
+                                
+                                <text x="80" y="130" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="12">Block Elements</text>
+                                <text x="80" y="145" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="10">Take full width</text>
+                                
+                                <text x="210" y="130" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="12">Inline Elements</text>
+                                <text x="210" y="145" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="10">Flow with text</text>
+                            </svg>
+                            <p class="image-caption">Block vs Inline Elements - Understanding element display types</p>
+                        </div>
+                        <div class="chapter-image">
+                            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="300" height="200" fill="#f8f9fa" stroke="#e9ecef" stroke-width="2"/>
+                                <text x="150" y="25" text-anchor="middle" fill="#02569B" font-family="Arial" font-size="14" font-weight="bold">HTML Element Anatomy</text>
+                                
+                                <!-- Opening Tag -->
+                                <rect x="20" y="50" width="80" height="30" fill="#E34F26" rx="5"/>
+                                <text x="60" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="12">&lt;p class="text"&gt;</text>
+                                
+                                <!-- Content -->
+                                <rect x="110" y="50" width="80" height="30" fill="#4CAF50" rx="5"/>
+                                <text x="150" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="12">Content</text>
+                                
+                                <!-- Closing Tag -->
+                                <rect x="200" y="50" width="60" height="30" fill="#E34F26" rx="5"/>
+                                <text x="230" y="70" text-anchor="middle" fill="white" font-family="Arial" font-size="12">&lt;/p&gt;</text>
+                                
+                                <!-- Labels -->
+                                <text x="60" y="100" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="10">Opening Tag</text>
+                                <text x="60" y="115" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="10">+ Attribute</text>
+                                <text x="150" y="100" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="10">Element Content</text>
+                                <text x="230" y="100" text-anchor="middle" fill="#6c757d" font-family="Arial" font-size="10">Closing Tag</text>
+                            </svg>
+                            <p class="image-caption">HTML Element Anatomy - Structure of a complete HTML element</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Summary Section -->
+                <section class="section">
+                    <div class="quick-summary">
+                        <h3 class="summary-title">
+                            <i class="fas fa-lightbulb"></i>
+                            🔎 Quick Summary
+                        </h3>
+                        <ul class="summary-list">
+                            <li>HTML elements provide structure and meaning to web content</li>
+                            <li>Block elements take full width, inline elements flow with text</li>
+                            <li>Headings (h1-h6) create content hierarchy and improve SEO</li>
+                            <li>Lists (ul, ol) organize information in readable formats</li>
+                            <li>Links (a) and images (img) add interactivity and visual content</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Mini Quiz Section -->
+                <section class="section">
+                    <div class="mini-quiz">
+                        <h3 class="quiz-title">
+                            <i class="fas fa-question-circle"></i>
+                            ❓ Mini Quiz
+                        </h3>
+                        
+                        <div class="quiz-question">
+                            <p class="question-text">1. Which element is used for the strongest emphasis?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">&lt;em&gt;</div>
+                                <div class="quiz-option" data-answer="correct">&lt;strong&gt;</div>
+                                <div class="quiz-option">&lt;b&gt;</div>
+                                <div class="quiz-option">&lt;bold&gt;</div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p class="question-text">2. What type of element is &lt;div&gt;?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">Inline</div>
+                                <div class="quiz-option" data-answer="correct">Block</div>
+                                <div class="quiz-option">Self-closing</div>
+                                <div class="quiz-option">Text</div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <p class="question-text">3. Which attribute is required for images?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option">src</div>
+                                <div class="quiz-option">alt</div>
+                                <div class="quiz-option" data-answer="correct">Both src and alt</div>
+                                <div class="quiz-option">title</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Progress Tracker Section -->
+                <section class="section">
+                    <div class="progress-tracker">
+                        <h3 class="progress-title">✅ Progress Tracker</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 20%"></div>
+                        </div>
+                        <p class="progress-text">Chapter 2 of 10 completed (20%)</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Chapter Navigation -->
+            <nav class="chapter-navigation">
+                <button class="nav-button" onclick="scrollToChapter(1)">
+                    <i class="fas fa-chevron-left"></i>
+                    Previous
+                </button>
+                <button class="nav-button" onclick="scrollToChapter(3)">
+                    Next
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </nav>
+        </article>
+    </main>
                             <span>Beginner</span>
                         </div>
                         <div class="stat">
@@ -676,8 +1088,10 @@
     <script src="../../src/js/main.js"></script>
     <script src="../../src/js/animations.js"></script>
     <script src="../../src/js/navigation.js"></script>
-    <script src="../../src/js/certificate-generator.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="../../src/js/text-animations.js"></script>
+    <script src="../../src/js/ai-chatbot.js"></script>
+    <script src="../../src/js/copy-protection.js"></script>
+    <script src="../../src/js/course-navigation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="html-css-course.js"></script>
 </body>

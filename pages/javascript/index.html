@@ -16,12 +16,9 @@
     <meta name="twitter:title" content="JavaScript Programming Course - BandhanNova">
     <meta name="twitter:description" content="Learn modern JavaScript with interactive lessons and get certified">
     <link rel="canonical" href="https://bandhannova.netlify.app/pages/javascript/"> 
-    <meta name="keywords" content="JavaScript tutorial, ES6, modern JavaScript, web development, programming course, interactive coding">
     
     <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
     <link rel="stylesheet" href="../../src/styles/main.css">
-    <link rel="stylesheet" href="../../src/styles/animations.css">
-    <link rel="stylesheet" href="../../src/styles/components.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
@@ -355,276 +352,636 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <!-- Main Content -->
                 <main class="lesson-content">
-                    <div class="lesson-header">
-                        <h2 class="lesson-title">Chapter 1: JavaScript Fundamentals</h2>
-                        <div class="lesson-meta">
-                            <span class="lesson-duration">
-                                <i class="fas fa-clock"></i> 60 minutes
-                            </span>
-                            <span class="lesson-difficulty">
-                                <i class="fas fa-signal"></i> Beginner
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="lesson-body">
-                        <div class="content-section">
-                            <h3 class="typing-text">Welcome to JavaScript!</h3>
-                            <p class="fade-in-up">
-                                JavaScript is the programming language of the web. It's what makes websites interactive, 
-                                dynamic, and engaging. From simple button clicks to complex web applications, 
-                                JavaScript powers the modern internet.
-                            </p>
-                            
-                            <div class="info-box fade-in-up">
-                                <div class="info-icon">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <div class="info-content">
-                                    <h4>Why Learn JavaScript?</h4>
-                                    <p>JavaScript is the most popular programming language in the world, used by 97% of websites. It's essential for frontend development and increasingly popular for backend development with Node.js.</p>
-                                </div>
+                    <!-- Chapter 1: JavaScript Fundamentals -->
+                    <div class="chapter-card" id="chapter-1">
+                        <div class="chapter-header">
+                            <div class="chapter-number">01</div>
+                            <div class="chapter-info">
+                                <h2 class="chapter-title">JavaScript Fundamentals</h2>
+                                <p class="chapter-subtitle">Understanding the Building Blocks of Web Interactivity</p>
                             </div>
                         </div>
 
-                        <div class="content-section">
-                            <h3 class="typing-text">Your First JavaScript Code</h3>
-                            <p class="fade-in-up">
-                                Let's start with the traditional "Hello, World!" program. This simple example will introduce you to JavaScript syntax.
-                            </p>
-                            
-                            <div class="code-example fade-in-up">
-                                <div class="code-header">
-                                    <span class="code-title">Hello World in JavaScript</span>
-                                    <button class="copy-btn" onclick="copyCode(this)">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
-                                </div>
-                                <pre><code class="language-javascript">// This is a comment - it doesn't run as code
-console.log("Hello, World!");
-
-// You can also use alert to show a popup
-alert("Welcome to JavaScript!");
-
-// Variables store data
-let message = "JavaScript is awesome!";
-console.log(message);</code></pre>
-                            </div>
-                        </div>
-
-                        <div class="content-section">
-                            <h3 class="typing-text">JavaScript in Web Pages</h3>
+                        <div class="chapter-content">
+                            <!-- Introduction -->
                             <section class="content-section fade-in-up">
                                 <h3>What is JavaScript?</h3>
-                                <div class="content-with-image">
-                                    <div class="text-content">
-                                        <p>
-                                            JavaScript is a versatile, high-level programming language that enables interactive web pages. 
-                                            Originally created by Brendan Eich in 1995, JavaScript has evolved to become one of the most 
-                                            popular programming languages in the world.
-                                        </p>
+                                <p>
+                                    JavaScript is the programming language that brings websites to life. Created in 1995 by Brendan Eich, 
+                                    it has evolved from a simple scripting language to the backbone of modern web development. Today, 
+                                    JavaScript powers everything from interactive buttons to complex web applications like Gmail, Facebook, and Netflix.
+                                </p>
+                                <p>
+                                    Unlike HTML (which structures content) and CSS (which styles it), JavaScript adds behavior and interactivity. 
+                                    It's what makes dropdown menus work, forms validate input, and pages update without refreshing. 
+                                    JavaScript runs directly in your web browser, making it instantly accessible to billions of users worldwide.
+                                </p>
+                                <p>
+                                    What makes JavaScript special is its versatility. It's not just for websites anymore - you can use it to build 
+                                    mobile apps, desktop applications, server-side programs, and even control IoT devices. This "write once, run everywhere" 
+                                    philosophy has made JavaScript the most popular programming language in the world.
+                                </p>
+                            </section>
+
+                            <!-- Code Example -->
+                            <section class="content-section fade-in-up">
+                                <h3>Your First JavaScript Program</h3>
+                                <div class="code-example">
+                                    <div class="code-header">
+                                        <span class="code-title">hello-world.js</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
                                     </div>
-                                    <div class="image-content">
-                                        <div class="learning-image">
-                                            <svg viewBox="0 0 400 300" class="concept-diagram">
-                                                <defs>
-                                                    <linearGradient id="jsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                        <stop offset="0%" style="stop-color:#1E3A8A;stop-opacity:1" />
-                                                        <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:1" />
-                                                    </linearGradient>
-                                                </defs>
-                                                <!-- JavaScript Logo Inspired -->
-                                                <rect x="50" y="50" width="300" height="200" rx="20" fill="url(#jsGradient)" opacity="0.1"/>
-                                                <rect x="150" y="100" width="100" height="100" rx="10" fill="#F59E0B" opacity="0.8"/>
-                                                <text x="200" y="140" text-anchor="middle" fill="white" font-size="32" font-weight="bold">JS</text>
-                                                <text x="200" y="160" text-anchor="middle" fill="white" font-size="12">JavaScript</text>
-                                                <text x="200" y="240" text-anchor="middle" fill="#1E3A8A" font-size="14">Interactive • Dynamic • Versatile</text>
-                                                <!-- Browser, Server, Mobile icons -->
-                                                <circle cx="100" cy="80" r="15" fill="#1E3A8A" opacity="0.6"/>
-                                                <text x="100" y="85" text-anchor="middle" fill="white" font-size="8">WEB</text>
-                                                <circle cx="300" cy="80" r="15" fill="#1E3A8A" opacity="0.6"/>
-                                                <text x="300" y="85" text-anchor="middle" fill="white" font-size="8">API</text>
-                                                <circle cx="100" cy="220" r="15" fill="#1E3A8A" opacity="0.6"/>
-                                                <text x="100" y="225" text-anchor="middle" fill="white" font-size="8">APP</text>
-                                                <circle cx="300" cy="220" r="15" fill="#1E3A8A" opacity="0.6"/>
-                                                <text x="300" y="225" text-anchor="middle" fill="white" font-size="8">IOT</text>
-                                            </svg>
-                                        </div>
-                                    </div>
+                                    <pre><code class="language-javascript">// Welcome to JavaScript!
+// This is a comment - it explains what the code does
+
+// Display a message in the browser console
+console.log("Hello, World!");
+
+// Show a popup message to the user
+alert("Welcome to JavaScript programming!");
+
+// Store information in variables
+let studentName = "Alex";
+let courseTitle = "JavaScript Fundamentals";
+let currentYear = 2024;
+
+// Combine variables to create a personalized message
+let welcomeMessage = `Hi ${studentName}! Welcome to ${courseTitle} in ${currentYear}.`;
+console.log(welcomeMessage);
+
+// Simple function to calculate age
+function calculateAge(birthYear) {
+    return currentYear - birthYear;
+}
+
+// Use the function
+let age = calculateAge(2000);
+console.log(`You are ${age} years old!`);</code></pre>
                                 </div>
-                                
-                                <h4>Why Learn JavaScript?</h4>
-                                <div class="features-grid">
-                                    <div class="feature-card">
-                                        <div class="feature-icon">
-                                            <svg viewBox="0 0 100 100" class="icon-svg">
-                                                <rect x="20" y="30" width="60" height="40" rx="5" fill="#1E3A8A" opacity="0.2"/>
-                                                <circle cx="35" cy="45" r="5" fill="#F59E0B"/>
-                                                <circle cx="50" cy="55" r="5" fill="#1E3A8A"/>
-                                                <circle cx="65" cy="45" r="5" fill="#F59E0B"/>
-                                            </svg>
-                                        </div>
-                                        <h5>Essential for Web</h5>
-                                        <p>Required for modern web applications</p>
+                            </section>
+
+                            <!-- Output Preview -->
+                            <section class="content-section fade-in-up">
+                                <h3>Expected Output</h3>
+                                <div class="output-preview">
+                                    <div class="output-header">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>Console Output</span>
                                     </div>
-                                    <div class="feature-card">
-                                        <div class="feature-icon">
-                                            <svg viewBox="0 0 100 100" class="icon-svg">
-                                                <rect x="25" y="25" width="50" height="25" rx="3" fill="#1E3A8A" opacity="0.3"/>
-                                                <rect x="25" y="55" width="50" height="25" rx="3" fill="#F59E0B" opacity="0.3"/>
-                                                <text x="50" y="40" text-anchor="middle" fill="#1E3A8A" font-size="8">FRONT</text>
-                                                <text x="50" y="70" text-anchor="middle" fill="#F59E0B" font-size="8">BACK</text>
-                                            </svg>
+                                    <div class="output-content">
+                                        <div class="output-line">Hello, World!</div>
+                                        <div class="output-line">Hi Alex! Welcome to JavaScript Fundamentals in 2024.</div>
+                                        <div class="output-line">You are 24 years old!</div>
+                                        <div class="output-note">
+                                            <i class="fas fa-info-circle"></i>
+                                            The alert() function will show a popup dialog box in the browser.
                                         </div>
-                                        <h5>Full-Stack</h5>
-                                        <p>Frontend and backend development</p>
-                                    </div>
-                                    <div class="feature-card">
-                                        <div class="feature-icon">
-                                            <svg viewBox="0 0 100 100" class="icon-svg">
-                                                <circle cx="50" cy="30" r="12" fill="#1E3A8A" opacity="0.4"/>
-                                                <circle cx="30" cy="60" r="10" fill="#F59E0B" opacity="0.4"/>
-                                                <circle cx="70" cy="60" r="10" fill="#1E3A8A" opacity="0.4"/>
-                                                <circle cx="50" cy="80" r="8" fill="#F59E0B" opacity="0.4"/>
-                                                <line x1="50" y1="42" x2="30" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                                                <line x1="50" y1="42" x2="70" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                                                <line x1="30" y1="70" x2="50" y2="72" stroke="#F59E0B" stroke-width="2"/>
-                                                <line x1="70" y1="70" x2="50" y2="72" stroke="#F59E0B" stroke-width="2"/>
-                                            </svg>
-                                        </div>
-                                        <h5>Rich Ecosystem</h5>
-                                        <p>Vast libraries and frameworks</p>
-                                    </div>
-                                    <div class="feature-card">
-                                        <div class="feature-icon">
-                                            <svg viewBox="0 0 100 100" class="icon-svg">
-                                                <rect x="25" y="40" width="50" height="30" rx="5" fill="#1E3A8A" opacity="0.2"/>
-                                                <path d="M35 50 L45 60 L65 40" stroke="#F59E0B" stroke-width="3" fill="none"/>
-                                                <text x="50" y="80" text-anchor="middle" fill="#1E3A8A" font-size="8">IN DEMAND</text>
-                                            </svg>
-                                        </div>
-                                        <h5>High Demand</h5>
-                                        <p>Most sought-after programming skill</p>
                                     </div>
                                 </div>
                             </section>
-                            
-                            <div class="code-example fade-in-up">
-                                <div class="code-header">
-                                    <span class="code-title">Including JavaScript in HTML</span>
-                                    <button class="copy-btn" onclick="copyCode(this)">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
+
+                            <!-- Educational Images -->
+                            <section class="content-section fade-in-up">
+                                <h3>JavaScript in the Web Ecosystem</h3>
+                                <div class="images-grid">
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="jsGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#02569B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#0175C2;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- Web Technologies Stack -->
+                                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#jsGradient1)" opacity="0.1"/>
+                                            
+                                            <!-- HTML Layer -->
+                                            <rect x="80" y="180" width="240" height="40" rx="8" fill="#E34F26" opacity="0.8"/>
+                                            <text x="200" y="205" text-anchor="middle" fill="white" font-size="16" font-weight="bold">HTML - Structure</text>
+                                            
+                                            <!-- CSS Layer -->
+                                            <rect x="80" y="130" width="240" height="40" rx="8" fill="#1572B6" opacity="0.8"/>
+                                            <text x="200" y="155" text-anchor="middle" fill="white" font-size="16" font-weight="bold">CSS - Styling</text>
+                                            
+                                            <!-- JavaScript Layer -->
+                                            <rect x="80" y="80" width="240" height="40" rx="8" fill="#F7DF1E" opacity="0.9"/>
+                                            <text x="200" y="105" text-anchor="middle" fill="#333" font-size="16" font-weight="bold">JavaScript - Behavior</text>
+                                            
+                                            <!-- Arrows showing interaction -->
+                                            <path d="M 200 75 L 200 65 M 195 70 L 200 65 L 205 70" stroke="#02569B" stroke-width="2" fill="none"/>
+                                            <text x="200" y="40" text-anchor="middle" fill="#02569B" font-size="14" font-weight="bold">Interactive Web Page</text>
+                                        </svg>
+                                        <p class="image-caption">The Three Pillars of Web Development</p>
+                                    </div>
+                                    
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="jsGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#F7DF1E;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#02569B;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- JavaScript Applications -->
+                                            <circle cx="200" cy="150" r="60" fill="url(#jsGradient2)" opacity="0.9"/>
+                                            <text x="200" y="145" text-anchor="middle" fill="white" font-size="18" font-weight="bold">JavaScript</text>
+                                            <text x="200" y="165" text-anchor="middle" fill="white" font-size="12">Everywhere</text>
+                                            
+                                            <!-- Web Apps -->
+                                            <circle cx="120" cy="80" r="25" fill="#02569B" opacity="0.7"/>
+                                            <text x="120" y="85" text-anchor="middle" fill="white" font-size="10">Web Apps</text>
+                                            <line x1="140" y1="95" x2="175" y2="125" stroke="#02569B" stroke-width="2"/>
+                                            
+                                            <!-- Mobile Apps -->
+                                            <circle cx="280" cy="80" r="25" fill="#02569B" opacity="0.7"/>
+                                            <text x="280" y="85" text-anchor="middle" fill="white" font-size="10">Mobile</text>
+                                            <line x1="260" y1="95" x2="225" y2="125" stroke="#02569B" stroke-width="2"/>
+                                            
+                                            <!-- Desktop Apps -->
+                                            <circle cx="120" cy="220" r="25" fill="#02569B" opacity="0.7"/>
+                                            <text x="120" y="225" text-anchor="middle" fill="white" font-size="10">Desktop</text>
+                                            <line x1="140" y1="205" x2="175" y2="175" stroke="#02569B" stroke-width="2"/>
+                                            
+                                            <!-- Server Apps -->
+                                            <circle cx="280" cy="220" r="25" fill="#02569B" opacity="0.7"/>
+                                            <text x="280" y="225" text-anchor="middle" fill="white" font-size="10">Servers</text>
+                                            <line x1="260" y1="205" x2="225" y2="175" stroke="#02569B" stroke-width="2"/>
+                                        </svg>
+                                        <p class="image-caption">JavaScript's Versatile Applications</p>
+                                    </div>
                                 </div>
-                                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;My JavaScript Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1 id="heading"&gt;Welcome!&lt;/h1&gt;
-    &lt;button onclick="changeText()"&gt;Click Me!&lt;/button&gt;
-    
-    &lt;script&gt;
-        function changeText() {
-            document.getElementById('heading').textContent = 'Hello JavaScript!';
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                            </div>
-                        </div>
+                            </section>
 
-                        <!-- Interactive Code Playground -->
-                        <div class="content-section">
-                            <h3 class="typing-text">Interactive JavaScript Playground</h3>
-                            <p class="fade-in-up">
-                                Try writing JavaScript code below. You can use console.log() to output results, 
-                                or manipulate the DOM to see changes in real-time.
-                            </p>
-                            
-                            <div class="code-playground fade-in-up">
-                                <div class="playground-header">
-                                    <div class="playground-tabs">
-                                        <button class="tab-btn active" data-tab="js">JavaScript</button>
-                                        <button class="tab-btn" data-tab="html">HTML</button>
-                                        <button class="tab-btn" data-tab="result">Result</button>
-                                        <button class="tab-btn" data-tab="console">Console</button>
-                                    </div>
-                                    <button class="run-btn" onclick="runJavaScript()">
-                                        <i class="fas fa-play"></i> Run Code
-                                    </button>
+                            <!-- Quick Summary -->
+                            <section class="content-section fade-in-up">
+                                <h3>Quick Summary</h3>
+                                <div class="summary-box">
+                                    <ul class="summary-list">
+                                        <li><i class="fas fa-check-circle"></i> JavaScript is the programming language that adds interactivity to web pages</li>
+                                        <li><i class="fas fa-check-circle"></i> It runs directly in web browsers without needing special software</li>
+                                        <li><i class="fas fa-check-circle"></i> JavaScript can be used for web, mobile, desktop, and server applications</li>
+                                        <li><i class="fas fa-check-circle"></i> It works alongside HTML (structure) and CSS (styling) to create complete web experiences</li>
+                                        <li><i class="fas fa-check-circle"></i> Modern JavaScript includes powerful features like variables, functions, and object manipulation</li>
+                                    </ul>
                                 </div>
-                                
-                                <div class="playground-content">
-                                    <div class="code-editor active" id="js-editor">
-                                        <textarea id="jsCode" placeholder="Write your JavaScript code here...">// Try these examples:
+                            </section>
 
-// 1. Basic output
-console.log("Hello from JavaScript!");
-
-// 2. Variables and operations
-let name = "Student";
-let age = 25;
-console.log(`My name is ${name} and I am ${age} years old`);
-
-// 3. Simple function
-function greet(person) {
-    return `Hello, ${person}! Welcome to JavaScript.`;
-}
-
-console.log(greet("World"));
-
-// 4. DOM manipulation (try this after running)
-document.body.innerHTML += '<h2>JavaScript is working!</h2>';
-document.body.style.backgroundColor = '#f0f8ff';</textarea>
+                            <!-- Mini Quiz -->
+                            <section class="content-section fade-in-up">
+                                <h3>Knowledge Check</h3>
+                                <div class="quiz-container">
+                                    <div class="quiz-question" data-question="1">
+                                        <h4>Question 1: What is JavaScript primarily used for?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Styling web pages with colors and fonts</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Adding interactivity and behavior to web pages</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>Creating the basic structure of web pages</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    <div class="code-editor" id="html-editor">
-                                        <textarea id="htmlCode" placeholder="HTML for your JavaScript to interact with..."><!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Playground</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        .highlight { background-color: yellow; }
-    </style>
-</head>
-<body>
-    <h1 id="title">JavaScript Playground</h1>
-    <p id="demo">This text can be changed with JavaScript!</p>
-    <button id="myButton">Click me!</button>
-    
-    <div id="output"></div>
-</body>
-</html></textarea>
+
+                                    <div class="quiz-question" data-question="2">
+                                        <h4>Question 2: Which function is used to display messages in the browser console?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>alert()</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>console.log()</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>document.write()</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    <div class="code-result" id="result-frame">
-                                        <iframe id="jsOutput" frameborder="0"></iframe>
-                                    </div>
-                                    
-                                    <div class="console-output" id="console-output">
-                                        <div class="console-header">Console Output:</div>
-                                        <div class="console-content" id="consoleContent">
-                                            <div class="console-line">Ready to run JavaScript...</div>
+
+                                    <div class="quiz-question" data-question="3">
+                                        <h4>Question 3: What are the three main technologies that work together in web development?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>JavaScript, Python, and Java</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>HTML, CSS, and JavaScript</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>React, Angular, and Vue</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                            </section>
+
+                            <!-- Progress Tracker -->
+                            <section class="content-section fade-in-up">
+                                <div class="progress-tracker">
+                                    <div class="progress-info">
+                                        <h4>Chapter 1 Progress</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 7%"></div>
+                                        </div>
+                                        <span class="progress-text">Chapter 1 of 14 (7% Complete)</span>
+                                    </div>
+                                    <div class="chapter-navigation">
+                                        <button class="nav-btn prev" disabled>
+                                            <i class="fas fa-chevron-left"></i> Previous
+                                        </button>
+                                        <button class="nav-btn next" onclick="scrollToChapter(2)">
+                                            Next <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 2: Variables and Data Types -->
+                    <div class="chapter-card" id="chapter-2">
+                        <div class="chapter-header">
+                            <div class="chapter-number">02</div>
+                            <div class="chapter-info">
+                                <h2 class="chapter-title">Variables and Data Types</h2>
+                                <p class="chapter-subtitle">Storing and Working with Different Types of Information</p>
                             </div>
                         </div>
 
-                        <!-- Quiz Section -->
-                        <div class="content-section">
-                            <h3 class="typing-text">Knowledge Check</h3>
-                            <p class="fade-in-up">Test your understanding of JavaScript fundamentals:</p>
-                            
-                            <div class="quiz-container fade-in-up">
-                                <div class="quiz-question active" data-question="1">
-                                    <h4>Question 1 of 4</h4>
-                                    <p>Which of the following is the correct way to declare a variable in modern JavaScript?</p>
-                                    <div class="quiz-options">
-                                        <label class="quiz-option">
+                        <div class="chapter-content">
+                            <!-- Introduction -->
+                            <section class="content-section fade-in-up">
+                                <h3>Understanding Variables</h3>
+                                <p>
+                                    Variables are like containers that store data values. Think of them as labeled boxes where you can put 
+                                    different types of information - numbers, text, true/false values, and more. In JavaScript, variables 
+                                    are essential for creating dynamic programs that can remember information and perform calculations.
+                                </p>
+                                <p>
+                                    Modern JavaScript provides three ways to declare variables: <code>let</code>, <code>const</code>, and <code>var</code>. 
+                                    Each has different rules about when and how they can be used. Understanding these differences is crucial 
+                                    for writing clean, bug-free code.
+                                </p>
+                                <p>
+                                    JavaScript is a "dynamically typed" language, which means you don't need to specify what type of data 
+                                    a variable will hold. The JavaScript engine automatically determines the data type based on the value 
+                                    you assign. This flexibility makes JavaScript easy to learn but requires understanding of how different 
+                                    data types behave.
+                                </p>
+                            </section>
+
+                            <!-- Code Example -->
+                            <section class="content-section fade-in-up">
+                                <h3>Variable Declaration and Data Types</h3>
+                                <div class="code-example">
+                                    <div class="code-header">
+                                        <span class="code-title">variables-and-types.js</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                    <pre><code class="language-javascript">// Variable Declaration Methods
+
+// let - for variables that can change
+let userName = "Sarah";
+let userAge = 28;
+let isLoggedIn = false;
+
+// const - for values that won't change
+const PI = 3.14159;
+const siteName = "BandhanNova";
+const maxUsers = 1000;
+
+// var - older way (avoid in modern code)
+var oldStyleVariable = "This is outdated";
+
+// Data Types in JavaScript
+
+// 1. String (text)
+let firstName = "John";
+let lastName = 'Doe';  // Single or double quotes work
+let fullName = `${firstName} ${lastName}`;  // Template literals
+
+// 2. Number (integers and decimals)
+let age = 25;
+let price = 99.99;
+let temperature = -5;
+
+// 3. Boolean (true/false)
+let isStudent = true;
+let hasGraduated = false;
+
+// 4. Undefined (no value assigned)
+let notAssigned;
+console.log(notAssigned); // undefined
+
+// 5. Null (intentionally empty)
+let emptyValue = null;
+
+// 6. Object (complex data)
+let person = {
+    name: "Alice",
+    age: 30,
+    city: "New York"
+};
+
+// 7. Array (list of values)
+let colors = ["red", "green", "blue"];
+let numbers = [1, 2, 3, 4, 5];
+
+// Checking data types
+console.log(typeof firstName);  // "string"
+console.log(typeof age);        // "number"
+console.log(typeof isStudent);  // "boolean"</code></pre>
+                                </div>
+                            </section>
+
+                            <!-- Output Preview -->
+                            <section class="content-section fade-in-up">
+                                <h3>Expected Output</h3>
+                                <div class="output-preview">
+                                    <div class="output-header">
+                                        <i class="fas fa-terminal"></i>
+                                        <span>Console Output</span>
+                                    </div>
+                                    <div class="output-content">
+                                        <div class="output-line">undefined</div>
+                                        <div class="output-line">string</div>
+                                        <div class="output-line">number</div>
+                                        <div class="output-line">boolean</div>
+                                        <div class="output-note">
+                                            <i class="fas fa-info-circle"></i>
+                                            The typeof operator returns the data type as a string.
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Educational Images -->
+                            <section class="content-section fade-in-up">
+                                <h3>JavaScript Data Types Visualization</h3>
+                                <div class="images-grid">
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="dataGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#02569B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#0175C2;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- Variable Container Concept -->
+                                            <rect x="50" y="50" width="300" height="200" rx="15" fill="url(#dataGradient1)" opacity="0.1"/>
+                                            
+                                            <!-- Variable Boxes -->
+                                            <rect x="80" y="80" width="80" height="50" rx="8" fill="#02569B" opacity="0.8"/>
+                                            <text x="120" y="100" text-anchor="middle" fill="white" font-size="10" font-weight="bold">let name</text>
+                                            <text x="120" y="115" text-anchor="middle" fill="white" font-size="8">"John"</text>
+                                            
+                                            <rect x="180" y="80" width="80" height="50" rx="8" fill="#0175C2" opacity="0.8"/>
+                                            <text x="220" y="100" text-anchor="middle" fill="white" font-size="10" font-weight="bold">let age</text>
+                                            <text x="220" y="115" text-anchor="middle" fill="white" font-size="8">25</text>
+                                            
+                                            <rect x="280" y="80" width="80" height="50" rx="8" fill="#02569B" opacity="0.8"/>
+                                            <text x="320" y="100" text-anchor="middle" fill="white" font-size="10" font-weight="bold">let active</text>
+                                            <text x="320" y="115" text-anchor="middle" fill="white" font-size="8">true</text>
+                                            
+                                            <!-- Const Box -->
+                                            <rect x="130" y="160" width="140" height="50" rx="8" fill="#F59E0B" opacity="0.8"/>
+                                            <text x="200" y="180" text-anchor="middle" fill="white" font-size="10" font-weight="bold">const PI = 3.14159</text>
+                                            <text x="200" y="195" text-anchor="middle" fill="white" font-size="8">(Cannot Change)</text>
+                                            
+                                            <text x="200" y="40" text-anchor="middle" fill="#02569B" font-size="14" font-weight="bold">Variables as Data Containers</text>
+                                        </svg>
+                                        <p class="image-caption">Variables Store Different Types of Data</p>
+                                    </div>
+                                    
+                                    <div class="learning-image">
+                                        <svg viewBox="0 0 400 300" class="concept-diagram">
+                                            <defs>
+                                                <linearGradient id="dataGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+                                                    <stop offset="100%" style="stop-color:#02569B;stop-opacity:1" />
+                                                </linearGradient>
+                                            </defs>
+                                            <!-- Data Types Hierarchy -->
+                                            <circle cx="200" cy="60" r="40" fill="url(#dataGradient2)" opacity="0.9"/>
+                                            <text x="200" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">JavaScript</text>
+                                            <text x="200" y="70" text-anchor="middle" fill="white" font-size="10">Data Types</text>
+                                            
+                                            <!-- Primitive Types -->
+                                            <rect x="50" y="120" width="60" height="30" rx="5" fill="#02569B" opacity="0.7"/>
+                                            <text x="80" y="140" text-anchor="middle" fill="white" font-size="9">String</text>
+                                            
+                                            <rect x="120" y="120" width="60" height="30" rx="5" fill="#02569B" opacity="0.7"/>
+                                            <text x="150" y="140" text-anchor="middle" fill="white" font-size="9">Number</text>
+                                            
+                                            <rect x="190" y="120" width="60" height="30" rx="5" fill="#02569B" opacity="0.7"/>
+                                            <text x="220" y="140" text-anchor="middle" fill="white" font-size="9">Boolean</text>
+                                            
+                                            <rect x="260" y="120" width="60" height="30" rx="5" fill="#02569B" opacity="0.7"/>
+                                            <text x="290" y="140" text-anchor="middle" fill="white" font-size="9">Undefined</text>
+                                            
+                                            <!-- Complex Types -->
+                                            <rect x="100" y="180" width="80" height="30" rx="5" fill="#F59E0B" opacity="0.7"/>
+                                            <text x="140" y="200" text-anchor="middle" fill="white" font-size="9">Object</text>
+                                            
+                                            <rect x="200" y="180" width="80" height="30" rx="5" fill="#F59E0B" opacity="0.7"/>
+                                            <text x="240" y="200" text-anchor="middle" fill="white" font-size="9">Array</text>
+                                            
+                                            <!-- Connection lines -->
+                                            <line x1="200" y1="100" x2="80" y2="120" stroke="#02569B" stroke-width="1"/>
+                                            <line x1="200" y1="100" x2="150" y2="120" stroke="#02569B" stroke-width="1"/>
+                                            <line x1="200" y1="100" x2="220" y2="120" stroke="#02569B" stroke-width="1"/>
+                                            <line x1="200" y1="100" x2="290" y2="120" stroke="#02569B" stroke-width="1"/>
+                                            <line x1="200" y1="100" x2="140" y2="180" stroke="#F59E0B" stroke-width="1"/>
+                                            <line x1="200" y1="100" x2="240" y2="180" stroke="#F59E0B" stroke-width="1"/>
+                                            
+                                            <text x="200" y="250" text-anchor="middle" fill="#02569B" font-size="12" font-weight="bold">Primitive vs Complex Types</text>
+                                        </svg>
+                                        <p class="image-caption">JavaScript Data Type Categories</p>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Quick Summary -->
+                            <section class="content-section fade-in-up">
+                                <h3>Quick Summary</h3>
+                                <div class="summary-box">
+                                    <ul class="summary-list">
+                                        <li><i class="fas fa-check-circle"></i> Use <code>let</code> for variables that can change, <code>const</code> for constants</li>
+                                        <li><i class="fas fa-check-circle"></i> JavaScript has primitive types: string, number, boolean, undefined, null</li>
+                                        <li><i class="fas fa-check-circle"></i> Complex types include objects and arrays for storing multiple values</li>
+                                        <li><i class="fas fa-check-circle"></i> Use <code>typeof</code> operator to check what type of data a variable contains</li>
+                                        <li><i class="fas fa-check-circle"></i> Template literals (backticks) allow embedding variables in strings</li>
+                                    </ul>
+                                </div>
+                            </section>
+
+                            <!-- Mini Quiz -->
+                            <section class="content-section fade-in-up">
+                                <h3>Knowledge Check</h3>
+                                <div class="quiz-container">
+                                    <div class="quiz-question" data-question="1">
+                                        <h4>Question 1: Which keyword should you use for a value that won't change?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>let</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>const</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>var</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quiz-question" data-question="2">
+                                        <h4>Question 2: What data type is the value true?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>string</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>number</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>boolean</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="quiz-question" data-question="3">
+                                        <h4>Question 3: How do you create a template literal in JavaScript?</h4>
+                                        <div class="quiz-options">
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>"Hello ${name}"</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="correct">
+                                                <i class="fas fa-circle"></i>
+                                                <span>`Hello ${name}`</span>
+                                            </div>
+                                            <div class="quiz-option" data-answer="wrong">
+                                                <i class="fas fa-circle"></i>
+                                                <span>'Hello ${name}'</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Progress Tracker -->
+                            <section class="content-section fade-in-up">
+                                <div class="progress-tracker">
+                                    <div class="progress-info">
+                                        <h4>Chapter 2 Progress</h4>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 14%"></div>
+                                        </div>
+                                        <span class="progress-text">Chapter 2 of 14 (14% Complete)</span>
+                                    </div>
+                                    <div class="chapter-navigation">
+                                        <button class="nav-btn prev" onclick="scrollToChapter(1)">
+                                            <i class="fas fa-chevron-left"></i> Previous
+                                        </button>
+                                        <button class="nav-btn next" onclick="scrollToChapter(3)">
+                                            Next <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="logo">
+                            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                                <path d="M20 2L35 12v16L20 38L5 28V12L20 2z" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <path d="M20 12L30 18v8L20 32L10 26v-8L20 12z" fill="currentColor" opacity="0.3"/>
+                                <circle cx="20" cy="20" r="3" fill="currentColor"/>
+                            </svg>
+                            <span class="logo-text">BandhanNova</span>
+                        </div>
+                        <p>Empowering the next generation of developers with cutting-edge JavaScript education.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../tech-learning.html">All Courses</a></li>
+                        <li><a href="../dashboard.html">Dashboard</a></li>
+                        <li><a href="#course-content">Course Content</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>JavaScript Topics</h4>
+                    <ul class="footer-links">
+                        <li><a href="#chapter-1">Fundamentals</a></li>
+                        <li><a href="#chapter-2">Variables & Types</a></li>
+                        <li><a href="#chapter-3">Functions</a></li>
+                        <li><a href="#chapter-4">Objects & Arrays</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 BandhanNova. Building the future of JavaScript education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../src/js/main.js"></script>
+    <script src="../../src/js/animations.js"></script>
+    <script src="../../src/js/navigation.js"></script>
+    <script src="../../src/js/text-animations.js"></script>
+    <script src="../../src/js/ai-chatbot.js"></script>
+    <script src="../../src/js/copy-protection.js"></script>
+    <script src="../../src/js/course-navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
                                             <input type="radio" name="q1" value="a">
                                             <span>var myVariable = 5;</span>
                                         </label>
