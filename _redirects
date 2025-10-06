@@ -1,0 +1,13 @@
+# Redirects for BandhanNova Website
+
+# Auth page redirects
+/login           /auth.html    200
+/signup          /auth.html    200
+/register        /auth.html    200
+/signin          /auth.html    200
+
+# API redirects (if needed for future backend integration)
+/api/*           https://your-api-domain.com/api/:splat  200
+
+# Fallback for SPA routing
+/*               /index.html   200

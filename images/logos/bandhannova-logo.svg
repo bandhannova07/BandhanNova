@@ -1,0 +1,21 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Connection nodes and lines -->
+  <circle cx="25" cy="25" r="3" fill="#00f5ff"/>
+  <circle cx="55" cy="40" r="3" fill="#7c3aed"/>
+  <circle cx="25" cy="55" r="3" fill="#00f5ff"/>
+  
+  <line x1="25" y1="25" x2="55" y2="40" stroke="url(#logoGradient)" stroke-width="2"/>
+  <line x1="55" y1="40" x2="25" y2="55" stroke="url(#logoGradient)" stroke-width="2"/>
+  <line x1="25" y1="55" x2="25" y2="25" stroke="url(#logoGradient)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Main text -->
+  <text x="80" y="35" font-family="Space Grotesk, Arial, sans-serif" font-size="24" font-weight="700" fill="url(#logoGradient)">BandhanNova</text>
+  <text x="80" y="52" font-family="Space Grotesk, Arial, sans-serif" font-size="10" fill="#a1a1aa" letter-spacing="1px">TECHNOLOGY SOLUTIONS</text>
+</svg>

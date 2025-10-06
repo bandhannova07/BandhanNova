@@ -1,0 +1,106 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===== USERS COLLECTION ===== //
+    match /users/{userId} {
+      // Users can read and write their own data
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      
+      // Users can create their own profile during signup
+      allow create: if request.auth != null && 
+                   request.auth.uid == userId &&
+                   isValidUserData(resource.data);
+      
+      // Admin users can read all user profiles
+      allow read: if request.auth != null && 
+                 isAdmin(request.auth.uid);
+      
+      // Function to validate user data structure
+      function isValidUserData(data) {
+        return data.keys().hasAll(['firstName', 'lastName', 'email', 'createdAt']) &&
+               data.firstName is string &&
+               data.lastName is string &&
+               data.email is string &&
+               data.email.matches('.*@.*\\..*') &&
+               data.status in ['active', 'inactive', 'suspended'] &&
+               data.role in ['user', 'admin', 'moderator'];
+      }
+    }
+    
+    // ===== CONTACTS COLLECTION ===== //
+    match /contacts/{contactId} {
+      // Anyone can create contact submissions
+      allow create: if isValidContactData(resource.data);
+      
+      // Only admins can read, update, or delete contacts
+      allow read, update, delete: if request.auth != null && 
+                                 isAdmin(request.auth.uid);
+      
+      // Function to validate contact data
+      function isValidContactData(data) {
+        return data.keys().hasAll(['name', 'email', 'message', 'timestamp']) &&
+               data.name is string &&
+               data.email is string &&
+               data.email.matches('.*@.*\\..*') &&
+               data.message is string &&
+               data.name.size() > 0 &&
+               data.message.size() > 0;
+      }
+    }
+    
+    // ===== ADMIN FUNCTIONS ===== //
+    
+    // Check if user is admin
+    function isAdmin(userId) {
+      return exists(/databases/$(database)/documents/users/$(userId)) &&
+             get(/databases/$(database)/documents/users/$(userId)).data.role == 'admin';
+    }
+    
+    // Check if user is moderator or admin
+    function isModerator(userId) {
+      return exists(/databases/$(database)/documents/users/$(userId)) &&
+             get(/databases/$(database)/documents/users/$(userId)).data.role in ['admin', 'moderator'];
+    }
+    
+    // ===== FUTURE COLLECTIONS ===== //
+    
+    // Projects collection (for future use)
+    match /projects/{projectId} {
+      // Public read access
+      allow read: if true;
+      
+      // Only admins can write
+      allow write: if request.auth != null && isAdmin(request.auth.uid);
+    }
+    
+    // Blog posts collection (for future use)
+    match /blog/{postId} {
+      // Public read access
+      allow read: if true;
+      
+      // Only admins and moderators can write
+      allow write: if request.auth != null && isModerator(request.auth.uid);
+    }
+    
+    // User sessions/activity tracking (for analytics)
+    match /sessions/{sessionId} {
+      // Users can create their own sessions
+      allow create: if request.auth != null && 
+                   resource.data.userId == request.auth.uid;
+      
+      // Users can read their own sessions
+      allow read: if request.auth != null && 
+                 resource.data.userId == request.auth.uid;
+      
+      // Admins can read all sessions
+      allow read: if request.auth != null && isAdmin(request.auth.uid);
+    }
+    
+    // ===== DEFAULT DENY ===== //
+    // Deny all other requests
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

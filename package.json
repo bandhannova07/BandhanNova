@@ -1,0 +1,47 @@
+{
+  "name": "bandhannova-website",
+  "version": "1.0.0",
+  "description": "Professional tech company website for BandhanNova",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=8000 --open=/",
+    "dev": "npx live-server --port=8000 --open=/ --watch=css,js",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "netlify deploy --prod",
+    "lint:css": "npx stylelint 'css/**/*.css'",
+    "lint:js": "npx eslint 'js/**/*.js'",
+    "optimize": "npx imagemin 'images/**/*.{jpg,jpeg,png}' --out-dir=images/optimized"
+  },
+  "keywords": [
+    "website",
+    "tech-company",
+    "responsive",
+    "firebase",
+    "vanilla-javascript",
+    "modern-design"
+  ],
+  "author": "BandhanNova Team",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "netlify-cli": "^17.0.0",
+    "stylelint": "^15.0.0",
+    "eslint": "^8.0.0",
+    "imagemin": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bandhannova07/BandhanNova.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bandhannova07/BandhanNova/issues"
+  },
+  "homepage": "https://bandhannova.netlify.app"
+}
